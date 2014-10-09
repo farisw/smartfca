@@ -14,6 +14,40 @@
 
 
 $(document).ready(function(){	
+	//user account
+	$('#savenewpass').click(function(){ // Create `click` event function for login
+			// Get All data property
+		var npass = $('#npass');	
+		var rpass = $('#rpass');	
+		var uid = $('#uid');
+		if((rpass.val() == '' || npass.val() == '') || (npass.val() != rpass.val()) ){
+			
+			if(rpass.val() == '' || npass.val() == ''){
+				var msg = '<div class="alert alert-danger" role="alert">Please complete all fields</div>';
+			}else{
+				var msg = '<div class="alert alert-danger" role="alert">Password doesnt match  </div>';
+			}
+			$("#savenewpass_msg").html(msg);
+		}else{
+		
+		var UrlToSubmit = 'action=changepass&npass='+npass.val()+'&rpass='+rpass.val()+'&uid='+uid.val();
+	
+			
+			$("#savenewpass_msg").html('');
+			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+				type : 'POST',
+				data : UrlToSubmit,
+				url  : 'admin/changepass.php',
+				success: function(responseText){ // Get the result and asign to each cases
+						
+					$("#savenewpass_msg").html(responseText);	
+					$('#npass').val('');
+					$('#rpass').val('');
+				}
+			});
+		}
+		});
+		
 	//form
 	$('#submit_off').click(function(){ // Create `click` event function for login
 		// Get All data property
