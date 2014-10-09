@@ -311,7 +311,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
 
 
   <script>
-  
+	function setdatatable(){
+		$('#zreport').dataTable();	
+	}
 	$(document).ready(function(){
 		$('#submit_report').click(function(){ // Create `click` event function for login
 			// Get All data property
@@ -328,6 +330,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
 				success: function(responseText){ // Get the result and asign to each cases
 						
 					$("#result_report").html(responseText);	
+					setdatatable();
 				}
 			});
 			
