@@ -1,4 +1,8 @@
-
+    <script>
+	$(document).ready(function() {
+		$('#zreport').dataTable();
+	} );
+	</script>
 	<table id="zreport" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -104,8 +108,3 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
     </table>
     
     
-    <script>
-	$(document).ready(function() {
-		$('#zreport').dataTable();
-	} );
-	</script>

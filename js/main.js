@@ -166,6 +166,7 @@ $(function(){
 
 
 $(document).ready(function(){
+			
 	$('#submit_off').click(function(){ // Create `click` event function for login
 		// Get All data property
 		var nama_mitra 				= $('#nama_mitra');
