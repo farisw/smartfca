@@ -110,7 +110,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <td><?php echo $data_level_found['DOC_NUMBER']; ?></td>
+    <td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
     <td><?php echo $data_level_found['YEAR']; ?></td>
     <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo number_format($data_level_found['PO_NON_PPN_AMOUNT']); ?></td>
@@ -283,7 +283,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <td><?php echo $data_level_found['DOC_NUMBER']; ?></td>
+    <td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
     <td><?php echo $data_level_found['YEAR']; ?></td>
     <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>

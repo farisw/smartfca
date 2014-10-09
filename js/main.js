@@ -47,7 +47,31 @@ $(document).ready(function(){
 			});
 		}
 		});
+	//modal
+	$(document).ready(function(){
+		$('.history_modal').click(function(){ // Create `click` event function for login
+			// Get All data property
+		var user = $('#user');	
+		var year = $('#year');	
+		var doc_no = $('#doc_no');	
+		var UrlToSubmit = 'action=submit_report&user='+user.val()+'&doc_no='+doc_no.val();
+		alert('tes');
 		
+			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+				type : 'GET',
+				data : UrlToSubmit,
+				url  : 'admin/.php',
+				success: function(responseText){ // Get the result and asign to each cases
+						
+					$("#result_report").html(responseText);	
+					setdatatable();
+				}
+			});
+			
+		});
+			
+	});  
+	
 	//form
 	$('#submit_off').click(function(){ // Create `click` event function for login
 		// Get All data property
