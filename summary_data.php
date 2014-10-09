@@ -87,7 +87,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 		
 ?>
 
-<table width="100%" class="table table table-striped table-hover">
+<table id="zchecklist" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<thead>
   <tr>
     <th scope="col">No.</th>
     <th scope="col">Document Number</th>
@@ -99,7 +100,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Last Changed At</th>
     <th scope="col" colspan="2" align="center">Approval</th>
   </tr>
+ </thead>
 
+<tbody>
 <?php 
 			$count = 0;
 			while($data_level_found=mysql_fetch_array($get_data_level)){
@@ -128,7 +131,20 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <?php 
 			}
 ?>
-
+</tbody>
+<tfoot>
+  <tr>
+    <th scope="col">No.</th>
+    <th scope="col">Document Number</th>
+    <th scope="col">Year</th>
+    <th scope="col">Month</th>
+    <th scope="col">PO Awal NON PPN</th>
+    <th scope="col">Currency</th>
+    <th scope="col">Last Changed By</th>
+    <th scope="col">Last Changed At</th>
+    <th scope="col" colspan="2" align="center">Approval</th>
+  </tr>
+ </tfoot>
 </table>
 		
 <?php
@@ -242,7 +258,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 		
 ?>
 
-<table width="100%" class="table table table-striped table-hover">
+<table id="zhistory" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<thead>
   <tr>
     <th scope="col">No.</th>
     <th scope="col">Document Number</th>
@@ -256,7 +273,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Status</th>
     <th scope="col">Last Changed at</th>
   </tr>
-
+ </thead>
+ 
+<tbody>
 <?php 
 			$count = 0;
 			while($data_level_found=mysql_fetch_array($get_data_level)){
@@ -278,7 +297,22 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <?php 
 			}
 ?>
-
+</tbody>
+<tfoot>
+  <tr>
+    <th scope="col">No.</th>
+    <th scope="col">Document Number</th>
+    <th scope="col">Year</th>
+    <th scope="col">Month</th>
+    <th scope="col">Nilai stlh Pajak</th>
+    <th scope="col">Currency</th>
+    <th scope="col">No. SAP</th>
+    <th scope="col">Created By</th>
+    <th scope="col">Level Approval</th>
+    <th scope="col">Status</th>
+    <th scope="col">Last Changed at</th>
+  </tr>
+ </tfoot>
 </table>
 		
 <?php
@@ -287,6 +321,15 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   </div>
 </div>  
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//table
+	$('#zhistory').dataTable();
+	$('#zchecklist').dataTable();
+});
+</script>
 <?php 
 } else {
 	echo "<script> window.location = 'index.php'; </script>";

@@ -12,6 +12,7 @@
             </tr>
         </thead>
  
+        <tbody>
 <?php
 session_start();
 include('connect.php');
@@ -87,6 +88,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 
 ?>
 
+        </tbody>
         <tfoot>
             <tr>
                 <th>Doc number</th>
@@ -99,8 +101,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
             </tr>
         </tfoot>
  
-        <tbody>
-        </tbody>
     </table>
     
     

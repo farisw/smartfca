@@ -36,7 +36,10 @@ include("admin/connect.php");
 <script src="js/jquery.min.js"></script> 
 <script src="js/highcharts.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script>    
-<script src="js/dataTables.bootstrap.js"></script>    
+<script src="js/dataTables.bootstrap.js"></script>   
+
+
+
 </head>
 <body>
 
@@ -151,11 +154,11 @@ include("admin/connect.php");
 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/bootstrap-datepicker.js"></script> 
+
 <script src="js/jquery.number.js"></script>                 
 <script src="js/knob.js"></script> 
 
-
-<script src="js/main.js"></script>
+<script src="js/main.js"></script> 
 </body>
 </html>
 <?php
