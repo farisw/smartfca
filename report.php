@@ -374,10 +374,10 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
   <br>
   <br>
 
+<div id="result_report"></div>
   </div>
 </div>  
 
-<div id="result_report"></div>
     
 <?php   
 }
