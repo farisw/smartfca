@@ -94,12 +94,12 @@ include("admin/connect.php");
       <!--	        <li <?php if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=3"><span class="glyphicon glyphicon-eye-open">&nbsp</span>Overview Checklist </a>
 	        </li>-->
-<?php if ($_SESSION['LEVEL'] != "VRKT") { ?>
+<?php //if ($_SESSION['LEVEL'] != "VRKT") { ?>
            	<li <?php if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=3"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>Report </a>
 <!--                <span class="badge">14</span>-->
 	        </li>
-<?php } ?>
+<?php //} ?>
 <?php if ($_SESSION['LEVEL'] == "ADMIN") { ?>
            	<li <?php if($_REQUEST['select'] == 4) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=4"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>Input User </a>
