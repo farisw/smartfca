@@ -6,8 +6,8 @@ if ( !(isset($_SESSION['USERNAME'])) or empty($_SESSION['USERNAME']) ){
 	echo "<script> window.location = 'index.php'; </script>";
 } else {
 include("admin/connect.php");
-?>
-
+?> 
+<!--faris-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
