@@ -13,159 +13,66 @@
 
 
 
-$("#menu-toggle").click(function(e) {
-	e.preventDefault();
-	$("#wrapper").toggleClass("toggled");
- });
-$('#kontrak_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#po_sp_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#amandemen_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#tagihan_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#invoice_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#tagihan_tgl_masuk').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#invoice_tgl_masuk').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#bast_non_ppn_tgl_baut').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#bast_non_ppn_tgl_bast').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#pajak_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#jamn_uang_muka_expired').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#jamn_plksa_expired').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#jamn_pmhr_expired').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#pls_asu_expired').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#tt_bld_draw_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#siujk_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#npwp_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#dgt_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-$('#side_ltr_tgl').datepicker({
-	format: 'dd/mm/yyyy',
-	startDate: '-3d'
-});
-
-//knob
-$(function() {
-	$(".dial").knob({
-		"fgColor":"#8dc63f",
-		"lineCap":"round",
-		"width":150,
-		"height":150,
-		
-		"skin":"tron",
-		"readOnly":true
-				});
-	$(".dial2").knob({
-		"fgColor":"#00aeef",
-		"lineCap":"round",
-		"width":150,
-		"height":150,
-		
-		"skin":"tron",
-		"readOnly":true
-				});
-	$(".dial3").knob({
-		"fgColor":"#f7941d",
-		"lineCap":"round",
-		"width":150,
-		"height":150,
-		
-		"skin":"tron",
-		"readOnly":true
-				});
-	$(".dial4").knob({
-		"fgColor":"#7d7d7d",
-		"lineCap":"round",
-		"width":150,
-		"height":150,
-		
-		"skin":"tron",
-		"readOnly":true
-				});		
-				
-});
-
-//	format Number
+$(document).ready(function(){	
+	//user account
+	$('#savenewpass').click(function(){ // Create `click` event function for login
+			// Get All data property
+		var npass = $('#npass');	
+		var rpass = $('#rpass');	
+		var uid = $('#uid');
+		if((rpass.val() == '' || npass.val() == '') || (npass.val() != rpass.val()) ){
 			
-$(function(){
-	// Set up the number formatting.
-	$('#kontrak_amount').number( true, 0 );
-	$('#po_sp_amount').number( true, 0 );
-	$('#amandemen_amount').number( true, 0 );
-	$('#true_amount').number( true, 0 );
-	$('#po_non_ppn_amount').number( true, 0 );
-	$('#po_non_ppn_amd_amount').number( true, 0 );
-	$('#bast_non_ppn_amount').number( true, 0 );
-	$('#ptgn_uang_muka_amount').number( true, 0 );
-	$('#kuitansi_amount').number( true, 0 );
-	$('#rekening_amount').number( true, 0 );
-	$('#pajak_amount').number( true, 0 );
-	$('#jamn_uang_muka_amount').number( true, 0 );
-	$('#jamn_pmhr_amount').number( true, 0 );
-	$('#jamn_plksa_amount').number( true, 0 );
-	// Get the value of the number for the demo.
-	//$('#get_number').on('click',function(){
+			if(rpass.val() == '' || npass.val() == ''){
+				var msg = '<div class="alert alert-danger" role="alert">Please complete all fields</div>';
+			}else{
+				var msg = '<div class="alert alert-danger" role="alert">Password doesnt match  </div>';
+			}
+			$("#savenewpass_msg").html(msg);
+		}else{
 		
-	//	var val = $('#price').val();
+		var UrlToSubmit = 'action=changepass&npass='+npass.val()+'&rpass='+rpass.val()+'&uid='+uid.val();
+	
+			
+			$("#savenewpass_msg").html('');
+			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+				type : 'POST',
+				data : UrlToSubmit,
+				url  : 'admin/changepass.php',
+				success: function(responseText){ // Get the result and asign to each cases
+						
+					$("#savenewpass_msg").html(responseText);	
+					$('#npass').val('');
+					$('#rpass').val('');
+				}
+			});
+		}
+		});
+	//modal
+	$(document).ready(function(){
+		$('.history_modal').click(function(){ // Create `click` event function for login
+			// Get All data property
+		var user = $('#user');	
+		var year = $('#year');	
+		var doc_no = $('#doc_no');	
+		var UrlToSubmit = 'action=submit_report&user='+user.val()+'&doc_no='+doc_no.val();
+		alert('tes');
 		
-	//	$('#number_container').slideDown('fast');
-	//	$('#the_number').text( val !== '' ? val : '(empty)' );
-	//});
-});
-//submit
-
-
-$(document).ready(function(){
+			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+				type : 'GET',
+				data : UrlToSubmit,
+				url  : 'admin/.php',
+				success: function(responseText){ // Get the result and asign to each cases
+						
+					$("#result_report").html(responseText);	
+					setdatatable();
+				}
+			});
+			
+		});
+			
+	});  
+	
+	//form
 	$('#submit_off').click(function(){ // Create `click` event function for login
 		// Get All data property
 		var nama_mitra 				= $('#nama_mitra');
@@ -467,5 +374,161 @@ $(document).ready(function(){
 		
 		return false;
 	});
+	
+	
 		
 });
+
+
+$("#menu-toggle").click(function(e) {
+	e.preventDefault();
+	$("#wrapper").toggleClass("toggled");
+ });
+$('#kontrak_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#po_sp_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#amandemen_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#tagihan_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#invoice_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#tagihan_tgl_masuk').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#invoice_tgl_masuk').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#bast_non_ppn_tgl_baut').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#bast_non_ppn_tgl_bast').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#pajak_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#jamn_uang_muka_expired').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#jamn_plksa_expired').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#jamn_pmhr_expired').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#pls_asu_expired').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#tt_bld_draw_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#siujk_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#npwp_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#dgt_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+$('#side_ltr_tgl').datepicker({
+	format: 'dd/mm/yyyy',
+	startDate: '-3d'
+});
+
+//knob
+$(function() {
+	$(".dial").knob({
+		"fgColor":"#8dc63f",
+		"lineCap":"round",
+		"width":150,
+		"height":150,
+		
+		"skin":"tron",
+		"readOnly":true
+				});
+	$(".dial2").knob({
+		"fgColor":"#00aeef",
+		"lineCap":"round",
+		"width":150,
+		"height":150,
+		
+		"skin":"tron",
+		"readOnly":true
+				});
+	$(".dial3").knob({
+		"fgColor":"#f7941d",
+		"lineCap":"round",
+		"width":150,
+		"height":150,
+		
+		"skin":"tron",
+		"readOnly":true
+				});
+	$(".dial4").knob({
+		"fgColor":"#7d7d7d",
+		"lineCap":"round",
+		"width":150,
+		"height":150,
+		
+		"skin":"tron",
+		"readOnly":true
+				});		
+				
+});
+
+//	format Number
+			
+$(function(){
+	// Set up the number formatting.
+	$('#kontrak_amount').number( true, 0 );
+	$('#po_sp_amount').number( true, 0 );
+	$('#amandemen_amount').number( true, 0 );
+	$('#true_amount').number( true, 0 );
+	$('#po_non_ppn_amount').number( true, 0 );
+	$('#po_non_ppn_amd_amount').number( true, 0 );
+	$('#bast_non_ppn_amount').number( true, 0 );
+	$('#ptgn_uang_muka_amount').number( true, 0 );
+	$('#kuitansi_amount').number( true, 0 );
+	$('#rekening_amount').number( true, 0 );
+	$('#pajak_amount').number( true, 0 );
+	$('#jamn_uang_muka_amount').number( true, 0 );
+	$('#jamn_pmhr_amount').number( true, 0 );
+	$('#jamn_plksa_amount').number( true, 0 );
+	// Get the value of the number for the demo.
+	//$('#get_number').on('click',function(){
+		
+	//	var val = $('#price').val();
+		
+	//	$('#number_container').slideDown('fast');
+	//	$('#the_number').text( val !== '' ? val : '(empty)' );
+	//});
+});
+//submit
+
+

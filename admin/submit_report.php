@@ -1,4 +1,4 @@
-
+    
 	<table id="zreport" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -12,6 +12,7 @@
             </tr>
         </thead>
  
+        <tbody>
 <?php
 session_start();
 include('connect.php');
@@ -87,6 +88,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 
 ?>
 
+        </tbody>
         <tfoot>
             <tr>
                 <th>Doc number</th>
@@ -99,13 +101,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
             </tr>
         </tfoot>
  
-        <tbody>
-        </tbody>
     </table>
     
     
-    <script>
-	$(document).ready(function() {
-		$('#zreport').dataTable();
-	} );
-	</script>

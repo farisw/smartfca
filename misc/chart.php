@@ -6,7 +6,7 @@
   <div class="panel-body"> 
   
 <div class="zclear"></div>   
-<div id="zchart" style="width:100%; height:400px;"></div>
+<div id="zchart" style="width:100%; height:300px;"></div>
 <div class="zclear"></div>   
 
 

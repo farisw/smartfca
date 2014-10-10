@@ -8,6 +8,7 @@ if ( !(isset($_SESSION['USERNAME'])) or empty($_SESSION['USERNAME']) ){
 include("admin/connect.php");
 ?> 
 <!--faris-->
+<!--Guntarto-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,10 @@ include("admin/connect.php");
 <script src="js/jquery.min.js"></script> 
 <script src="js/highcharts.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script>    
-<script src="js/dataTables.bootstrap.js"></script>    
+<script src="js/dataTables.bootstrap.js"></script>   
+
+
+
 </head>
 <body>
 
@@ -60,7 +64,7 @@ include("admin/connect.php");
     <?php } ?>
       <ul class="nav navbar-nav navbar-right">
         <li id="ztoggle"><a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-th-list">&nbsp</span>Show/Hide Menu</a></li>
-        <li><a href=""><span class="glyphicon glyphicon-user">&nbsp</span>Welcome <?php echo $_SESSION['NAMA_DEPAN']; ?> </a></li>
+        <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user">&nbsp</span>Welcome <?php echo $_SESSION['NAMA_DEPAN']; ?> </a></li>
         <li><a  href="#" id='logout' ><span class="glyphicon glyphicon-log-out">&nbsp</span>
           <?php IF ($_SESSION['USERNAME']) { echo 'Logout'; } ?>
           </a></li>
@@ -93,12 +97,12 @@ include("admin/connect.php");
       <!--	        <li <?php if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=3"><span class="glyphicon glyphicon-eye-open">&nbsp</span>Overview Checklist </a>
 	        </li>-->
-<?php if ($_SESSION['LEVEL'] != "VRKT") { ?>
+<?php //if ($_SESSION['LEVEL'] != "VRKT") { ?>
            	<li <?php if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=3"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>Report </a>
 <!--                <span class="badge">14</span>-->
 	        </li>
-<?php } ?>
+<?php //} ?>
 <?php if ($_SESSION['LEVEL'] == "ADMIN") { ?>
            	<li <?php if($_REQUEST['select'] == 4) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=4"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>Input User </a>
@@ -144,17 +148,125 @@ include("admin/connect.php");
 <!--End--> 
 <!--End--> 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Account Detail</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        <!--  Panel content -->
+            <div class="row"> 
+              <!--  nama_mitra -->
+              <div class="col-lg-12">
+                <div class="input-group"> <span class="input-group-addon">User Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" placeholder="User Id" id="uid" disabled value="<?php echo $_SESSION['USERNAME'];?>">
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-6 --> 
+            </div>
+            <!-- /.row -->
+            
+         <!--  Panel content -->
+            <div class="row"> 
+              <!--  nama_mitra -->
+              <div class="col-lg-12">
+                <div class="input-group"> <span class="input-group-addon">Front Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" placeholder="Front Name" id="fname" disabled value="<?php echo $_SESSION['NAMA_DEPAN']; ?> ">
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-6 --> 
+            </div>
+            <!-- /.row -->
+         
+         <!--  Panel content -->
+            <div class="row"> 
+              <!--  nama_mitra -->
+              <div class="col-lg-12">
+                <div class="input-group"> <span class="input-group-addon">Last Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" placeholder="Last Name" id="lname" disabled value="<?php echo $_SESSION['NAMA_BELAKANG']; ?> ">
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-6 --> 
+            </div>
+            <!-- /.row -->
+            <h4>Change Password</h4>
+         <!--  Panel content -->
+            <div class="row"> 
+              <!--  nama_mitra -->
+              <div class="col-lg-12">
+                <div class="input-group"> <span class="input-group-addon">New Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="password" class="form-control" placeholder="New Password" id="npass"  >
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-6 --> 
+            </div>
+            <!-- /.row -->
+            
+          <!--  Panel content -->
+            <div class="row"> 
+              <!--  nama_mitra -->
+              <div class="col-lg-12">
+                <div class="input-group"> <span class="input-group-addon">Repeat Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="password" class="form-control" placeholder="Repeat Password" id="rpass"  >
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-6 --> 
+            </div>
+            <!-- /.row -->
+            
+        </form>
+        
+        <center><div id="savenewpass_msg"></div></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="savenewpass">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="modaltimeline" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update History</h4>
+      </div>
+      <div class="modal-body">
+		<?php include("misc/timeline.php"); ?> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/bootstrap-datepicker.js"></script> 
+
 <script src="js/jquery.number.js"></script>                 
 <script src="js/knob.js"></script> 
 
-
-<script src="js/main.js"></script>
+<script src="js/main.js"></script> 
 </body>
 </html>
 <?php
