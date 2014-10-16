@@ -98,7 +98,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
-    <th scope="col" colspan="2" align="center">Approval</th>
+    <th scope="col" >Approve</th>
+    <th scope="col" >Reject</th>
   </tr>
  </thead>
 
@@ -142,7 +143,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
-    <th scope="col" colspan="2" align="center">Approval</th>
+    <th scope="col" >Approve</th>
+    <th scope="col" >Reject</th>
   </tr>
  </tfoot>
 </table>
@@ -258,7 +260,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 		
 ?>
 
-<table id="zhistory" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table id="zhistorytab" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <thead>
   <tr>
     <th scope="col">No.</th>
@@ -326,7 +328,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 
 $(document).ready(function(){
 	//table
-	$('#zhistory').dataTable();
+	$('#zhistorytab').dataTable();
 	$('#zchecklist').dataTable();
 });
 </script>
