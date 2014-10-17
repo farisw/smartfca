@@ -33,7 +33,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 			 $date1 = $data["START_AT"];
 			 $date2 = $data["FINISH_AT"]; 
 			 $diff = strtotime($date2) - strtotime($date1);
-			 $diff_in_hrs = round($diff/3600,0);
+			 $diff_in_hrs = round($diff/60,0);
 			 
 			if($label == ""){
 				$label = "'".$data["DOC_NUMBER"]."'";
@@ -96,7 +96,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Duration (Hours)'
+                text: 'Duration (Minutes)'
             },
 			
         },

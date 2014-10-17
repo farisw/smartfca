@@ -8,7 +8,7 @@
                 <th>Area</th>
                 <th>Start date</th>
                 <th>End Date</th>
-                <th>Different (in Hours)</th>                
+                <th>Different (in Minutes)</th>                
             </tr>
         </thead>
  
@@ -68,7 +68,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		 $date1 = $data["START_AT"];
 		 $date2 = $data["FINISH_AT"]; 
 		 $diff = strtotime($date2) - strtotime($date1);
-		 $diff_in_hrs = round($diff/3600,0);
+		 $diff_in_hrs = round($diff/60,0);
 		 
 		
 ?>
@@ -97,7 +97,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
                 <th>Area</th>
                 <th>Start date</th>
                 <th>End Date</th>
-                <th>Different (in Hours)</th>   
+                <th>Different (in Minutes)</th>   
             </tr>
         </tfoot>
  
