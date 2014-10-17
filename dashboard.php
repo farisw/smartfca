@@ -184,17 +184,7 @@ include("admin/connect.php");
             </div>
             <!-- /.row -->
          
-         <!--  Panel content -->
-            <div class="row"> 
-              <!--  nama_mitra -->
-              <div class="col-lg-12">
-                <div class="input-group"> <span class="input-group-addon">Last Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <input type="text" class="form-control" placeholder="Last Name" id="lname" disabled value="<?php echo $_SESSION['NAMA_BELAKANG']; ?> ">
-                </div>
-                <!-- /input-group --> 
-              </div>
-              <!-- /.col-lg-6 --> 
-            </div>
+         
             <!-- /.row -->
             <h4>Change Password</h4>
          <!--  Panel content -->
