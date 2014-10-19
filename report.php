@@ -19,8 +19,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
 			// Get All data property
 		var user = $('#user');	
 		var year = $('#year');	
+		var area = $('#area');	
 		var doc_no = $('#doc_no');	
-		var UrlToSubmit = 'action=submit_report&user='+user.val()+'&doc_no='+doc_no.val();
+		var UrlToSubmit = 'action=submit_report&user='+user.val()+'&doc_no='+doc_no.val()+'&area='+area.val();
 	
 		
 			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
@@ -63,6 +64,17 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
           <div class="col-lg-5">
             <div class="input-group"> <span class="input-group-addon">Doc Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <input type="text" class="form-control" placeholder="Doc Number" id="doc_no">
+            </div>
+            <!-- /input-group --> 
+          </div>
+          <!-- /.col-lg-6 --> 
+        </div>
+        <!-- /.row -->
+        <div class="row"> 
+          <!--  nama_projek -->
+          <div class="col-lg-5">
+            <div class="input-group"> <span class="input-group-addon">Unit / Area &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <input type="text" class="form-control" placeholder="Unit / Area" id="area">
             </div>
             <!-- /input-group --> 
           </div>

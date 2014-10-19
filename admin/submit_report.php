@@ -5,7 +5,7 @@
                 <th>Doc number</th>
                 <th>User</th>
                 <th>Level</th>
-                <th>Area</th>
+                <th>Unit / Area</th>
                 <th>Start date</th>
                 <th>End Date</th>
                 <th>Different (in Minutes)</th>                
@@ -20,7 +20,9 @@ include('connect.php');
 if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 	
 
-	if( (isset($_POST['user']) && $_POST['user'] !='') || (isset($_POST['doc_no']) && $_POST['doc_no'] !='') ){
+	if( (isset($_POST['user']) && $_POST['user'] !='') || 
+		(isset($_POST['doc_no']) && $_POST['doc_no'] !='') || 
+		(isset($_POST['area']) && $_POST['area'] !='') ){
 		$WHERE = '';
 		$alert = '';
 
@@ -40,6 +42,19 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 			else
 				$alert = $alert.", Doc Num : " .$_POST['doc_no'];
 		}
+		
+		if($_POST['area'] !=''){
+			if($WHERE=='')
+				$WHERE = "trx_history.area ="."'".$_POST['area']."'";
+			else
+				$WHERE = $WHERE."AND trx_history.area ="."'".$_POST['area']."'";
+			
+			if($alert=='')
+				$alert = "Unit / Area : ".$_POST['area'];
+			else
+				$alert = $alert.", Unit / Area : " .$_POST['area'];
+		}
+		
 		$query = 'SELECT 	* 
 						FROM	trx_history 
 						WHERE	'. $WHERE;
@@ -62,6 +77,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 	}
 	// Verify it worked
 	if (!$result) echo mysql_error();		
+	
+	
 	
 	while($data=mysql_fetch_array($result)){
 											
@@ -94,7 +111,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
                 <th>Doc number</th>
                 <th>User</th>
                 <th>Level</th>
-                <th>Area</th>
+                <th>Unit / Area</th>
                 <th>Start date</th>
                 <th>End Date</th>
                 <th>Different (in Minutes)</th>   
