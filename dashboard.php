@@ -6,6 +6,21 @@ if ( !(isset($_SESSION['USERNAME'])) or empty($_SESSION['USERNAME']) ){
 	echo "<script> window.location = 'index.php'; </script>";
 } else {
 include("admin/connect.php");
+
+// cek ada document yang belum selesai
+$get_name_park = $_SESSION['USERNAME'];
+$textpark = 	"
+				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
+				";
+$querypark 	= mysql_query($textpark);
+$num_park	= mysql_num_rows($querypark);
+if($num_park >= 1){
+	$fetchpark = mysql_fetch_array($querypark);
+	$haveincompletedoc = 1;
+} else {
+	$haveincompletedoc = 0;
+}
+
 ?> 
 <!--faris-->
 <!--Guntarto-->
@@ -36,8 +51,7 @@ include("admin/connect.php");
 <script src="js/jquery.min.js"></script> 
 <script src="js/highcharts.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script>    
-<script src="js/dataTables.bootstrap.js"></script>   
-
+<script src="js/dataTables.bootstrap.js"></script>
 
 
 </head>
@@ -57,8 +71,10 @@ include("admin/connect.php");
     <?php if($_REQUEST['select'] == 2) { ?>
       <ul class="nav navbar-nav ">
         <li ><a href="#" id="submit_off"><span class="glyphicon glyphicon-saved ">&nbsp;</span>Submit Document</a></li>
+        <?php if($haveincompletedoc != 1){?>
         <li ><a href="#"><span class="">&nbsp;</span>|</a></li>
-		<li ><a href="#" id="save_doc"><span class="glyphicon glyphicon-floppy-disk">&nbsp</span>Park Document</a></li>
+		<li ><a href="#" id="submit_park"><span class="glyphicon glyphicon-floppy-disk">&nbsp;</span>Park Document</a></li>
+        <?PHP  }  ?>
 <!--        <li ><a href="#"><span class="glyphicon glyphicon-remove">&nbsp</span>Delete</a></li>-->
       </ul>
     <?php } ?>

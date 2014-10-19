@@ -164,6 +164,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	$true_currency				= strip_tags(htmlentities($_POST['true_currency']));
 	$start_time					= strip_tags(htmlentities($_POST['start_time']));
 	$area						= strip_tags(htmlentities($_POST['area']));
+	$incomplete					= strip_tags(htmlentities($_POST['incomplete']));
+	
 	
 //	$tagihan_0					= strip_tags(htmlentities($_POST['tagihan_0']));
 //	$invoice_0					= strip_tags(htmlentities($_POST['invoice_0']));
@@ -321,7 +323,7 @@ if($error_appv == 0){
 			//exit;
 			
 	//	  //UPDATE `smart_fca`.`trx_number` SET `CURRENT_DOC_NUMB` = '1000000001' WHERE `trx_number`.`YEAR` = '2014';
-	//	  //INSERT INTO `smart_fca`.`trx_number` (`DOC_NUMB_START`, `YEAR`, `CURRENT_DOC_NUMB`) VALUES ('1000000000', '2016', '1000000000');
+	//	  //INSERT INTO `smart_fca`.`trx_number` (`DOC_NUMB_START`, `YEAR`, `CURRENT_DOC_NUMB`) VALUES ('1000000000', '2016', '1000000000');	
 			$querytext      = "
 							  INSERT INTO trx_detail
 							  ( DOC_NUMBER, YEAR, MONTH, 
@@ -350,9 +352,10 @@ if($error_appv == 0){
 								NPWP_MARK, NPWP_NO, NPWP_TGL,
 								F_DGT1_MARK, F_DGT1_NO, F_DGT1_TGL, 
 								SIDE_LETTER_MARK, SIDE_LETTER_NO, SIDE_LETTER_TGL,
+								REKON_WAKTU_MARK,
 								PO_MIGO_MARK, PO_MIGO_VALUE,
 								CHANGED_BY, CREATED_BY
-							  )
+							  ) 
 							  VALUES 
 							  ( '".$get_number_found."', '".$get_year."', '".$get_month."', 
 							  	'".$get_level_found."', '".$area."', '".$get_fiatur_found."', '".$get_approval_level."', '".$get_flow_main."', 
@@ -379,11 +382,13 @@ if($error_appv == 0){
 								'".$siujk_mark."', '".$siujk_no."', '".$siujk_tgl."',
 								'".$npwp_mark."', '".$npwp_no."', '".$npwp_tgl."', 
 								'".$dgt_mark."', '".$dgt_no."', '".$dgt_tgl."', 
-								'".$side_ltr_mark."', '".$side_ltr_no."', '".$side_ltr_tgl."', 
+								'".$side_ltr_mark."', '".$side_ltr_no."', '".$side_ltr_tgl."',
+								'".$rekon_wkt_mark."',								
 								'".$po_migo_mark."', '".$po_migo_value."', 
 								'".$changed_by."', '".$created_by."'
 								)
 							  ";
+
 			//echo $querytext;
 			//exit;
 			
