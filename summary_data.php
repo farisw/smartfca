@@ -94,7 +94,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Document Number</th>
     <th scope="col">Year</th>
     <th scope="col">Month</th>
-    <th scope="col">PO Awal NON PPN</th>
+    <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
@@ -114,8 +114,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
     <td><?php echo $data_level_found['YEAR']; ?></td>
     <td><?php echo $data_level_found['MONTH']; ?></td>
-    <td><?php echo number_format($data_level_found['PO_NON_PPN_AMOUNT']); ?></td>
-    <td><?php echo $data_level_found['PO_NON_PPN_CURRENCY']; ?></td>
+    <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
+    <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_BY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_AT']; ?></td>
     <td>

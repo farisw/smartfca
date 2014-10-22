@@ -26,11 +26,28 @@ $history_year 		= $_REQUEST['year'];
 $history_month 		= $_REQUEST['month'];
 $history_user		= $_SESSION['USERNAME'];
 $history_level		= $_SESSION['LEVEL'];
-$history_start_at   = $_SESSION['TIME_NON'];
+//$history_start_at   = $_SESSION['TIME_NON'];
 $history_finish_at  = date("Y-m-d H:i:s");
 $history_area		= $_SESSION['AREA'];
 $history_approval	= $_REQUEST['approval'];
 
+//	Mencari start time per document
+$get_start_doc  	= "SELECT * FROM TRX_HISTORY
+						WHERE `DOC_NUMBER` 		= '".$history_docnum."'
+						  AND `YEAR`	 		= '".$history_year."'
+						  AND `MONTH`	 		= '".$history_month."'
+						  AND `AREA`	 		= '".$history_area."'
+					   ORDER BY LOG_NUMBER DESC
+					  ";
+//echo $get_start_doc;
+$query_start_doc	= mysql_query($get_start_doc);
+$num_row_start_doc	= mysql_num_rows($query_start_doc);
+if($num_row_start_doc >= 0){ 
+	$fetch_start_doc = mysql_fetch_array($query_start_doc);
+	$history_start_at   = $fetch_start_doc['FINISH_AT'];
+	//echo $history_start_at;
+}
+//exit;
 //	Mencari priority untuk insert data history
 $get_priority		= "SELECT PRIORITY FROM TRX_LIMITATION
 					   WHERE LEVEL = '".$history_level."'";
@@ -104,32 +121,51 @@ if($num_row_trx_detail <= 0){
 	}	// End Of check Approval_level TRX_LIMITATION AND TRX_DETAIL
 
 	//$get_count_flow = array_count_values($changed_flow);
+//	echo $get_detail_apprv_lvl;
+//	echo '--------------';
+//	echo $get_detail_fiatur;
+//		echo $get_detail_flow_main;
+//		echo $changed_flow[0]."space";
+//		echo $changed_flow[1]."space";
+//		echo $num_rw_cek_appv_lvl;
+		
 	if($get_detail_apprv_lvl != $get_detail_fiatur){	// jika approval_level masih dalam proses approval sebelum sampai ke fiatur
 		for($i='1'; $i<=$num_rw_cek_appv_lvl; $i++){
 			if(isset($changed_flow[$i])){
+				//echo $changed_flow[$i];
 				$who_appv[$i-1]=	$changed_flow[$i];
-				//echo $who_appv[$i]."space";	
+				//echo $who_appv[$i-1]."space";	
 			}
 		}
+		
 		$return_flow_main		= implode(',', $who_appv);
+		//echo $return_flow_main;
+		//echo $who_appv[0];
 
+//		$fetch_cek_appv_lvl	= mysql_fetch_array($query_cek_appv_lvl);
 		while($fetch_cek_appv_lvl	= mysql_fetch_array($query_cek_appv_lvl)){
+			//echo 'Priority : '.$fetch_cek_appv_lvl['PRIORITY'].' --- level :'.$fetch_cek_appv_lvl['LEVEL'];
 			if(isset($who_appv[0])){
 				if($fetch_cek_appv_lvl['PRIORITY'] == $who_appv[0]){ 
 					$return_approval_level = $fetch_cek_appv_lvl['LEVEL'];
 					break;
 				}	
 			}
-			
+		}
+		while($fetch_cek_appv_lvl	= mysql_fetch_array($query_cek_appv_lvl)){
 			if(isset($who_appv[1])){
 				if($fetch_cek_appv_lvl['PRIORITY'] == $who_appv[1]){ 
 					$return_next_approval = $fetch_cek_appv_lvl['LEVEL'];
 					break;
 				}				
+			}else{
+				if(isset($return_approval_level)){
+					$return_next_approval = $return_approval_level;
+				}
 			}
 		}
-//	echo $return_approval_level;
-	
+	//echo $return_next_approval;
+	//exit;
 	}elseif($get_detail_apprv_lvl == $get_detail_fiatur){ 	// jika approval_level sampai ke fiatur 
 		$return_flow_main		= '';	
 		$return_approval_level	= '';

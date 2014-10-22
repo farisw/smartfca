@@ -280,12 +280,23 @@ if($error_appv == 0){
 			$get_flow_main		= implode(',', $who_appv);
 			//echo $get_flow_main;
 			//exit;
+			$already_get = 0;
+			//echo 'already_get :'.$already_get;
 			while($search_appv_level = mysql_fetch_array($query_appv)){
+				if($already_get == 0){
+					if(isset($get_priority_history)){				
+						if($search_appv_level['PRIORITY'] == $get_priority_history){
+							$get_first_level_history = $search_appv_level['LEVEL'];
+							$already_get = 1;
+						}
+					}
+				}
+				
 				if(isset($who_appv[0])){
 					if($search_appv_level['PRIORITY'] == $who_appv[0]){
 						$get_approval_level = $search_appv_level['LEVEL'];
 						$get_next_approval = $search_appv_level['LEVEL'];
-						break;
+						//break;
 						//echo $get_approval_level;
 						//exit;
 					}
@@ -300,6 +311,7 @@ if($error_appv == 0){
 				} */
 				
 			}
+			//echo $get_first_level_history;
 			//exit;
 			$history_user	= $_SESSION['USERNAME'];
 			$history_start_at   = $start_time;
@@ -314,7 +326,7 @@ if($error_appv == 0){
 								   VALUES 
 								   (
 									'".$get_number_found."', '".$get_year."', '".$get_month."', 
-									'".$get_level_found."', '".$history_user."', '".$area."',
+									'".$get_first_level_history."', '".$history_user."', '".$area."',
 									'".$get_priority_history."', 'APPROVE',
 									'".$history_start_at."', '".$history_finish_at."', '".$get_next_approval."'
 								   )

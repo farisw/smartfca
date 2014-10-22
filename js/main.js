@@ -682,72 +682,79 @@ $(document).ready(function(){
 //			div.removeClass("has-error");	
 //		}
 ////				alert('01w');
-//		if(invoice_tgl_masuk.val() == ''){ 
-//			//invoice_tgl_masuk.focus(); // focus to the filed 
-//			//$('#invoice_tgl_masuk').val("Enter No Kontrak");
-//			var div = $("#invoice_tgl_masuk").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#invoice_tgl_masuk").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01x');
-//		if(tagihan_tgl_masuk.val() == ''){ 
-//			//tagihan_tgl_masuk.focus(); // focus to the filed 
-//			//$('#tagihan_tgl_masuk').val("Enter No Kontrak");
-//			var div = $("#tagihan_tgl_masuk").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#tagihan_tgl_masuk").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01y');
-//		if(invoice_tgl.val() == ''){ 
-//			//invoice_tgl.focus(); // focus to the filed 
-//			//$('#invoice_tgl').val("Enter No Kontrak");
-//			var div = $("#invoice_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#invoice_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01z');
-//		if(tagihan_tgl.val() == ''){ 
-//			//tagihan_tgl.focus(); // focus to the filed 
-//			//$('#tagihan_tgl').val("Enter No Kontrak");
-//			var div = $("#tagihan_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#tagihan_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('02a');
-//		if(invoice_no.val() == ''){ 
-//			invoice_no.focus(); // focus to the filed 
-//			//$('#invoice_no').val("Enter No Kontrak");
-//			var div = $("#invoice_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#invoice_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('02b');
-//		if(tagihan_no.val() == ''){ 
-//			tagihan_no.focus(); // focus to the filed 
-//			//$('#tagihan_no').val("Enter No Kontrak");
-//			var div = $("#tagihan_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#tagihan_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('02c');
+
+		if(invoice_1 == 'X'){
+			if(invoice_tgl_masuk.val() == '' || invoice_tgl_masuk.val() == '00/00/0000'){ 
+				//invoice_tgl_masuk.focus(); // focus to the filed 
+				//$('#invoice_tgl_masuk').val("Enter No Kontrak");
+				var div = $("#invoice_tgl_masuk").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#invoice_tgl_masuk").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('01x');
+			if(invoice_tgl.val() == '' || invoice_tgl.val() == '00/00/0000'){ 
+				//invoice_tgl.focus(); // focus to the filed 
+				//$('#invoice_tgl').val("Enter No Kontrak");
+				var div = $("#invoice_tgl").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#invoice_tgl").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('01z');
+			if(invoice_no.val() == ''){ 
+				invoice_no.focus(); // focus to the filed 
+				//$('#invoice_no').val("Enter No Kontrak");
+				var div = $("#invoice_no").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#invoice_no").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('02b');
+		}
+		
+		if(tagihan_1 == 'X'){
+			if(tagihan_tgl_masuk.val() == '' || tagihan_tgl_masuk.val() == '00/00/0000'){ 
+				//tagihan_tgl_masuk.focus(); // focus to the filed 
+				//$('#tagihan_tgl_masuk').val("Enter No Kontrak");
+				var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('01y');
+			if(tagihan_tgl.val() == '' || tagihan_tgl.val() == '00/00/0000'){ 
+				//tagihan_tgl.focus(); // focus to the filed 
+				//$('#tagihan_tgl').val("Enter No Kontrak");
+				var div = $("#tagihan_tgl").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#tagihan_tgl").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('02a');
+			if(tagihan_no.val() == ''){ 
+				tagihan_no.focus(); // focus to the filed 
+				//$('#tagihan_no').val("Enter No Kontrak");
+				var div = $("#tagihan_no").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+				var div = $("#tagihan_no").parents("div.input-group");
+				div.removeClass("has-error");	
+			}
+	//				alert('02c');
+		}
+		
 		if(no_sap.val() == ''){ 
 			no_sap.focus(); // focus to the filed 
 			//$('#no_sap').val("Enter No Kontrak");
@@ -759,7 +766,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02d');
-		if(true_amount.val() == ''){ 
+		if(true_amount.val() == '' || true_amount.val() == 0){ 
 			true_amount.focus(); // focus to the filed 
 			//$('#true_amount').val("Enter No Kontrak");
 			var div = $("#true_amount").parents("div.input-group");
@@ -770,7 +777,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02e');
-		if(amandemen_amount.val() == ''){ 
+		if(amandemen_amount.val() == '' || amandemen_amount.val() == 0){ 
 			amandemen_amount.focus(); // focus to the filed 
 			//$('#amandemen_amount').val("Enter No Kontrak");
 			var div = $("#amandemen_amount").parents("div.input-group");
@@ -781,7 +788,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02f');
-		if(po_sp_amount.val() == ''){ 
+		if(po_sp_amount.val() == '' || po_sp_amount.val() == 0){ 
 			po_sp_amount.focus(); // focus to the filed 
 			//$('#po_sp_amount').val("Enter No Kontrak");
 			var div = $("#po_sp_amount").parents("div.input-group");
@@ -792,7 +799,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02g');
-		if(kontrak_amount.val() == ''){ 
+		if(kontrak_amount.val() == '' || kontrak_amount.val() == 0){ 
 			kontrak_amount.focus(); // focus to the filed 
 			//$('#kontrak_amount').val("Enter No Kontrak");
 			var div = $("#kontrak_amount").parents("div.input-group");
@@ -803,7 +810,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02h');
-		if(amandemen_tgl.val() == ''){ 
+		if(amandemen_tgl.val() == '' || amandemen_tgl.val() == '00/00/0000'){ 
 			//amandemen_tgl.focus(); // focus to the filed 
 			//$('#amandemen_tgl').val("Enter No Kontrak");
 			var div = $("#amandemen_tgl").parents("div.input-group");
@@ -814,7 +821,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02i');
-		if(po_sp_tgl.val() == ''){ 
+		if(po_sp_tgl.val() == '' || po_sp_tgl.val() == '00/00/0000'){ 
 			//po_sp_tgl.focus(); // focus to the filed 
 			//$('#po_sp_tgl').val("Enter No Kontrak");
 			var div = $("#po_sp_tgl").parents("div.input-group");
@@ -825,7 +832,7 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02j');
-		if(kontrak_tgl.val() == ''){ 
+		if(kontrak_tgl.val() == '' || kontrak_tgl.val() == '00/00/0000'){ 
 			//kontrak_tgl.focus(); // focus to the filed 
 			//$('#kontrak_tgl').val("Enter No Kontrak");
 			var div = $("#kontrak_tgl").parents("div.input-group");
