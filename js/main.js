@@ -209,551 +209,858 @@ $(document).ready(function(){
 		
 // cek ga boleh kosong untuk entry nya
 		var kosong = '0';
-//		if(po_migo_value.val() == ''){ 
-//			po_migo_value.focus(); // focus to the filed 
-//			//$('#po_migo_value').val("Enter No Kontrak");
-//			var div = $("#po_migo_value").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#po_migo_value").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('20');
-//		if(side_ltr_no.val() == ''){ 
-//			side_ltr_no.focus(); // focus to the filed 
-//			//$('#side_ltr_no').val("Enter No Kontrak");
-//			var div = $("#side_ltr_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#side_ltr_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}	
-////				alert('19');
-//		if(dgt_no.val() == ''){ 
-//			dgt_no.focus(); // focus to the filed 
-//			//$('#dgt_no').val("Enter No Kontrak");
-//			var div = $("#dgt_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#dgt_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('18');
-//		if(npwp_no.val() == ''){ 
-//			npwp_no.focus(); // focus to the filed 
-//			//$('#npwp_no').val("Enter No Kontrak");
-//			var div = $("#npwp_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#npwp_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('17');
-//		if(siujk_no.val() == ''){ 
-//			siujk_no.focus(); // focus to the filed 
-//			//$('#siujk_no').val("Enter No Kontrak");
-//			var div = $("#siujk_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#siujk_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('16');
-//		if(tt_bld_draw_no.val() == ''){ 
-//			tt_bld_draw_no.focus(); // focus to the filed 
-//			//$('#tt_bld_draw_no').val("Enter No Kontrak");
-//			var div = $("#tt_bld_draw_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#tt_bld_draw_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}	
-////				alert('15');
-//		if(pls_asu_assr.val() == ''){ 
-//			pls_asu_assr.focus(); // focus to the filed 
-//			//$('#pls_asu_assr').val("Enter No Kontrak");
-//			var div = $("#pls_asu_assr").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pls_asu_assr").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('14');
-//		if(pls_asu_no.val() == ''){ 
-//			pls_asu_no.focus(); // focus to the filed 
-//			//$('#pls_asu_no').val("Enter No Kontrak");
-//			var div = $("#pls_asu_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pls_asu_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('13');
-//		if(side_ltr_tgl.val() == ''){ 
-//			//side_ltr_tgl.focus(); // focus to the filed 
-//			//$('#side_ltr_tgl').val("Enter No Kontrak");
-//			var div = $("#side_ltr_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#side_ltr_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('12');
-//		if(dgt_tgl.val() == ''){ 
-//			//dgt_tgl.focus(); // focus to the filed 
-//			//$('#dgt_tgl').val("Enter No Kontrak");
-//			var div = $("#dgt_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#dgt_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('11');
-//		if(npwp_tgl.val() == ''){ 
-//			//npwp_tgl.focus(); // focus to the filed 
-//			//$('#npwp_tgl').val("Enter No Kontrak");
-//			var div = $("#npwp_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#npwp_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('10');
-//		if(siujk_tgl.val() == ''){ 
-//			//siujk_tgl.focus(); // focus to the filed 
-//			//$('#siujk_tgl').val("Enter No Kontrak");
-//			var div = $("#siujk_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#siujk_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('09');
-//		if(tt_bld_draw_tgl.val() == ''){ 
-//			//tt_bld_draw_tgl.focus(); // focus to the filed 
-//			//$('#tt_bld_draw_tgl').val("Enter No Kontrak");
-//			var div = $("#tt_bld_draw_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#tt_bld_draw_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('08');
-//		if(pls_asu_expired.val() == ''){ 
-//			//pls_asu_expired.focus(); // focus to the filed 
-//			//$('#pls_asu_expired').val("Enter No Kontrak");
-//			var div = $("#pls_asu_expired").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pls_asu_expired").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('07');
-//		if(jamn_pmhr_expired.val() == ''){ 
-//			//jamn_pmhr_expired.focus(); // focus to the filed 
-//			//$('#jamn_pmhr_expired').val("Enter No Kontrak");
-//			var div = $("#jamn_pmhr_expired").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_pmhr_expired").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('06');
-//		if(jamn_plksa_expired.val() == ''){ 
-//			//jamn_plksa_expired.focus(); // focus to the filed 
-//			//$('#jamn_plksa_expired').val("Enter No Kontrak");
-//			var div = $("#jamn_plksa_expired").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_plksa_expired").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('05');
-//		if(jamn_uang_muka_expired.val() == ''){ 
-//			//jamn_uang_muka_expired.focus(); // focus to the filed 
-//			//$('#jamn_uang_muka_expired').val("Enter No Kontrak");
-//			var div = $("#jamn_uang_muka_expired").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_uang_muka_expired").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('04');
-//		if(pajak_tgl.val() == ''){ 
-//			//pajak_tgl.focus(); // focus to the filed 
-//			//$('#pajak_tgl').val("Enter No Kontrak");
-//			var div = $("#pajak_tgl").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pajak_tgl").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('03');
-//		if(jamn_pmhr_assr.val() == ''){ 
-//			jamn_pmhr_assr.focus(); // focus to the filed 
-//			//$('#jamn_pmhr_assr').val("Enter No Kontrak");
-//			var div = $("#jamn_pmhr_assr").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_pmhr_assr").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('02');
-//		if(jamn_plksa_assr.val() == ''){ 
-//			jamn_plksa_assr.focus(); // focus to the filed 
-//			//$('#jamn_plksa_assr').val("Enter No Kontrak");
-//			var div = $("#jamn_plksa_assr").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_plksa_assr").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01');
-//		if(jamn_uang_muka_assr.val() == ''){ 
-//			jamn_uang_muka_assr.focus(); // focus to the filed 
-//			//$('#jamn_uang_muka_assr').val("Enter No Kontrak");
-//			var div = $("#jamn_uang_muka_assr").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_uang_muka_assr").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01a');
-//		if(pajak_no.val() == ''){ 
-//			pajak_no.focus(); // focus to the filed 
-//			//$('#pajak_no').val("Enter No Kontrak");
-//			var div = $("#pajak_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pajak_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01b');
-//		if(rekening_switch.val() == ''){ 
-//			rekening_switch.focus(); // focus to the filed 
-//			//$('#rekening_switch').val("Enter No Kontrak");
-//			var div = $("#rekening_switch").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#rekening_switch").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01c');
-//		if(rekening_bank.val() == ''){ 
-//			rekening_bank.focus(); // focus to the filed 
-//			//$('#rekening_bank').val("Enter No Kontrak");
-//			var div = $("#rekening_bank").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#rekening_bank").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01d');
-//		if(kuitansi_no.val() == ''){ 
-//			kuitansi_no.focus(); // focus to the filed 
-//			//$('#kuitansi_no').val("Enter No Kontrak");
-//			var div = $("#kuitansi_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#kuitansi_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01e');
-//		if(rekening_amount.val() == ''){ 
-//			rekening_amount.focus(); // focus to the filed 
-//			//$('#rekening_amount').val("Enter No Kontrak");
-//			var div = $("#rekening_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#rekening_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01f');
-//		if(kuitansi_atau.val() == ''){ 
-//			kuitansi_atau.focus(); // focus to the filed 
-//			//$('#kuitansi_atau').val("Enter No Kontrak");
-//			var div = $("#kuitansi_atau").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#kuitansi_atau").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01g');
-//		if(jamn_pmhr_amount.val() == ''){ 
-//			jamn_pmhr_amount.focus(); // focus to the filed 
-//			//$('#jamn_pmhr_amount').val("Enter No Kontrak");
-//			var div = $("#jamn_pmhr_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_pmhr_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01h');
-//		if(jamn_plksa_amount.val() == ''){ 
-//			jamn_plksa_amount.focus(); // focus to the filed 
-//			//$('#jamn_plksa_amount').val("Enter No Kontrak");
-//			var div = $("#jamn_plksa_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_plksa_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01i');
-//		if(jamn_uang_muka_amount.val() == ''){ 
-//			jamn_uang_muka_amount.focus(); // focus to the filed 
-//			//$('#jamn_uang_muka_amount').val("Enter No Kontrak");
-//			var div = $("#jamn_uang_muka_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#jamn_uang_muka_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01j');
-//		if(pajak_amount.val() == ''){ 
-//			pajak_amount.focus(); // focus to the filed 
-//			//$('#pajak_amount').val("Enter No Kontrak");
-//			var div = $("#pajak_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#pajak_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01k');
-//		if(rekening_ats_nm.val() == ''){ 
-//			rekening_ats_nm.focus(); // focus to the filed 
-//			//$('#rekening_ats_nm').val("Enter No Kontrak");
-//			var div = $("#rekening_ats_nm").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#rekening_ats_nm").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01l');
-//		if(kuitansi_amount.val() == ''){ 
-//			kuitansi_amount.focus(); // focus to the filed 
-//			//$('#kuitansi_amount').val("Enter No Kontrak");
-//			var div = $("#kuitansi_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#kuitansi_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01m');
-//		if(ptgn_uang_muka_amount.val() == ''){ 
-//			ptgn_uang_muka_amount.focus(); // focus to the filed 
-//			//$('#ptgn_uang_muka_amount').val("Enter No Kontrak");
-//			var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01n');
-//		if(bast_non_ppn_amount.val() == ''){ 
-//			bast_non_ppn_amount.focus(); // focus to the filed 
-//			//$('#bast_non_ppn_amount').val("Enter No Kontrak");
-//			var div = $("#bast_non_ppn_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bast_non_ppn_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01o');
-//		if(bast_non_ppn_jasa.val() == ''){ 
-//			bast_non_ppn_jasa.focus(); // focus to the filed 
-//			//$('#bast_non_ppn_jasa').val("Enter No Kontrak");
-//			var div = $("#bast_non_ppn_jasa").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bast_non_ppn_jasa").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01p');
-//		if(bast_non_ppn_barang.val() == ''){ 
-//			bast_non_ppn_barang.focus(); // focus to the filed 
-//			//$('#bast_non_ppn_barang').val("Enter No Kontrak");
-//			var div = $("#bast_non_ppn_barang").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bast_non_ppn_barang").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01q');
-//		if(bast_non_ppn_tgl_bast.val() == ''){ 
-//			//bast_non_ppn_tgl_bast.focus(); // focus to the filed 
-//			//$('#bast_non_ppn_tgl_bast').val("Enter No Kontrak");
-//			var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01r');
-//		if(bast_non_ppn_tgl_baut.val() == ''){ 
-//			//bast_non_ppn_tgl_baut.focus(); // focus to the filed 
-//			//$('#bast_non_ppn_tgl_baut').val("Enter No Kontrak");
-//			var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01s');
-//		if(bts_akhir_kerja_no.val() == ''){ 
-//			bts_akhir_kerja_no.focus(); // focus to the filed 
-//			//$('#bts_akhir_kerja_no').val("Enter No Kontrak");
-//			var div = $("#bts_akhir_kerja_no").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#bts_akhir_kerja_no").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01t');
-//		if(po_non_ppn_thp_rekon.val() == ''){ 
-//			po_non_ppn_thp_rekon.focus(); // focus to the filed 
-//			//$('#po_non_ppn_thp_rekon').val("Enter No Kontrak");
-//			var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01u');
-//		if(po_non_ppn_amd_amount.val() == ''){ 
-//			po_non_ppn_amd_amount.focus(); // focus to the filed 
-//			//$('#po_non_ppn_amd_amount').val("Enter No Kontrak");
-//			var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01v');
-//		if(po_non_ppn_amount.val() == ''){ 
-//			po_non_ppn_amount.focus(); // focus to the filed 
-//			//$('#po_non_ppn_amount').val("Enter No Kontrak");
-//			var div = $("#po_non_ppn_amount").parents("div.input-group");
-//			div.addClass("has-error");
-//			kosong = '1';
-//		} else {
-//			var div = $("#po_non_ppn_amount").parents("div.input-group");
-//			div.removeClass("has-error");	
-//		}
-////				alert('01w');
 
-		if(invoice_1 == 'X'){
-			if(invoice_tgl_masuk.val() == '' || invoice_tgl_masuk.val() == '00/00/0000'){ 
-				//invoice_tgl_masuk.focus(); // focus to the filed 
-				//$('#invoice_tgl_masuk').val("Enter No Kontrak");
-				var div = $("#invoice_tgl_masuk").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#invoice_tgl_masuk").parents("div.input-group");
-				div.removeClass("has-error");	
+		if ( (!document.getElementById('po_migo_1').checked) && (!document.getElementById('po_migo_0').checked) ){ 
+			var div = $("#po_migo_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#po_migo_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#po_migo_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#po_migo_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('po_migo_1').checked){
+				if(po_migo_value.val() == ''){ 
+					po_migo_value.focus(); // focus to the filed 
+					//$('#po_migo_value').val("Enter No Kontrak");
+					var div = $("#po_migo_value").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#po_migo_value").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('20');
 			}
-	//				alert('01x');
-			if(invoice_tgl.val() == '' || invoice_tgl.val() == '00/00/0000'){ 
-				//invoice_tgl.focus(); // focus to the filed 
-				//$('#invoice_tgl').val("Enter No Kontrak");
-				var div = $("#invoice_tgl").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#invoice_tgl").parents("div.input-group");
-				div.removeClass("has-error");	
-			}
-	//				alert('01z');
-			if(invoice_no.val() == ''){ 
-				invoice_no.focus(); // focus to the filed 
-				//$('#invoice_no').val("Enter No Kontrak");
-				var div = $("#invoice_no").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#invoice_no").parents("div.input-group");
-				div.removeClass("has-error");	
-			}
-	//				alert('02b');
 		}
 		
-		if(tagihan_1 == 'X'){
-			if(tagihan_tgl_masuk.val() == '' || tagihan_tgl_masuk.val() == '00/00/0000'){ 
-				//tagihan_tgl_masuk.focus(); // focus to the filed 
-				//$('#tagihan_tgl_masuk').val("Enter No Kontrak");
-				var div = $("#tagihan_tgl_masuk").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#tagihan_tgl_masuk").parents("div.input-group");
-				div.removeClass("has-error");	
-			}
-	//				alert('01y');
-			if(tagihan_tgl.val() == '' || tagihan_tgl.val() == '00/00/0000'){ 
-				//tagihan_tgl.focus(); // focus to the filed 
-				//$('#tagihan_tgl').val("Enter No Kontrak");
-				var div = $("#tagihan_tgl").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#tagihan_tgl").parents("div.input-group");
-				div.removeClass("has-error");	
-			}
-	//				alert('02a');
-			if(tagihan_no.val() == ''){ 
-				tagihan_no.focus(); // focus to the filed 
-				//$('#tagihan_no').val("Enter No Kontrak");
-				var div = $("#tagihan_no").parents("div.input-group");
-				div.addClass("has-error");
-				kosong = '1';
-			} else {
-				var div = $("#tagihan_no").parents("div.input-group");
-				div.removeClass("has-error");	
-			}
-	//				alert('02c');
+
+		if ( (!document.getElementById('rekon_wkt_1').checked) && (!document.getElementById('rekon_wkt_0').checked) ){ 
+			var div = $("#rekon_wkt_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#rekon_wkt_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#rekon_wkt_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#rekon_wkt_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
 		}
+
+	
+		if ( (!document.getElementById('side_ltr_1').checked) && (!document.getElementById('side_ltr_0').checked) ){ 
+			var div = $("#side_ltr_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#side_ltr_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#side_ltr_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#side_ltr_0").parents("div.input-group");
+			div.removeClass("has-error");
+		
+			if(document.getElementById('side_ltr_1').checked){
+				if(side_ltr_no.val() == ''){ 
+					side_ltr_no.focus(); // focus to the filed 
+					//$('#side_ltr_no').val("Enter No Kontrak");
+					var div = $("#side_ltr_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#side_ltr_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}	
+		//				alert('19');
+				if(side_ltr_tgl.val() == ''){ 
+					//side_ltr_tgl.focus(); // focus to the filed 
+					//$('#side_ltr_tgl').val("Enter No Kontrak");
+					var div = $("#side_ltr_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#side_ltr_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('12');	
+			}
+		}
+	
+	
+		if ( (!document.getElementById('dgt_1').checked) && (!document.getElementById('dgt_0').checked) ){ 
+			var div = $("#dgt_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#dgt_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#dgt_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#dgt_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('dgt_1').checked){
+				if(dgt_no.val() == ''){ 
+					dgt_no.focus(); // focus to the filed 
+					//$('#dgt_no').val("Enter No Kontrak");
+					var div = $("#dgt_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#dgt_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('18');
+				if(dgt_tgl.val() == ''){ 
+					//dgt_tgl.focus(); // focus to the filed 
+					//$('#dgt_tgl').val("Enter No Kontrak");
+					var div = $("#dgt_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#dgt_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('11');
+
+			}
+		}
+	
+
+		if ( (!document.getElementById('npwp_1').checked) && (!document.getElementById('npwp_0').checked) ){ 
+			var div = $("#npwp_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#npwp_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#npwp_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#npwp_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('npwp_1').checked){
+				if(npwp_no.val() == ''){ 
+					npwp_no.focus(); // focus to the filed 
+					//$('#npwp_no').val("Enter No Kontrak");
+					var div = $("#npwp_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#npwp_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('17');
+				if(npwp_tgl.val() == ''){ 
+					//npwp_tgl.focus(); // focus to the filed 
+					//$('#npwp_tgl').val("Enter No Kontrak");
+					var div = $("#npwp_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#npwp_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('10');
+			}
+		}
+
+
+		if ( (!document.getElementById('siujk_1').checked) && (!document.getElementById('siujk_0').checked) ){ 
+			var div = $("#siujk_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#siujk_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#siujk_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#siujk_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('siujk_1').checked){
+				if(siujk_no.val() == ''){ 
+					siujk_no.focus(); // focus to the filed 
+					//$('#siujk_no').val("Enter No Kontrak");
+					var div = $("#siujk_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#siujk_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('16');
+				if(siujk_tgl.val() == ''){ 
+					//siujk_tgl.focus(); // focus to the filed 
+					//$('#siujk_tgl').val("Enter No Kontrak");
+					var div = $("#siujk_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#siujk_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('09');	
+			}
+		}
+
+		if ( (!document.getElementById('tt_bld_draw_1').checked) && (!document.getElementById('tt_bld_draw_0').checked) ){ 
+			var div = $("#tt_bld_draw_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#tt_bld_draw_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#tt_bld_draw_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#tt_bld_draw_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('tt_bld_draw_1').checked){
+				if(tt_bld_draw_no.val() == ''){ 
+					tt_bld_draw_no.focus(); // focus to the filed 
+					//$('#tt_bld_draw_no').val("Enter No Kontrak");
+					var div = $("#tt_bld_draw_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#tt_bld_draw_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}	
+		//				alert('15');	
+				if(tt_bld_draw_tgl.val() == ''){ 
+					//tt_bld_draw_tgl.focus(); // focus to the filed 
+					//$('#tt_bld_draw_tgl').val("Enter No Kontrak");
+					var div = $("#tt_bld_draw_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#tt_bld_draw_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('08');
+			}
+		}
+
+
+		if ( (!document.getElementById('pls_asu_1').checked) && (!document.getElementById('pls_asu_0').checked) ){ 
+			var div = $("#pls_asu_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#pls_asu_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#pls_asu_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#pls_asu_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('pls_asu_1').checked){
+				if(pls_asu_no.val() == ''){ 
+					pls_asu_no.focus(); // focus to the filed 
+					//$('#pls_asu_no').val("Enter No Kontrak");
+					var div = $("#pls_asu_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pls_asu_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('13');
+				if(pls_asu_assr.val() == ''){ 
+					pls_asu_assr.focus(); // focus to the filed 
+					//$('#pls_asu_assr').val("Enter No Kontrak");
+					var div = $("#pls_asu_assr").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pls_asu_assr").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('14');
+				if(pls_asu_expired.val() == ''){ 
+					//pls_asu_expired.focus(); // focus to the filed 
+					//$('#pls_asu_expired').val("Enter No Kontrak");
+					var div = $("#pls_asu_expired").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pls_asu_expired").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('07');	
+			}
+		}
+
+		if ( (!document.getElementById('jamn_pmhr_1').checked) && (!document.getElementById('jamn_pmhr_0').checked) ){ 
+			var div = $("#jamn_pmhr_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#jamn_pmhr_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#jamn_pmhr_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#jamn_pmhr_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('jamn_pmhr_1').checked){
+				if(jamn_pmhr_amount.val() == ''){ 
+					jamn_pmhr_amount.focus(); // focus to the filed 
+					//$('#jamn_pmhr_amount').val("Enter No Kontrak");
+					var div = $("#jamn_pmhr_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_pmhr_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01h');
+				if(jamn_pmhr_assr.val() == ''){ 
+					jamn_pmhr_assr.focus(); // focus to the filed 
+					//$('#jamn_pmhr_assr').val("Enter No Kontrak");
+					var div = $("#jamn_pmhr_assr").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_pmhr_assr").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('02');
+				if(jamn_pmhr_expired.val() == ''){ 
+					//jamn_pmhr_expired.focus(); // focus to the filed 
+					//$('#jamn_pmhr_expired').val("Enter No Kontrak");
+					var div = $("#jamn_pmhr_expired").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_pmhr_expired").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('06');
+			}
+		}
+
+		if ( (!document.getElementById('jamn_plksa_1').checked) && (!document.getElementById('jamn_plksa_0').checked) ){ 
+			var div = $("#jamn_plksa_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#jamn_plksa_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#jamn_plksa_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#jamn_plksa_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('jamn_plksa_1').checked){
+				if(jamn_plksa_amount.val() == ''){ 
+					jamn_plksa_amount.focus(); // focus to the filed 
+					//$('#jamn_plksa_amount').val("Enter No Kontrak");
+					var div = $("#jamn_plksa_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_plksa_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01i');
+				if(jamn_plksa_assr.val() == ''){ 
+					jamn_plksa_assr.focus(); // focus to the filed 
+					//$('#jamn_plksa_assr').val("Enter No Kontrak");
+					var div = $("#jamn_plksa_assr").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_plksa_assr").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01');
+				if(jamn_plksa_expired.val() == ''){ 
+					//jamn_plksa_expired.focus(); // focus to the filed 
+					//$('#jamn_plksa_expired').val("Enter No Kontrak");
+					var div = $("#jamn_plksa_expired").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_plksa_expired").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('05');
+			}
+		}
+
+		if ( (!document.getElementById('jamn_uang_muka_1').checked) && (!document.getElementById('jamn_uang_muka_0').checked) ){ 
+			var div = $("#jamn_uang_muka_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#jamn_uang_muka_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#jamn_uang_muka_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#jamn_uang_muka_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('jamn_uang_muka_1').checked){
+				if(jamn_uang_muka_amount.val() == ''){ 
+					jamn_uang_muka_amount.focus(); // focus to the filed 
+					//$('#jamn_uang_muka_amount').val("Enter No Kontrak");
+					var div = $("#jamn_uang_muka_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_uang_muka_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01j');
+				if(jamn_uang_muka_assr.val() == ''){ 
+					jamn_uang_muka_assr.focus(); // focus to the filed 
+					//$('#jamn_uang_muka_assr').val("Enter No Kontrak");
+					var div = $("#jamn_uang_muka_assr").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_uang_muka_assr").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01a');
+				if(jamn_uang_muka_expired.val() == ''){ 
+					//jamn_uang_muka_expired.focus(); // focus to the filed 
+					//$('#jamn_uang_muka_expired').val("Enter No Kontrak");
+					var div = $("#jamn_uang_muka_expired").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#jamn_uang_muka_expired").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('04');
+			}
+		}
+
+
+		if ( (!document.getElementById('pajak_1').checked) && (!document.getElementById('pajak_0').checked) ){ 
+			var div = $("#pajak_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#pajak_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#pajak_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#pajak_0").parents("div.input-group");
+			div.removeClass("has-error");
+		
+			if(document.getElementById('pajak_1').checked){
+				if(pajak_amount.val() == ''){ 
+					pajak_amount.focus(); // focus to the filed 
+					//$('#pajak_amount').val("Enter No Kontrak");
+					var div = $("#pajak_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pajak_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01k');  
+				if(pajak_no.val() == ''){ 
+					pajak_no.focus(); // focus to the filed 
+					//$('#pajak_no').val("Enter No Kontrak");
+					var div = $("#pajak_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pajak_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01b');
+				if(pajak_tgl.val() == ''){ 
+					//pajak_tgl.focus(); // focus to the filed 
+					//$('#pajak_tgl').val("Enter No Kontrak");
+					var div = $("#pajak_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#pajak_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('03');
+			}
+		}
+
+		if ( (!document.getElementById('rekening_1').checked) && (!document.getElementById('rekening_0').checked) ){ 
+			var div = $("#rekening_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#rekening_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#rekening_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#rekening_0").parents("div.input-group");
+			div.removeClass("has-error");
+		
+			if(document.getElementById('rekening_1').checked){
+				if(rekening_ats_nm.val() == ''){ 
+					rekening_ats_nm.focus(); // focus to the filed 
+					//$('#rekening_ats_nm').val("Enter No Kontrak");
+					var div = $("#rekening_ats_nm").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#rekening_ats_nm").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01l'); 
+				if(rekening_amount.val() == ''){ 
+					rekening_amount.focus(); // focus to the filed 
+					//$('#rekening_amount').val("Enter No Kontrak");
+					var div = $("#rekening_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#rekening_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01f');
+				if(rekening_bank.val() == ''){ 
+					rekening_bank.focus(); // focus to the filed 
+					//$('#rekening_bank').val("Enter No Kontrak");
+					var div = $("#rekening_bank").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#rekening_bank").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01d');
+				if(rekening_switch.val() == ''){ 
+					rekening_switch.focus(); // focus to the filed 
+					//$('#rekening_switch').val("Enter No Kontrak");
+					var div = $("#rekening_switch").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#rekening_switch").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01c');
+			}
+		}
+
+		if ( (!document.getElementById('kuitansi_1').checked) && (!document.getElementById('kuitansi_0').checked) ){ 
+			var div = $("#kuitansi_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#kuitansi_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#kuitansi_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#kuitansi_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('kuitansi_1').checked){
+				if(kuitansi_amount.val() == ''){ 
+					kuitansi_amount.focus(); // focus to the filed 
+					//$('#kuitansi_amount').val("Enter No Kontrak");
+					var div = $("#kuitansi_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#kuitansi_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01m'); 
+				if(kuitansi_atau.val() == ''){ 
+					kuitansi_atau.focus(); // focus to the filed 
+					//$('#kuitansi_atau').val("Enter No Kontrak");
+					var div = $("#kuitansi_atau").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#kuitansi_atau").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01g');
+				if(kuitansi_no.val() == ''){ 
+					kuitansi_no.focus(); // focus to the filed 
+					//$('#kuitansi_no').val("Enter No Kontrak");
+					var div = $("#kuitansi_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#kuitansi_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01e');
+			}
+		}
+
+		if ( (!document.getElementById('ptgn_uang_muka_1').checked) && (!document.getElementById('ptgn_uang_muka_0').checked) ){ 
+			var div = $("#ptgn_uang_muka_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#ptgn_uang_muka_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#ptgn_uang_muka_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#ptgn_uang_muka_0").parents("div.input-group");
+			div.removeClass("has-error");
+			
+			if(document.getElementById('ptgn_uang_muka_1').checked){
+				if(ptgn_uang_muka_amount.val() == ''){ 
+					ptgn_uang_muka_amount.focus(); // focus to the filed 
+					//$('#ptgn_uang_muka_amount').val("Enter No Kontrak");
+					var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01n');
+			}
+			
+		}
+
+		if ( (!document.getElementById('bast_non_ppn_1').checked) && (!document.getElementById('bast_non_ppn_0').checked) ){ 
+			var div = $("#bast_non_ppn_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#bast_non_ppn_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#bast_non_ppn_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#bast_non_ppn_0").parents("div.input-group");
+			div.removeClass("has-error");	
+			
+			if(document.getElementById('bast_non_ppn_1').checked){
+				if(bast_non_ppn_amount.val() == ''){ 
+					bast_non_ppn_amount.focus(); // focus to the filed 
+					//$('#bast_non_ppn_amount').val("Enter No Kontrak");
+					var div = $("#bast_non_ppn_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bast_non_ppn_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01o');
+				if(bast_non_ppn_barang.val() == ''){ 
+					bast_non_ppn_barang.focus(); // focus to the filed 
+					//$('#bast_non_ppn_barang').val("Enter No Kontrak");
+					var div = $("#bast_non_ppn_barang").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bast_non_ppn_barang").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01q');
+				if(bast_non_ppn_jasa.val() == ''){ 
+					bast_non_ppn_jasa.focus(); // focus to the filed 
+					//$('#bast_non_ppn_jasa').val("Enter No Kontrak");
+					var div = $("#bast_non_ppn_jasa").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bast_non_ppn_jasa").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01p');
+				if(bast_non_ppn_tgl_baut.val() == ''){ 
+					//bast_non_ppn_tgl_baut.focus(); // focus to the filed 
+					//$('#bast_non_ppn_tgl_baut').val("Enter No Kontrak");
+					var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01s'); 
+				if(bast_non_ppn_tgl_bast.val() == ''){ 
+					//bast_non_ppn_tgl_bast.focus(); // focus to the filed 
+					//$('#bast_non_ppn_tgl_bast').val("Enter No Kontrak");
+					var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01r');
+			}
+				
+		}
+
+
+		if ( (!document.getElementById('bts_akhir_kerja_1').checked) && (!document.getElementById('bts_akhir_kerja_0').checked) ){ 
+			var div = $("#bts_akhir_kerja_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#bts_akhir_kerja_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#bts_akhir_kerja_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#bts_akhir_kerja_0").parents("div.input-group");
+			div.removeClass("has-error");	
+			
+			if(document.getElementById('bts_akhir_kerja_1').checked){
+				if(bts_akhir_kerja_no.val() == ''){ 
+					bts_akhir_kerja_no.focus(); // focus to the filed 
+					//$('#bts_akhir_kerja_no').val("Enter No Kontrak");
+					var div = $("#bts_akhir_kerja_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#bts_akhir_kerja_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01t');
+			}
+		}
+
+
+		if ( (!document.getElementById('po_non_ppn_1').checked) && (!document.getElementById('po_non_ppn_0').checked) ){ 
+			var div = $("#po_non_ppn_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#po_non_ppn_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#po_non_ppn_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#po_non_ppn_0").parents("div.input-group");
+			div.removeClass("has-error");	
+			
+			if (document.getElementById('po_non_ppn_1').checked){
+				if(po_non_ppn_amount.val() == ''){ 
+					po_non_ppn_amount.focus(); // focus to the filed 
+					//$('#po_non_ppn_amount').val("Enter No Kontrak");
+					var div = $("#po_non_ppn_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#po_non_ppn_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01w'); 
+				if(po_non_ppn_thp_rekon.val() == ''){ 
+					po_non_ppn_thp_rekon.focus(); // focus to the filed 
+					//$('#po_non_ppn_thp_rekon').val("Enter No Kontrak");
+					var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01u');
+				if(po_non_ppn_amd_amount.val() == ''){ 
+					po_non_ppn_amd_amount.focus(); // focus to the filed 
+					//$('#po_non_ppn_amd_amount').val("Enter No Kontrak");
+					var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01v');
+			}
+		}
+
+
+		if ( (!document.getElementById('invoice_1').checked) && (!document.getElementById('invoice_0').checked) ){ 
+			var div = $("#invoice_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#invoice_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#invoice_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#invoice_0").parents("div.input-group");
+			div.removeClass("has-error");	
+
+			if(document.getElementById('invoice_1').checked){
+				if(invoice_tgl_masuk.val() == '' || invoice_tgl_masuk.val() == '00/00/0000'){ 
+					//invoice_tgl_masuk.focus(); // focus to the filed 
+					//$('#invoice_tgl_masuk').val("Enter No Kontrak");
+					var div = $("#invoice_tgl_masuk").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#invoice_tgl_masuk").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01x');
+				if(invoice_tgl.val() == '' || invoice_tgl.val() == '00/00/0000'){ 
+					//invoice_tgl.focus(); // focus to the filed 
+					//$('#invoice_tgl').val("Enter No Kontrak");
+					var div = $("#invoice_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#invoice_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01z');
+				if(invoice_no.val() == ''){ 
+					invoice_no.focus(); // focus to the filed 
+					//$('#invoice_no').val("Enter No Kontrak");
+					var div = $("#invoice_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#invoice_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('02b');
+			}				
+		}
+				
+				
+		if ( (!document.getElementById('tagihan_1').checked) && (!document.getElementById('tagihan_0').checked) ){ 
+			var div = $("#tagihan_1").parents("div.input-group");
+			div.addClass("has-error");	 
+			var div = $("#tagihan_0").parents("div.input-group");
+			div.addClass("has-error");	
+		} else {
+			var div = $("#tagihan_1").parents("div.input-group");
+			div.removeClass("has-error");	 
+			var div = $("#tagihan_0").parents("div.input-group");
+			div.removeClass("has-error");	
+				
+			if(document.getElementById('tagihan_1').checked){
+				if(tagihan_tgl_masuk.val() == '' || tagihan_tgl_masuk.val() == '00/00/0000'){ 
+					//tagihan_tgl_masuk.focus(); // focus to the filed 
+					//$('#tagihan_tgl_masuk').val("Enter No Kontrak");
+					var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('01y');
+				if(tagihan_tgl.val() == '' || tagihan_tgl.val() == '00/00/0000'){ 
+					//tagihan_tgl.focus(); // focus to the filed 
+					//$('#tagihan_tgl').val("Enter No Kontrak");
+					var div = $("#tagihan_tgl").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#tagihan_tgl").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('02a');
+				if(tagihan_no.val() == ''){ 
+					tagihan_no.focus(); // focus to the filed 
+					//$('#tagihan_no').val("Enter No Kontrak");
+					var div = $("#tagihan_no").parents("div.input-group");
+					div.addClass("has-error");
+					kosong = '1';
+				} else {
+					var div = $("#tagihan_no").parents("div.input-group");
+					div.removeClass("has-error");	
+				}
+		//				alert('02c');
+			}
+		}
+
 		
 		if(no_sap.val() == ''){ 
 			no_sap.focus(); // focus to the filed 
@@ -886,7 +1193,7 @@ $(document).ready(function(){
 			var div = $("#kontrak_no").parents("div.input-group");
 			div.removeClass("has-error");	
 		}
-////				alert('02o');
+//				alert('02o');
 		if(nama_proyek.val() == ''){
 			nama_proyek.focus(); // focus to the filed 
 			//$('#nama_proyek').val("Enter Nama Proyek");
@@ -908,13 +1215,14 @@ $(document).ready(function(){
 			var div = $("#nama_mitra").parents("div.input-group");
 			div.removeClass("has-error");	
 		}		
-////				alert('02q');
+//				alert('02q');
 		if(kosong == '1'){
 //			alert('ada yg kosong nih');
 			return false;	
 		}
 // end of entry cek
-				//alert('masuk ahhh');
+//		return false;
+//		alert('masuk ahhh');
 		//if(username.val() != '' && password.val() != ''){ // Check the username and password values is not empty and make the ajax request
 			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_atau.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
 						

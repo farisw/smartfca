@@ -31,6 +31,55 @@ $history_finish_at  = date("Y-m-d H:i:s");
 $history_area		= $_SESSION['AREA'];
 $history_approval	= $_REQUEST['approval'];
 
+//	Mencari apakah document telah di approve oleh sesama manager
+//$get_ready_appv  	= "SELECT * FROM TRX_HISTORY
+//						WHERE `DOC_NUMBER` 		= '".$history_docnum."'
+//						  AND `YEAR`	 		= '".$history_year."'
+//						  AND `MONTH`	 		= '".$history_month."'
+//						  AND `AREA`	 		= '".$history_area."'
+//						  AND `LEVEL`			= '".$history_level."'
+//					   ORDER BY LOG_NUMBER DESC
+//					  ";
+$get_ready_appv		="
+					SELECT 
+						A.DOC_NUMBER, 
+						A.YEAR, 
+						A.MONTH, 
+						A.USER, 
+						A.LEVEL, 
+						A.AREA, 
+						B.NAMA_DEPAN, 
+						B.DEPARTEMEN 
+					FROM `trx_history` as A 
+					JOIN `user_detail` as B 
+					ON B.USERNAME = A.USER 
+					WHERE A.DOC_NUMBER 	= '".$history_docnum."' 
+					  AND A.YEAR 		= '".$history_year."' 
+					  AND A.MONTH 		= '".$history_month."' 
+					  AND A.AREA	 	= '".$history_area."'
+					  AND A.LEVEL 		= '".$history_level."'
+					 ";
+echo $get_ready_appv;
+$query_ready_appv	= mysql_query($get_ready_appv);
+$num_row_ready_appv	= mysql_num_rows($query_ready_appv);
+echo $num_row_ready_appv;
+if($num_row_ready_appv > 0){ 
+	$fetch_ready_appv = mysql_fetch_array($query_ready_appv);
+	$response_text	= "DOCUMENT :".$fetch_ready_appv['DOC_NUMBER'].", YEAR : ".$fetch_ready_appv['YEAR']." MONTH : ".$fetch_ready_appv['MONTH']." 
+					   telah di approve oleh ".$fetch_ready_appv['NAMA_DEPAN'].", dengan USER :".$fetch_ready_appv['USER'];
+	echo $response_text;
+?>
+			<script type="text/javascript">
+				//var response_text		= $('response_text');
+                alert('OK');
+                window.location = '../dashboard.php?select=1';
+            </script>
+<?php
+
+//exit;
+}
+
+
 //	Mencari start time per document
 $get_start_doc  	= "SELECT * FROM TRX_HISTORY
 						WHERE `DOC_NUMBER` 		= '".$history_docnum."'
@@ -42,7 +91,7 @@ $get_start_doc  	= "SELECT * FROM TRX_HISTORY
 //echo $get_start_doc;
 $query_start_doc	= mysql_query($get_start_doc);
 $num_row_start_doc	= mysql_num_rows($query_start_doc);
-if($num_row_start_doc >= 0){ 
+if($num_row_start_doc > 0){ 
 	$fetch_start_doc = mysql_fetch_array($query_start_doc);
 	$history_start_at   = $fetch_start_doc['FINISH_AT'];
 	//echo $history_start_at;
