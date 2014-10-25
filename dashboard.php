@@ -105,6 +105,11 @@ if($num_park >= 1){
 	            <a href="dashboard.php?select=1"><span class="glyphicon glyphicon-tasks">&nbsp;</span>Dashboard </a>
 <!--                <span class="badge">14</span>-->
 	        </li>
+             <ul <?php if($_REQUEST['select'] != 1 or ( $_SESSION['LEVEL'] != "VRKT" and $_SESSION['LEVEL'] != "ADMIN" ) ) { echo 'style="display:none";';} ?> class="zsublink">
+             
+                <!--<li class="zsublink"><a href="dashboard.php?select=1&subtype=all">&rang; &nbsp; All Document</a></li>-->
+                <li class="zsublink"><a href="dashboard.php?select=1&subtype=park">&rang; &nbsp; Park Document</a></li>
+            </ul>
 <?php if ($_SESSION['LEVEL'] == "VRKT" or $_SESSION['LEVEL'] == "ADMIN") { ?>
       		<li <?php if($_REQUEST['select'] == 2) { echo 'class="active"';} ?> > 
       			<a href="dashboard.php?select=2"><span class="glyphicon glyphicon-open">&nbsp;</span>Entry Data</a> 
@@ -136,7 +141,15 @@ if($num_park >= 1){
             
 <?php 	
 	if(isset($_REQUEST['select']) && $_REQUEST['select'] == '1' ){
-		include("summary_data.php"); 		
+			
+		if(isset($_REQUEST['subtype']) && $_REQUEST['subtype'] == 'park' ){
+			include("summary_park.php"); 		
+		}elseif(isset($_REQUEST['subtype']) && $_REQUEST['subtype'] == 'all' ){
+			include("summary_data.php"); 				
+		}else{
+			include("summary_data.php"); 	
+		}
+		
 		$_SESSION['TIME_NON'] = date("Y-m-d H:i:s");;
 	}else
 	if(isset($_REQUEST['select']) && $_REQUEST['select'] == '2' ){

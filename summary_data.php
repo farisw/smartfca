@@ -3,6 +3,7 @@
                         </h1>
 
 
+
 <?php include("misc/knob.php"); ?>    
 
 <?php include("misc/chart.php"); ?> 
@@ -331,6 +332,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 			}
 		}
 ?>
+
   </div>
 </div>  
 

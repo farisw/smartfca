@@ -131,7 +131,6 @@ h1{
   background-color: #972e4c;
 }
 
-
 .navbar-nav {
   margin: 7px -15px;
   
@@ -256,6 +255,8 @@ h1{
     color: #fff;
     background: none;
 }
+
+
 
 @media(min-width:768px) {
     #wrapper {
@@ -715,4 +716,12 @@ div.FixedHeader_Cloned table {
 }
 .timeline-body > p + p {
   margin-top: 5px;
+}
+
+
+.zsublink a, .zsublink a:hover, .zsublink a:focus, .zsublink a:active{	
+
+}
+.zsublink a:hover{
+	color:#000000;
 }
