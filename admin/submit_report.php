@@ -7,6 +7,7 @@
                 <th>User</th>
                 <th>Level</th>
                 <th>Unit / Area</th>
+                <th>Status</th>
                 <th>Start date</th>
                 <th>End Date</th>
                 <th>Different (in Minutes)</th>                
@@ -79,7 +80,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 				$alert = $alert.", SAP Doc No : " .$_POST['doc_sap'];
 		}
 		
-		$query = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
+		$query = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN,
+							A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
 				    FROM	trx_history as A JOIN trx_detail as B
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
@@ -93,7 +95,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 <?php				
 	}else{
 		$result = mysql_query('
-				SELECT 	B.NAMA_MITRA, B.NO_SAP, A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
+				SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN,
+						A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
 				    FROM	trx_history as A JOIN trx_detail as B
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
@@ -126,6 +129,22 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
             <td><?php echo $data["USER"]; ?></td>
             <td><?php echo $data["LEVEL"]; ?></td>
             <td><?php echo $data["AREA"]; ?></td>
+            
+            <td>
+            <?php
+				if($data["REJECT_FLAG"]=="X"){
+					echo "REJECT";
+				}elseif($data["NOT_COMPLETE"]=="X"){
+					echo "PARKED";
+				}elseif($data["FLOW_MAIN"]=="" OR $data["FLOW_MAIN"]==NULL){
+					echo "FINAL APPROVAL";
+				}elseif($data["FLOW_MAIN"]!="" OR $data["FLOW_MAIN"]!=NULL){
+					echo "IN PROGRESS";
+				}
+				
+				
+			?>
+            </td>
             <td><?php echo $data["START_AT"]; ?></td>
             <td><?php echo $data["FINISH_AT"]; ?></td>
             <td><?php echo $diff_in_hrs; ?></td>
@@ -145,6 +164,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
                 <th>User</th>
                 <th>Level</th>
                 <th>Unit / Area</th>
+                <th>Status</th>
                 <th>Start date</th>
                 <th>End Date</th>
                 <th>Different (in Minutes)</th>   

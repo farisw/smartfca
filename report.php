@@ -14,8 +14,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
 	function setdatatable(){
 		$('#zreport').dataTable();	
 	}
-	$(document).ready(function(){
-		$('#submit_report').click(function(){ // Create `click` event function for login
+	function submitreport(){ // Create `click` event function for login
 			// Get All data property
 		var user = $('#user');	
 		var year = $('#year');	
@@ -37,7 +36,11 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
 				}
 			});
 			
-		});
+		}
+		
+	$(document).ready(function(){
+		submitreport();
+		$('#submit_report').click(submitreport);
 			
 	});  
 	
