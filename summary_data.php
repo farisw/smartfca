@@ -91,9 +91,11 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <thead>
   <tr>
     <th scope="col">No.</th>
-    <th scope="col">Document Number</th>
+    <!--<th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>
+    <th scope="col">Month</th>-->
+    <th scope="col">Doc No SAP</th>
+    <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
@@ -111,9 +113,11 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
-    <td><?php echo $data_level_found['YEAR']; ?></td>
-    <td><?php echo $data_level_found['MONTH']; ?></td>
+    <!--<td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php //echo $data_level_found['DOC_NUMBER']; ?></a></td>
+    <td><?php //echo $data_level_found['YEAR']; ?></td>
+    <td><?php //echo $data_level_found['MONTH']; ?></td>-->
+    <td><?php echo $data_level_found['NO_SAP']; ?></td>
+    <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_BY']; ?></td>
@@ -136,9 +140,11 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <tfoot>
   <tr>
     <th scope="col">No.</th>
-    <th scope="col">Document Number</th>
+    <!--<th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>
+    <th scope="col">Month</th>-->
+    <th scope="col">Doc No SAP</th>
+    <th scope="col">Nama Mitra</th>
     <th scope="col">PO Awal NON PPN</th>
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
@@ -213,6 +219,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 							trx_detail.AREA,
 							trx_detail.TRUE_VALUE_CURRENCY,
 							trx_detail.TRUE_VALUE,
+							trx_detail.NAMA_MITRA,
 							trx_detail.NO_SAP,
 							trx_history.USER,
 							trx_history.LEVEL,
@@ -264,12 +271,13 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <thead>
   <tr>
     <th scope="col">No.</th>
-    <th scope="col">Document Number</th>
+    <!--<th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>
+    <th scope="col">Month</th>-->
+    <th scope="col">No. SAP</th>
+    <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
-    <th scope="col">No. SAP</th>
     <th scope="col">Created By</th>
     <th scope="col">Level Approval</th>
     <th scope="col">Status</th>
@@ -285,12 +293,13 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
-    <td><?php echo $data_level_found['YEAR']; ?></td>
-    <td><?php echo $data_level_found['MONTH']; ?></td>
+    <!--<td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php //echo $data_level_found['DOC_NUMBER']; ?></a></td>
+    <td><?php //echo $data_level_found['YEAR']; ?></td>
+    <td><?php //echo $data_level_found['MONTH']; ?></td>-->
+    <td><?php echo $data_level_found['NO_SAP']; ?></td>
+    <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
-    <td><?php echo $data_level_found['NO_SAP']; ?></td>
     <td><?php echo $data_level_found['USER']; ?></td>
     <td><?php echo $data_level_found['LEVEL']; ?></td>
     <td><?php echo $data_level_found['STATUS']; ?></td>
@@ -303,12 +312,13 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <tfoot>
   <tr>
     <th scope="col">No.</th>
-    <th scope="col">Document Number</th>
+    <!--<th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>
+    <th scope="col">Month</th>-->
+    <th scope="col">No. SAP</th>
+    <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
-    <th scope="col">No. SAP</th>
     <th scope="col">Created By</th>
     <th scope="col">Level Approval</th>
     <th scope="col">Status</th>
