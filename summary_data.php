@@ -303,7 +303,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['USER']; ?></td>
     <td><?php echo $data_level_found['LEVEL']; ?></td>
-    <td><?php echo $data_level_found['STATUS']; ?></td>
+    <td <?php if($data_level_found['STATUS']=="APPROVE") echo 'style="color:#15A93F"'; elseif($data_level_found['STATUS']=="REJECT") echo 'style="color:#15A93F"'; ?> ><?php echo $data_level_found['STATUS']; ?></td>
     <td><?php echo $data_level_found['FINISH_AT']; ?></td>
   </tr>
 <?php 

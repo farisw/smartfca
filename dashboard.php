@@ -80,7 +80,7 @@ if($num_park >= 1){
     <?php } ?>
       <ul class="nav navbar-nav navbar-right">
         <li id="ztoggle"><a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-th-list">&nbsp</span>Show/Hide Menu</a></li>
-        <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user">&nbsp</span>Welcome <?php echo $_SESSION['NAMA_DEPAN']; ?> </a></li>
+        <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user">&nbsp</span>Welcome <?php echo $_SESSION['NAMA_DEPAN']; ?> &nbsp; (NIK : <?php echo $_SESSION['USERNAME']; ?>) </a></li>
         <li><a  href="#" id='logout' ><span class="glyphicon glyphicon-log-out">&nbsp</span>
           <?php IF ($_SESSION['USERNAME']) { echo 'Logout'; } ?>
           </a></li>

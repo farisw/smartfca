@@ -54,7 +54,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 							trx_detail.TRUE_VALUE_CURRENCY,
 							trx_detail.TRUE_VALUE,
 							trx_detail.NAMA_MITRA,
-							trx_detail.NO_SAP
+							trx_detail.NO_SAP,
+							CREATED_BY,
+							CHANGED_AT
 							
 					FROM	trx_detail 
 					WHERE	trx_detail.CREATED_BY	= "'.$lv_user.'"
@@ -102,7 +104,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
     <th scope="col">Created By</th>
-    <th scope="col">Level Approval</th>
+    <th scope="col">Last Changed</th>
   </tr>
  </thead>
  
@@ -122,7 +124,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['CREATED_BY']; ?></td>
-    <td><?php echo $data_level_found['LEVEL']; ?></td>
+    <td><?php echo $data_level_found['CHANGED_AT']; ?></td>
   </tr>
 <?php 
 			}
@@ -139,7 +141,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
     <th scope="col">Created By</th>
-    <th scope="col">Level Approval</th>
+    <th scope="col">Last Changed</th>
   </tr>
  </tfoot>
 </table>
