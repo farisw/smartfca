@@ -203,8 +203,8 @@
 	    					var key = (e.keyCode ? e.keyCode : e.which);
 	    					if( // Allow control keys to go through... (delete, etc)
 	    						key == 46 || key == 8 || key == 9 || key == 27 || key == 13 || 
-	    						// Allow: Ctrl+A, Ctrl+R, Ctrl+v 
-	    						( (key == 65 || key == 82 || key == 86 ) && ( e.ctrlKey || e.metaKey ) === true ) || 
+	    						// Allow: Ctrl+A, Ctrl+R, Ctrl+c , Ctrl+v 
+	    						( (key == 65 || key == 82 || key == 67 || key == 86 ) && ( e.ctrlKey || e.metaKey ) === true ) || 
 	    						// Allow: home, end, left, right
 	    						( (key >= 35 && key <= 39) )
 							){

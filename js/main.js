@@ -216,6 +216,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#po_migo_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#po_migo_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -242,7 +243,8 @@ $(document).ready(function(){
 			var div = $("#rekon_wkt_1").parents("div.input-group");
 			div.addClass("has-error");	 
 			var div = $("#rekon_wkt_0").parents("div.input-group");
-			div.addClass("has-error");	
+			div.addClass("has-error");
+			kosong = '1';	
 		} else {
 			var div = $("#rekon_wkt_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -257,6 +259,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#side_ltr_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#side_ltr_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -295,6 +298,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#dgt_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#dgt_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -334,6 +338,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#npwp_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#npwp_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -372,6 +377,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#siujk_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#siujk_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -409,6 +415,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#tt_bld_draw_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#tt_bld_draw_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -447,6 +454,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#pls_asu_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#pls_asu_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -495,6 +503,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#jamn_pmhr_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#jamn_pmhr_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -542,7 +551,8 @@ $(document).ready(function(){
 			var div = $("#jamn_plksa_1").parents("div.input-group");
 			div.addClass("has-error");	 
 			var div = $("#jamn_plksa_0").parents("div.input-group");
-			div.addClass("has-error");	
+			div.addClass("has-error");
+			kosong = '1';
 		} else {
 			var div = $("#jamn_plksa_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -591,6 +601,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#jamn_uang_muka_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#jamn_uang_muka_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -640,6 +651,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#pajak_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#pajak_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -688,6 +700,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#rekening_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#rekening_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -747,6 +760,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#kuitansi_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#kuitansi_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -795,6 +809,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#ptgn_uang_muka_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#ptgn_uang_muka_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -822,6 +837,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#bast_non_ppn_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#bast_non_ppn_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -894,6 +910,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#bts_akhir_kerja_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#bts_akhir_kerja_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -921,6 +938,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#po_non_ppn_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#po_non_ppn_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -970,6 +988,7 @@ $(document).ready(function(){
 			div.addClass("has-error");	 
 			var div = $("#invoice_0").parents("div.input-group");
 			div.addClass("has-error");	
+			kosong = '1';
 		} else {
 			var div = $("#invoice_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -1018,7 +1037,8 @@ $(document).ready(function(){
 			var div = $("#tagihan_1").parents("div.input-group");
 			div.addClass("has-error");	 
 			var div = $("#tagihan_0").parents("div.input-group");
-			div.addClass("has-error");	
+			div.addClass("has-error");
+			kosong = '1';
 		} else {
 			var div = $("#tagihan_1").parents("div.input-group");
 			div.removeClass("has-error");	 
@@ -1222,8 +1242,9 @@ $(document).ready(function(){
 			return false;	
 		}
 // end of entry cek
-//		return false;
 //		alert('masuk ahhh');
+//		return false;
+
 		//if(username.val() != '' && password.val() != ''){ // Check the username and password values is not empty and make the ajax request
 			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_dpp.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
 						
@@ -1481,82 +1502,139 @@ $("#menu-toggle").click(function(e) {
 	e.preventDefault();
 	$("#wrapper").toggleClass("toggled");
  });
+ 
 $('#kontrak_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#po_sp_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#amandemen_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#tagihan_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#invoice_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#tagihan_tgl_masuk').datepicker({
 	format: 'dd/mm/yyyy',
-	startDate: '-3d'
+	startDate: '-3d',
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#invoice_tgl_masuk').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#bast_non_ppn_tgl_baut').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#bast_non_ppn_tgl_bast').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#pajak_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#jamn_uang_muka_expired').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#jamn_plksa_expired').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#jamn_pmhr_expired').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#pls_asu_expired').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#tt_bld_draw_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#siujk_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#npwp_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#dgt_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
 });
+
 $('#side_ltr_tgl').datepicker({
 	format: 'dd/mm/yyyy',
 	startDate: '-3d'
-});
+}).on('changeDate', function(ev){
+    $(this).datepicker('hide');
+});	
 
 //knob
 $(function() {
