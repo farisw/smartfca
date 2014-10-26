@@ -165,7 +165,7 @@ $(document).ready(function(){
 
 		var jamn_pmhr_currency		= $('#jamn_pmhr_currency');
 		var jamn_pmhr_amount		= $('#jamn_pmhr_amount');
-		var kuitansi_atau			= $('#kuitansi_atau');
+		var kuitansi_dpp			= $('#kuitansi_dpp');
 		var rekening_currency		= $('#rekening_currency');
 		var rekening_amount			= $('#rekening_amount');
 		var kuitansi_no				= $('#kuitansi_no');		
@@ -765,14 +765,14 @@ $(document).ready(function(){
 					div.removeClass("has-error");	
 				}
 		//				alert('01m'); 
-				if(kuitansi_atau.val() == ''){ 
-					kuitansi_atau.focus(); // focus to the filed 
-					//$('#kuitansi_atau').val("Enter No Kontrak");
-					var div = $("#kuitansi_atau").parents("div.input-group");
+				if(kuitansi_dpp.val() == ''){ 
+					kuitansi_dpp.focus(); // focus to the filed 
+					//$('#kuitansi_dpp').val("Enter No Kontrak");
+					var div = $("#kuitansi_dpp").parents("div.input-group");
 					div.addClass("has-error");
 					kosong = '1';
 				} else {
-					var div = $("#kuitansi_atau").parents("div.input-group");
+					var div = $("#kuitansi_dpp").parents("div.input-group");
 					div.removeClass("has-error");	
 				}
 		//				alert('01g');
@@ -1225,7 +1225,7 @@ $(document).ready(function(){
 //		return false;
 //		alert('masuk ahhh');
 		//if(username.val() != '' && password.val() != ''){ // Check the username and password values is not empty and make the ajax request
-			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_atau.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
+			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_dpp.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
 						
 			var destination_submit = '';
 			if(incomplete.val() == 1){
@@ -1361,7 +1361,7 @@ $(document).ready(function(){
 
 		var jamn_pmhr_currency		= $('#jamn_pmhr_currency');
 		var jamn_pmhr_amount		= $('#jamn_pmhr_amount');
-		var kuitansi_atau			= $('#kuitansi_atau');
+		var kuitansi_dpp			= $('#kuitansi_dpp');
 		var rekening_currency		= $('#rekening_currency');
 		var rekening_amount			= $('#rekening_amount');
 		var kuitansi_no				= $('#kuitansi_no');		
@@ -1405,7 +1405,7 @@ $(document).ready(function(){
 		var park_area				= $('#park_area');
 		
 		//if(username.val() != '' && password.val() != ''){ // Check the username and password values is not empty and make the ajax request
-			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_atau.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
+			var UrlToSubmit = 'action=submit_off&nama_mitra='+nama_mitra.val()+'&nama_proyek='+nama_proyek.val()+'&kontrak_no='+kontrak_no.val()+'&po_sp_no='+po_sp_no.val()+'&amandemen_no='+amandemen_no.val()+'&keterangan_value='+keterangan_value.val()+'&kontrak_tgl='+kontrak_tgl.val()+'&po_sp_tgl='+po_sp_tgl.val()+'&amandemen_tgl='+amandemen_tgl.val()+'&kontrak_currency='+kontrak_currency.val()+'&po_sp_currency='+po_sp_currency.val()+'&amandemen_currency='+amandemen_currency.val()+'&kontrak_amount='+kontrak_amount.val()+'&po_sp_amount='+po_sp_amount.val()+'&amandemen_amount='+amandemen_amount.val()+'&tagihan_1='+tagihan_1+'&invoice_1='+invoice_1+'&po_non_ppn_1='+po_non_ppn_1+'&bts_akhir_kerja_1='+bts_akhir_kerja_1+'&bast_non_ppn_1='+bast_non_ppn_1+'&ptgn_uang_muka_1='+ptgn_uang_muka_1+'&kuitansi_1='+kuitansi_1+'&rekening_1='+rekening_1+'&pajak_1='+pajak_1+'&jamn_uang_muka_1='+jamn_uang_muka_1+'&jamn_plksa_1='+jamn_plksa_1+'&jamn_pmhr_1='+jamn_pmhr_1+'&pls_asu_1='+pls_asu_1+'&tt_bld_draw_1='+tt_bld_draw_1+'&siujk_1='+siujk_1+'&npwp_1='+npwp_1+'&dgt_1='+dgt_1+'&side_ltr_1='+side_ltr_1+'&rekon_wkt_1='+rekon_wkt_1+'&po_migo_1='+po_migo_1+'&tagihan_no='+tagihan_no.val()+'&invoice_no='+invoice_no.val()+'&tagihan_tgl='+tagihan_tgl.val()+'&invoice_tgl='+invoice_tgl.val()+'&tagihan_tgl_masuk='+tagihan_tgl_masuk.val()+'&invoice_tgl_masuk='+invoice_tgl_masuk.val()+'&po_non_ppn_currency='+po_non_ppn_currency.val()+'&po_non_ppn_amount='+po_non_ppn_amount.val()+'&po_non_ppn_amd_currency='+po_non_ppn_amd_currency.val()+'&po_non_ppn_amd_amount='+po_non_ppn_amd_amount.val()+'&po_non_ppn_thp_rekon='+po_non_ppn_thp_rekon.val()+'&bts_akhir_kerja_no='+bts_akhir_kerja_no.val()+'&bast_non_ppn_tgl_baut='+bast_non_ppn_tgl_baut.val()+'&bast_non_ppn_tgl_bast='+bast_non_ppn_tgl_bast.val()+'&bast_non_ppn_barang='+bast_non_ppn_barang.val()+'&bast_non_ppn_jasa='+bast_non_ppn_jasa.val()+'&bast_non_ppn_currency='+bast_non_ppn_currency.val()+'&bast_non_ppn_amount='+bast_non_ppn_amount.val()+'&ptgn_uang_muka_currency='+ptgn_uang_muka_currency.val()+'&ptgn_uang_muka_amount='+ptgn_uang_muka_amount.val()+'&kuitansi_currency='+kuitansi_currency.val()+'&kuitansi_amount='+kuitansi_amount.val()+'&rekening_ats_nm='+rekening_ats_nm.val()+'&pajak_currency='+pajak_currency.val()+'&pajak_amount='+pajak_amount.val()+'&jamn_uang_muka_currency='+jamn_uang_muka_currency.val()+'&jamn_uang_muka_amount='+jamn_uang_muka_amount.val()+'&jamn_plksa_currency='+jamn_plksa_currency.val()+'&jamn_plksa_amount='+jamn_plksa_amount.val()+'&jamn_pmhr_currency='+jamn_pmhr_currency.val()+'&jamn_pmhr_amount='+jamn_pmhr_amount.val()+'&kuitansi_atau='+kuitansi_dpp.val()+'&rekening_currency='+rekening_currency.val()+'&rekening_amount='+rekening_amount.val()+'&kuitansi_no='+kuitansi_no.val()+'&rekening_bank='+rekening_bank.val()+'&rekening_switch='+rekening_switch.val()+'&pajak_no='+pajak_no.val()+'&jamn_uang_muka_assr='+jamn_uang_muka_assr.val()+'&jamn_plksa_assr='+jamn_plksa_assr.val()+'&jamn_pmhr_assr='+jamn_pmhr_assr.val()+'&pajak_tgl='+pajak_tgl.val()+'&jamn_uang_muka_expired='+jamn_uang_muka_expired.val()+'&jamn_plksa_expired='+jamn_plksa_expired.val()+'&jamn_pmhr_expired='+jamn_pmhr_expired.val()+'&pls_asu_expired='+pls_asu_expired.val()+'&tt_bld_draw_tgl='+tt_bld_draw_tgl.val()+'&siujk_tgl='+siujk_tgl.val()+'&npwp_tgl='+npwp_tgl.val()+'&dgt_tgl='+dgt_tgl.val()+'&side_ltr_tgl='+side_ltr_tgl.val()+'&pls_asu_no='+pls_asu_no.val()+'&pls_asu_assr='+pls_asu_assr.val()+'&tt_bld_draw_no='+tt_bld_draw_no.val()+'&siujk_no='+siujk_no.val()+'&npwp_no='+npwp_no.val()+'&dgt_no='+dgt_no.val()+'&side_ltr_no='+side_ltr_no.val()+'&po_migo_value='+po_migo_value.val()+'&true_amount='+true_amount.val()+'&true_currency='+true_currency.val()+'&start_time='+start_time.val()+'&area='+area.val()+'&no_sap='+no_sap.val()+'&incomplete='+incomplete.val()+'&park_doc_number='+park_doc_number.val()+'&park_year='+park_year.val()+'&park_month='+park_month.val()+'&park_level='+park_level.val()+'&park_area='+park_area.val();
 						
 			var destination_submit = '';
 			if(incomplete.val() == 1){
@@ -1611,8 +1611,8 @@ $(function(){
 	$('#bast_non_ppn_amount').number( true, 0 );
 	$('#ptgn_uang_muka_amount').number( true, 0 );
 	$('#kuitansi_amount').number( true, 0 );
-	$('#kuitansi_atau').number( true, 0 );
-	//$('#rekening_amount').number( true, 0 );
+	$('#kuitansi_dpp').number( true, 0 );
+	//$('#rekening_amount').number( true, 0 ); 
 	$('#pajak_amount').number( true, 0 );
 	$('#jamn_uang_muka_amount').number( true, 0 );
 	$('#jamn_pmhr_amount').number( true, 0 );
@@ -1630,23 +1630,25 @@ $(function(){
 	//	$('#the_number').text( val !== '' ? val : '(empty)' );
 	//});
 	
-//	//menghitung DPP & menghitung Faktur pajak
-//	var $dpp1    = $('#kuitansi_amount');
-//	var $dpp2    = $('#kuitansi_atau');
-//	var $ft_pjk3 = $('#pajak_amount');
-//
-//    $dpp1.on('paste, keydown', function() {
-//	var $self = $(this);            
-//	setTimeout(function(){ 
-//		var $content1 = $self.val();//html();
-//        $content1 =  Math.round( 100 / 110 * $content1 );        
-//        $dpp2.val($content1);
-//		
-//		var $content2 = $content1;//html();
-//		$content2 =  Math.round( 10 / 100 * $content2 ); 
-//		$ft_pjk3.val($content2);
-//        },100);
-//     });
+	//menghitung DPP & menghitung Faktur pajak
+	var $dpp1    = $('#kuitansi_amount');
+	var $dpp2    = $('#kuitansi_dpp');
+	var $ft_pjk3 = $('#pajak_amount');
+
+    $dpp1.on('paste, keydown', function() {
+	var $self = $(this);            
+	setTimeout(function(){ 
+		//menghitung DPP
+		var $content1 = $self.val();//html();
+        $content1 =  Math.round( 100 / 110 * $content1 );        
+        $dpp2.val($content1);
+		
+		//menghitung Faktur pajak
+		var $content2 = $content1;//html();
+		$content2 =  Math.round( 10 / 100 * $content2 ); 
+		$ft_pjk3.val($content2);
+        },100);
+     });
 	 
 		
 });

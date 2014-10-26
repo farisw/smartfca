@@ -640,7 +640,7 @@
               </div>
               <div class="col-lg-4a">
                 <div class="input-group"> <span class="input-group-addon">DPP</span>
-                  <input type="text" class="form-control" placeholder="DPP" id="kuitansi_atau"
+                  <input type="text" class="form-control" placeholder="DPP" id="kuitansi_dpp"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KUITANSI_PPN_ATAU']; } ?>" >
                 </div>
               </div>
@@ -694,7 +694,7 @@
               <div class="col-lg-3">
                 <div class="input-group"> <span class="input-group-addon"></span>
                   <input type="text" class="form-control" placeholder="No Rekening"  id="rekening_amount"
-                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['REKENING_AMOUNT']; } ?>" >
+                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['REKENING_AMOUNT']; } ?>" > 
                 </div>
               </div>
             </div>
