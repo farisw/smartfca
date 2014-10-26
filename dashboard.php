@@ -282,7 +282,8 @@ if($num_park >= 1){
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/bootstrap-datepicker.js"></script> 
 
-<script src="js/jquery.number.js"></script>                 
+<script src="js/jquery.number.js"></script>
+<script src="js/jquery.numeric.js"></script>
 <script src="js/knob.js"></script> 
 
 <script src="js/main.js"></script> 

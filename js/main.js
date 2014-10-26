@@ -13,7 +13,8 @@
 
 
 
-$(document).ready(function(){	
+$(document).ready(function(){
+		
 	//user account
 	$('#savenewpass').click(function(){ // Create `click` event function for login
 			// Get All data property
@@ -1084,17 +1085,17 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02e');
-		if(amandemen_amount.val() == '' || amandemen_amount.val() == 0){ 
-			amandemen_amount.focus(); // focus to the filed 
-			//$('#amandemen_amount').val("Enter No Kontrak");
-			var div = $("#amandemen_amount").parents("div.input-group");
-			div.addClass("has-error");
-			kosong = '1';
-		} else {
-			var div = $("#amandemen_amount").parents("div.input-group");
-			div.removeClass("has-error");	
-		}
-//				alert('02f');
+//		if(amandemen_amount.val() == '' || amandemen_amount.val() == 0){ 
+//			amandemen_amount.focus(); // focus to the filed 
+//			//$('#amandemen_amount').val("Enter No Kontrak");
+//			var div = $("#amandemen_amount").parents("div.input-group");
+//			div.addClass("has-error");
+//			kosong = '1';
+//		} else {
+//			var div = $("#amandemen_amount").parents("div.input-group");
+//			div.removeClass("has-error");	
+//		}
+////				alert('02f');
 		if(po_sp_amount.val() == '' || po_sp_amount.val() == 0){ 
 			po_sp_amount.focus(); // focus to the filed 
 			//$('#po_sp_amount').val("Enter No Kontrak");
@@ -1117,17 +1118,17 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02h');
-		if(amandemen_tgl.val() == '' || amandemen_tgl.val() == '00/00/0000'){ 
-			//amandemen_tgl.focus(); // focus to the filed 
-			//$('#amandemen_tgl').val("Enter No Kontrak");
-			var div = $("#amandemen_tgl").parents("div.input-group");
-			div.addClass("has-error");
-			kosong = '1';
-		} else {
-			var div = $("#amandemen_tgl").parents("div.input-group");
-			div.removeClass("has-error");	
-		}
-//				alert('02i');
+//		if(amandemen_tgl.val() == '' || amandemen_tgl.val() == '00/00/0000'){ 
+//			//amandemen_tgl.focus(); // focus to the filed 
+//			//$('#amandemen_tgl').val("Enter No Kontrak");
+//			var div = $("#amandemen_tgl").parents("div.input-group");
+//			div.addClass("has-error");
+//			kosong = '1';
+//		} else {
+//			var div = $("#amandemen_tgl").parents("div.input-group");
+//			div.removeClass("has-error");	
+//		}
+////				alert('02i');
 		if(po_sp_tgl.val() == '' || po_sp_tgl.val() == '00/00/0000'){ 
 			//po_sp_tgl.focus(); // focus to the filed 
 			//$('#po_sp_tgl').val("Enter No Kontrak");
@@ -1161,17 +1162,17 @@ $(document).ready(function(){
 			div.removeClass("has-error");	
 		}
 //				alert('02l');
-		if(amandemen_no.val() == ''){ 
-			amandemen_no.focus(); // focus to the filed 
-			//$('#amandemen_no').val("Enter No Kontrak");
-			var div = $("#amandemen_no").parents("div.input-group");
-			div.addClass("has-error");
-			kosong = '1';
-		} else {
-			var div = $("#amandemen_no").parents("div.input-group");
-			div.removeClass("has-error");	
-		}
-//				alert('02m');
+//		if(amandemen_no.val() == ''){ 
+//			amandemen_no.focus(); // focus to the filed 
+//			//$('#amandemen_no').val("Enter No Kontrak");
+//			var div = $("#amandemen_no").parents("div.input-group");
+//			div.addClass("has-error");
+//			kosong = '1';
+//		} else {
+//			var div = $("#amandemen_no").parents("div.input-group");
+//			div.removeClass("has-error");	
+//		}
+////				alert('02m');
 		if(po_sp_no.val() == ''){ 
 			po_sp_no.focus(); // focus to the filed 
 			//$('#po_sp_no').val("Enter No Kontrak");
@@ -1472,7 +1473,6 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	
 		
 });
 
@@ -1599,7 +1599,7 @@ $(function() {
 				
 });
 
-//	format Number		
+//	format Number & rumus otomatis
 $(function(){
 	// Set up the number formatting.
 	$('#kontrak_amount').number( true, 0 );
@@ -1611,11 +1611,16 @@ $(function(){
 	$('#bast_non_ppn_amount').number( true, 0 );
 	$('#ptgn_uang_muka_amount').number( true, 0 );
 	$('#kuitansi_amount').number( true, 0 );
-	$('#rekening_amount').number( true, 0 );
+	$('#kuitansi_atau').number( true, 0 );
+	//$('#rekening_amount').number( true, 0 );
 	$('#pajak_amount').number( true, 0 );
 	$('#jamn_uang_muka_amount').number( true, 0 );
 	$('#jamn_pmhr_amount').number( true, 0 );
 	$('#jamn_plksa_amount').number( true, 0 );
+	
+	$('#no_sap').numeric();
+	
+	//$('#no_sap').number( true );
 	// Get the value of the number for the demo.
 	//$('#get_number').on('click',function(){
 		
@@ -1624,7 +1629,24 @@ $(function(){
 	//	$('#number_container').slideDown('fast');
 	//	$('#the_number').text( val !== '' ? val : '(empty)' );
 	//});
+	
+//	//menghitung DPP & menghitung Faktur pajak
+//	var $dpp1    = $('#kuitansi_amount');
+//	var $dpp2    = $('#kuitansi_atau');
+//	var $ft_pjk3 = $('#pajak_amount');
+//
+//    $dpp1.on('paste, keydown', function() {
+//	var $self = $(this);            
+//	setTimeout(function(){ 
+//		var $content1 = $self.val();//html();
+//        $content1 =  Math.round( 100 / 110 * $content1 );        
+//        $dpp2.val($content1);
+//		
+//		var $content2 = $content1;//html();
+//		$content2 =  Math.round( 10 / 100 * $content2 ); 
+//		$ft_pjk3.val($content2);
+//        },100);
+//     });
+	 
+		
 });
-//submit
-
-

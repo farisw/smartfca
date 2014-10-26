@@ -231,7 +231,14 @@
               <div class="col-lg-5">
                 <div class="input-group"> <span class="input-group-addon">No. SAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="No SAP" id="no_sap"
+
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NO_SAP']; } ?>">
+<!--                    onkeydown="return ( event.ctrlKey || event.altKey 
+                                        || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                                        || (95<event.keyCode && event.keyCode<106)
+                                        || (event.keyCode==8) || (event.keyCode==9) 
+                                        || (event.keyCode>34 && event.keyCode<40) 
+                                        || (event.keyCode==46) )"-->
                 </div>
                 <!-- /input-group --> 
               </div>
@@ -632,8 +639,8 @@
                 </div>
               </div>
               <div class="col-lg-4a">
-                <div class="input-group"> <span class="input-group-addon">Atau</span>
-                  <input type="text" class="form-control" placeholder="Atau" id="kuitansi_atau"
+                <div class="input-group"> <span class="input-group-addon">DPP</span>
+                  <input type="text" class="form-control" placeholder="DPP" id="kuitansi_atau"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KUITANSI_PPN_ATAU']; } ?>" >
                 </div>
               </div>
@@ -686,7 +693,7 @@
               </div>
               <div class="col-lg-3">
                 <div class="input-group"> <span class="input-group-addon"></span>
-                  <input type="text" class="form-control" placeholder="Amount"  id="rekening_amount"
+                  <input type="text" class="form-control" placeholder="No Rekening"  id="rekening_amount"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['REKENING_AMOUNT']; } ?>" >
                 </div>
               </div>
@@ -739,7 +746,7 @@
               </div>
               <div class="col-lg-3">
                 <div class="input-group"> <span class="input-group-addon"></span>
-                  <input type="text" class="form-control" placeholder="Amount" id="pajak_amount"
+                  <input type="text" class="form-control" placeholder="Amount" id="pajak_amount" 
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['FAKTUR_PJK_AMOUNT']; } ?>" >
                 </div>
               </div>

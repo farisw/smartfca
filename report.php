@@ -56,7 +56,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
         <div class="row"> 
           <!--  nama_projek -->
           <div class="col-lg-5">
-            <div class="input-group"> <span class="input-group-addon">User &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="input-group"> <span class="input-group-addon">User &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <input type="text" class="form-control" placeholder="User" id="user" value="<?php echo $_SESSION['USERNAME']; ?>" <?php if($_SESSION['LEVEL'] == 'VRKT') {echo "disabled";}?>>
             </div>
             <!-- /input-group --> 
@@ -78,7 +78,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
         <div class="row"> 
           <!--  nama_projek -->
           <div class="col-lg-5">
-            <div class="input-group"> <span class="input-group-addon">Unit / Area &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="input-group"> <span class="input-group-addon">Unit / Area &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <input type="text" class="form-control" placeholder="Unit / Area" id="area" value="<?php echo $_SESSION['AREA']; ?>" <?php if($_SESSION['LEVEL'] != 'ADMIN') {echo "disabled";}?>>
             </div>
             <!-- /input-group --> 
@@ -91,7 +91,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
         <div class="row"> 
           <!--  nama_projek -->
           <div class="col-lg-5">
-            <div class="input-group"> <span class="input-group-addon">No / Doc SAP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="input-group"> <span class="input-group-addon">No / Doc SAP &nbsp;&nbsp;</span>
               <input type="text" class="form-control" placeholder="No / Doc SAP" id="doc_sap" >
             </div>
             <!-- /input-group --> 
