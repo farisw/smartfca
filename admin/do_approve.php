@@ -21,6 +21,8 @@ include("connect.php");
 
 //echo $history_approval	= $_REQUEST['approval'];
 //echo $history_start_at   = $_SESSION['TIME_NON'];
+//echo $_SESSION['LEVEL'];
+//echo '<br>';
 $history_docnum 	= $_REQUEST['docnum'];
 $history_year 		= $_REQUEST['year'];
 $history_month 		= $_REQUEST['month'];
@@ -59,15 +61,15 @@ $get_ready_appv		="
 					  AND A.AREA	 	= '".$history_area."'
 					  AND A.LEVEL 		= '".$history_level."'
 					 ";
-echo $get_ready_appv;
+//echo $get_ready_appv;
 $query_ready_appv	= mysql_query($get_ready_appv);
 $num_row_ready_appv	= mysql_num_rows($query_ready_appv);
-echo $num_row_ready_appv;
+//echo $num_row_ready_appv;
 if($num_row_ready_appv > 0){ 
 	$fetch_ready_appv = mysql_fetch_array($query_ready_appv);
 	$response_text	= "DOCUMENT :".$fetch_ready_appv['DOC_NUMBER'].", YEAR : ".$fetch_ready_appv['YEAR']." MONTH : ".$fetch_ready_appv['MONTH']." 
 					   telah di approve oleh ".$fetch_ready_appv['NAMA_DEPAN'].", dengan USER :".$fetch_ready_appv['USER'];
-	echo $response_text;
+	//echo $response_text;
 ?>
 			<script type="text/javascript">
 				//var response_text		= $('response_text');
@@ -217,33 +219,45 @@ if($num_row_trx_detail <= 0){
 	//exit;
 	}elseif($get_detail_apprv_lvl == $get_detail_fiatur){ 	// jika approval_level sampai ke fiatur 
 		$return_flow_main		= '';	
-		$return_approval_level	= '';
+		$return_approval_level	= $get_detail_fiatur;
+		//$get_detail_level		= $get_detail_fiatur;
+		$return_next_approval	= $get_detail_fiatur;
+		$return_approval_level	= ' ';
+		//echo 'udah masuk ke fiatur nih';
+		//echo '<br>';
+//		echo '<br><br>';
+//		echo 'return_approval_level : '.$return_approval_level;
+//		echo '<br><br>';
+//		echo 'get_detail_fiatur : '.$get_detail_fiatur;
+//		echo '<br><br>';
 	}
-	
+	//echo '$history_approval : '.$history_approval;
+	//echo '<br>';
 	if($history_approval == 'APPROVE'){
 		$reject_flag = '';
 	}elseif($history_approval == 'REJECT'){
 		$reject_flag = 'X';
 		$return_flow_main 		= $get_detail_flow_main;
 		$return_approval_level 	= $get_detail_apprv_lvl;
-		$return_next_approval	= '';
+		//$return_next_approval	= $get_detail_level;
 	}
 	//Update transaksi untuk next approval
 	$upd_detail_text	= "UPDATE trx_detail 
 						      SET APPROVAL_LEVEL 	= '".$return_approval_level."', 
 							      FLOW_MAIN 		= '".$return_flow_main."',
-							      CHANGED_BY 		= '".$return_approval_level."', 
+							      CHANGED_BY 		= '".$history_user."', 
 							      CHANGED_AT 		= '".$history_finish_at."', 
 								  REJECT_FLAG		= '".$reject_flag."'
 						   WHERE DOC_NUMBER 		= '".$history_docnum."' 
 						     AND YEAR 				= '".$history_year."' 
 						     AND MONTH 				= '".$history_month."' 
-						     AND LEVEL 				= '".$get_detail_level."' 
+						     AND LEVEL 				= '".$get_detail_level."'  
 						     AND AREA				= '".$get_detail_area."' 
 						     AND FIATUR				= '".$get_detail_fiatur."'
-						 ";
+						 "; 
 
-	//Insert to History data
+	//echo $upd_detail_text;
+	//echo '<br><br>';
 	$into_history_text 	= "INSERT INTO trx_history
 						  ( 
 							DOC_NUMBER, YEAR, MONTH, 
@@ -254,12 +268,19 @@ if($num_row_trx_detail <= 0){
 						  VALUES
 						  (
 							'".$history_docnum."', '".$history_year."', '".$history_month."', 
-							'".$get_detail_level."', '".$history_user."', '".$history_area."',
+							'".$history_level."', '".$history_user."', '".$history_area."',
 							'".$get_priority."', '".$history_approval."',
 							'".$history_start_at."', '".$history_finish_at."', '".$return_next_approval."'
 						  )
 						  ";
-						  
+	//echo $into_history_text;
+?>
+			<script type="text/javascript">
+                //alert('Transaksiiii');
+                //window.location = '../dashboard.php?select=1';
+            </script>
+<?php
+	//exit;
 	$query_upd_detail	= mysql_query($upd_detail_text);
 	$error_upd_detail	= mysql_errno();
 	if($error_upd_detail == 0){

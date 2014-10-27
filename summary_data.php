@@ -218,6 +218,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 							trx_detail.YEAR,
 							trx_detail.MONTH,
 							trx_detail.AREA,
+							trx_detail.FIATUR,
 							trx_detail.TRUE_VALUE_CURRENCY,
 							trx_detail.TRUE_VALUE,
 							trx_detail.NAMA_MITRA,
@@ -279,8 +280,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
-    <th scope="col">Created By</th>
+    <th scope="col">Fiatur</th>
     <th scope="col">Level Approval</th>
+    <th scope="col">Created By</th>
     <th scope="col">Status</th>
     <th scope="col">Last Changed at</th>
   </tr>
@@ -301,9 +303,14 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
-    <td><?php echo $data_level_found['USER']; ?></td>
+    <td><?php echo $data_level_found['FIATUR']; ?></td>
     <td><?php echo $data_level_found['LEVEL']; ?></td>
-    <td <?php if($data_level_found['STATUS']=="APPROVE") echo 'style="color:#15A93F"'; elseif($data_level_found['STATUS']=="REJECT") echo 'style="color:#15A93F"'; ?> ><?php echo $data_level_found['STATUS']; ?></td>
+    <td><?php echo $data_level_found['USER']; ?></td>
+    <td <?php if($data_level_found['STATUS']=="APPROVE") 
+				echo 'style="color:#15A93F"'; 
+			  elseif($data_level_found['STATUS']=="REJECT") 
+			  	echo 'style="color:#15A93F"'; ?> >
+		<?php if($data_level_found['LEVEL'] != 'VRKT') echo $data_level_found['STATUS']; ?></td>
     <td><?php echo $data_level_found['FINISH_AT']; ?></td>
   </tr>
 <?php 
@@ -320,8 +327,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
-    <th scope="col">Created By</th>
+    <th scope="col">Fiatur</th>
     <th scope="col">Level Approval</th>
+    <th scope="col">Created By</th>
     <th scope="col">Status</th>
     <th scope="col">Last Changed at</th>
   </tr>

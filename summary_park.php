@@ -60,7 +60,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 							
 					FROM	trx_detail 
 					WHERE	trx_detail.CREATED_BY	= "'.$lv_user.'"
-					  AND 	trx_detail.NOT_COMPLETE = " "
+					  AND 	trx_detail.NOT_COMPLETE = "X"
 					ORDER BY DOC_NUMBER DESC, YEAR DESC, MONTH DESC
 		';
 		$get_data_level = mysql_query($getquery);
