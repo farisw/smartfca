@@ -79,7 +79,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
           <!--  nama_projek -->
           <div class="col-lg-5">
             <div class="input-group"> <span class="input-group-addon">Unit / Area &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-              <input type="text" class="form-control" placeholder="Unit / Area" id="area" value="<?php echo $_SESSION['AREA']; ?>" <?php if($_SESSION['LEVEL'] != 'ADMIN') {echo "disabled";}?>>
+              <input type="text" class="form-control" placeholder="Unit / Area" id="area" value="<?php echo $_SESSION['AREA']; ?>" <?php if($_SESSION['LEVEL'] != 'ADMIN' && $_SESSION['LEVEL'] != 'OSM') {echo "disabled";}?>>
             </div>
             <!-- /input-group --> 
           </div>
