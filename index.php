@@ -76,7 +76,7 @@ session_destroy();
 			  <div class="col-lg-12">
 			    <div class="input-group">
 			      <span class="input-group-addon">Username</span>
-				  <input type="text" class="form-control" placeholder="Username" id="username" value="610281"/>
+				  <input type="text" class="form-control" placeholder="Username" id="username" value="590393"/>
 			    </div><!-- /input-group  --> 
 			  </div><!-- /.col-lg-6 -->		  	  		  	  
 			</div><!-- /.row -->

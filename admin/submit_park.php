@@ -162,7 +162,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	
 	$true_amount				= strip_tags(htmlentities($_POST['true_amount']));
 	$true_currency				= strip_tags(htmlentities($_POST['true_currency']));
-	$start_time					= strip_tags(htmlentities($_POST['start_time']));
+	$start_time					= strip_tags(htmlentities($_POST['start_time'])); 
+	$start_time_park			= strip_tags(htmlentities($_POST['start_time_park']));
 	$area						= strip_tags(htmlentities($_POST['area']));
 	$incomplete					= strip_tags(htmlentities($_POST['incomplete']));
 	
@@ -302,28 +303,152 @@ if($error_appv == 0){
 			}
 			//exit;
 			$history_user	= $_SESSION['USERNAME'];
-			$history_start_at   = $start_time;
-			$history_finish_at  = date("Y-m-d H:i:s");
+			$history_start_at   = $start_time; 
+			$history_start_at_park   = $start_time_park; 
+			$history_finish_at_park  = date("Y-m-d H:i:s");
 			$into_history_text = "INSERT INTO trx_history
 								  ( 
 									DOC_NUMBER, YEAR, MONTH, 
 									LEVEL, USER, AREA,
 									PRIORITY, STATUS, 
-									START_AT, FINISH_AT, NEXT_APPROVAL
+									START_AT, FINISH_AT
 								   )
 								   VALUES 
 								   (
 									'".$get_number_found."', '".$get_year."', '".$get_month."', 
 									'".$get_level_found."', '".$history_user."', '".$area."',
-									'".$get_priority_history."', 'APPROVE',
-									'".$history_start_at."', '".$history_finish_at."', '".$get_next_approval."'
+									'".$get_priority_history."', 'PARK',
+									'".$history_start_at_park."', '".$history_finish_at_park."'
 								   )
 								  ";
 			//echo $into_history_text;
 			//exit;
 			
 	//	  //UPDATE `smart_fca`.`trx_number` SET `CURRENT_DOC_NUMB` = '1000000001' WHERE `trx_number`.`YEAR` = '2014';
-	//	  //INSERT INTO `smart_fca`.`trx_number` (`DOC_NUMB_START`, `YEAR`, `CURRENT_DOC_NUMB`) VALUES ('1000000000', '2016', '1000000000');	
+	//	  //INSERT INTO `smart_fca`.`trx_number` (`DOC_NUMB_START`, `YEAR`, `CURRENT_DOC_NUMB`) VALUES ('1000000000', '2016', '1000000000');
+			$cek_transaksi  = 	"
+								SELECT * FROM `trx_detail` 
+								WHERE 	`DOC_NUMBER` 	= '".$get_number_found."' 	AND 
+										`YEAR` 			= '".$get_year."' 			AND 
+										`MONTH` 		= '".$get_month."' 			AND 
+										`AREA` 			= '".$area."' 
+								ORDER BY `trx_detail`.`DOC_NUMBER` DESC
+								";
+			$query_cek_transaksi = mysql_query($cek_transaksi);
+			$num_rows_cek_transaksi = mysql_num_rows($query_cek_transaksi);
+			if($num_rows_cek_transaksi > 0){
+			
+			$querytext      = "
+							  UPDATE `smart_fca`.`trx_detail`
+							  SET
+							  		NAMA_MITRA						= '".$nama_mitra."', 
+									NAMA_PROYEK						= '".$nama_proyek."',
+									KONTRAK_NO						= '".$kontrak_no."', 
+									KONTRAK_TGL						= '".$kontrak_tgl."', 
+									KONTRAK_CURRENCY				= '".$kontrak_currency."', 
+									KONTRAK_AMOUNT					= '".$kontrak_amount."', 
+									PO_SP_NO						= '".$po_sp_no."', 
+									PO_SP_TGL						= '".$po_sp_tgl."', 
+									PO_SP_CURRENCY					= '".$po_sp_currency."', 
+									PO_SP_AMOUNT					= '".$po_sp_amount."', 
+									AMANDEMEN_NO					= '".$amandemen_no."', 
+									AMANDEMEN_TGL					= '".$amandemen_tgl."', 
+									AMANDEMEN_CURRENCY				= '".$amandemen_currency."', 
+									AMANDEMEN_AMOUNT				= '".$amandemen_amount."', 
+									TRUE_VALUE_CURRENCY				= '".$true_currency."', 
+									TRUE_VALUE						= '".$true_amount."',
+									KETERANGAN						= '".$keterangan_value."', 
+									NO_SAP							= '".$no_sap."',
+									TAGIHAN_MARK					= '".$tagihan_mark."', 
+									TAGIHAN_NO						= '".$tagihan_no."', 
+									TAGIHAN_TGL						= '".$tagihan_tgl."', 
+									TAGIHAN_TGL_MASUK				= '".$tagihan_tgl_masuk."', 
+									INVOICE_MARK					= '".$invoice_mark."', 
+									INVOICE_NO						= '".$invoice_no."', 
+									INVOICE_TGL						= '".$invoice_tgl."', 
+									INVOICE_TGL_MASUK				= '".$invoice_tgl_masuk."', 
+									PO_NON_PPN_MARK					= '".$po_non_ppn_mark."', 
+									PO_NON_PPN_CURRENCY				= '".$po_non_ppn_currency."', 
+									PO_NON_PPN_AMOUNT				= '".$po_non_ppn_amount."', 
+									PO_NON_PPN_AMANDEMEN_CURRENCY	= '".$po_non_ppn_amd_currency."', 
+									PO_NON_PPN_AMANDEMEN_AMOUNT		= '".$po_non_ppn_amd_amount."', 
+									PO_NON_PPN_THP_REKON			= '".$po_non_ppn_thp_rekon."', 
+									BATAS_AKHIR_PRJ_MARK			= '".$bts_akhir_kerja_mark."', 
+									BATAS_AKHIR_PRJ_NO_BAUT			= '".$bts_akhir_kerja_no."',
+									BAST_NON_PPN_MARK				= '".$bast_non_ppn_mark."', 
+									BAST_NON_PPN_CURRENCY			= '".$bast_non_ppn_currency."', 
+									BAST_NON_PPN_AMOUNT				= '".$bast_non_ppn_amount."', 
+									BAST_NON_PPN_BARANG				= '".$bast_non_ppn_barang."',
+									BAST_NON_PPN_JASA				= '".$bast_non_ppn_jasa."', 
+									BAST_NON_PPN_TGL_BAUT			= '".$bast_non_ppn_tgl_baut."', 
+									BAST_NON_PPN_TGL_BAST			= '".$bast_non_ppn_tgl_bast."', 
+									PTG_UANG_MUKA_MARK				= '".$ptgn_uang_muka_mark."', 
+									PTG_UANG_MUKA_CURRENCY			= '".$ptgn_uang_muka_currency."', 
+									PTG_UANG_MUKA_AMOUNT			= '".$ptgn_uang_muka_amount."', 
+									KUITANSI_PPN_MARK				= '".$kuitansi_mark."', 
+									KUITANSI_PPN_CURRENCY			= '".$kuitansi_currency."', 
+									KUITANSI_PPN_AMOUNT				= '".$kuitansi_amount."', 
+									KUITANSI_PPN_ATAU				= '".$kuitansi_atau."', 
+									KUITANSI_PPN_NO					= '".$kuitansi_no."', 
+									REKENING_MARK					= '".$rekening_mark."', 
+									REKENING_ATS_NAMA				= '".$rekening_ats_nm."', 
+									REKENING_CURRENCY				= '".$rekening_currency."', 
+									REKENING_AMOUNT					= '".$rekening_amount."', 
+									REKENING_BANK					= '".$rekening_bank."', 
+									REKENING_SW_CODE				= '".$rekening_switch."', 
+									FAKTUR_PJK_MARK					= '".$pajak_mark."', 
+									FAKTUR_PJK_CURRENCY				= '".$pajak_currency."', 
+									FAKTUR_PJK_AMOUNT				= '".$pajak_amount."', 
+									FAKTUR_PJK_NO					= '".$pajak_no."', 
+									FAKTUR_PJK_TGL					= '".$pajak_tgl."', 
+									JAMN_UANG_MUKA_MARK				= '".$jamn_uang_muka_mark."', 
+									JAMN_UANG_MUKA_CURRENCY			= '".$jamn_uang_muka_currency."', 
+									JAMN_UANG_MUKA_AMOUNT			= '".$jamn_uang_muka_amount."', 
+									JAMN_UANG_MUKA_ASSR				= '".$jamn_uang_muka_assr."', 
+									JAMN_UANG_MUKA_EXPIRED			= '".$jamn_uang_muka_expired."', 
+									JAMN_PELKSNA_MARK				= '".$jamn_plksa_mark."', 
+									JAMN_PELKSNA_CURRENCY			= '".$jamn_plksa_currency."', 
+									JAMN_PELKSNA_AMOUNT				= '".$jamn_plksa_amount."', 
+									JAMN_PELKSNA_ASSR				= '".$jamn_plksa_assr."', 
+									JAMN_PELKSNA_EXPIRED			= '".$jamn_plksa_expired."', 
+									JAMN_PLHRA_MARK					= '".$jamn_pmhr_mark."', 
+									JAMN_PLHRA_CURRENCY				= '".$jamn_pmhr_currency."', 
+									JAMN_PLHRA_AMOUNT				= '".$jamn_pmhr_amount."', 
+									JAMN_PLHRA_ASSR					= '".$jamn_pmhr_assr."', 
+									JAMN_PLHRA_EXPIRED				= '".$jamn_pmhr_expired."', 
+									POLIS_ASUR_MARK					= '".$pls_asu_mark."', 
+									POLIS_ASUR_NO					= '".$pls_asu_no."', 
+									POLIS_ASUR_ASSR					= '".$pls_asu_assr."', 
+									POLIS_ASUR_EXPIRED				= '".$pls_asu_expired."', 
+									TD_TERIMA_BLD_DRAW_MARK			= '".$tt_bld_draw_mark."', 
+									TD_TERIMA_BLD_DRAW_NO			= '".$tt_bld_draw_no."', 
+									TD_TERIMA_BLD_DRAW_TGL			= '".$tt_bld_draw_tgl."', 
+									SIUJK_MARK						= '".$siujk_mark."', 
+									SIUJK_NO						= '".$siujk_no."', 
+									SIUJK_TGL						= '".$siujk_tgl."',
+									NPWP_MARK						= '".$npwp_mark."', 
+									NPWP_NO							= '".$npwp_no."', 
+									NPWP_TGL						= '".$npwp_tgl."', 
+									F_DGT1_MARK						= '".$dgt_mark."', 
+									F_DGT1_NO						= '".$dgt_no."', 
+									F_DGT1_TGL						= '".$dgt_tgl."', 
+									SIDE_LETTER_MARK				= '".$side_ltr_mark."', 
+									SIDE_LETTER_NO					= '".$side_ltr_no."', 
+									SIDE_LETTER_TGL					= '".$side_ltr_tgl."',
+									REKON_WAKTU_MARK				= '".$rekon_wkt_mark."',
+									PO_MIGO_MARK					= '".$po_migo_mark."', 
+									PO_MIGO_VALUE					= '".$po_migo_value."', 
+									CHANGED_BY						= '".$changed_by."', 
+									CREATED_BY						= '".$created_by."'
+								WHERE 	
+									`DOC_NUMBER` 	= '".$get_number_found."' 	AND 
+									`YEAR` 			= '".$get_year."' 			AND 
+									`MONTH` 		= '".$get_month."' 			AND 
+									`AREA` 			= '".$area."' 
+							  ";
+			
+			} else {
+				
 			$querytext      = "
 							  INSERT INTO trx_detail
 							  ( NOT_COMPLETE,
@@ -390,6 +515,9 @@ if($error_appv == 0){
 								'".$changed_by."', '".$created_by."'
 								)
 							  ";
+			
+			}
+			
 
 			//echo $querytext;
 			//exit;
@@ -400,9 +528,9 @@ if($error_appv == 0){
 			//echo $cek_error; 
 			//exit;
 			if($cek_error == 0){ // If any error trx_detail
-				//$into_history_query = mysql_query($into_history_text); // insert trx_history
-				//$into_history_error = mysql_errno();	
-				//if($into_history_error == 0){	//any error insert trx_detail
+				$into_history_query = mysql_query($into_history_text); // insert trx_history
+				$into_history_error = mysql_errno();	
+				if($into_history_error == 0){	//any error insert trx_detail
 					$query	= mysql_query("
 							UPDATE trx_number
 							SET CURRENT_DOC_NUMB = '".$get_number_found."'
@@ -412,9 +540,9 @@ if($error_appv == 0){
 					if ($upd_error == 0){ //any error insert trx_number document number
 						echo 0;	
 					}				
-				//} else {
-				//	echo 2; // Error Insert data trx_history
-				//}	// End of insert history
+				} else {
+					echo 2; // Error Insert data trx_history
+				}	// End of insert history
 			} else {
 				echo 2; // Error Insert data trx_detail
 			}	// End Of Insert trx_detail

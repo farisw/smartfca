@@ -31,6 +31,7 @@ $history_level		= $_SESSION['LEVEL'];
 //$history_start_at   = $_SESSION['TIME_NON'];
 $history_finish_at  = date("Y-m-d H:i:s");
 $history_area		= $_SESSION['AREA'];
+$history_area  		= str_replace(",","', '",$history_area);
 $history_approval	= $_REQUEST['approval'];
 
 //	Mencari apakah document telah di approve oleh sesama manager
@@ -58,7 +59,7 @@ $get_ready_appv		="
 					WHERE A.DOC_NUMBER 	= '".$history_docnum."' 
 					  AND A.YEAR 		= '".$history_year."' 
 					  AND A.MONTH 		= '".$history_month."' 
-					  AND A.AREA	 	= '".$history_area."'
+					  AND A.AREA	 	IN ( '".$history_area."' )
 					  AND A.LEVEL 		= '".$history_level."'
 					 ";
 //echo $get_ready_appv;
@@ -87,7 +88,7 @@ $get_start_doc  	= "SELECT * FROM TRX_HISTORY
 						WHERE `DOC_NUMBER` 		= '".$history_docnum."'
 						  AND `YEAR`	 		= '".$history_year."'
 						  AND `MONTH`	 		= '".$history_month."'
-						  AND `AREA`	 		= '".$history_area."'
+						  AND `AREA`	 		IN ( '".$history_area."' )
 					   ORDER BY LOG_NUMBER DESC
 					  ";
 //echo $get_start_doc;
@@ -117,8 +118,11 @@ $get_trx_detail		= "SELECT * FROM TRX_DETAIL
 						  AND YEAR		 		= '".$history_year."'
 						  AND MONTH		 		= '".$history_month."'
 						  AND APPROVAL_LEVEL	= '".$history_level."'
-						  AND AREA		 		= '".$history_area."'
+						  AND AREA		 		IN ( '".$history_area."' )
+						  
 					  ";
+//echo $get_trx_detail;
+//exit;
 $query_trx_detail	= mysql_query($get_trx_detail);
 $num_row_trx_detail	= mysql_num_rows($query_trx_detail);
 if($num_row_trx_detail <= 0){ 
@@ -268,7 +272,7 @@ if($num_row_trx_detail <= 0){
 						  VALUES
 						  (
 							'".$history_docnum."', '".$history_year."', '".$history_month."', 
-							'".$history_level."', '".$history_user."', '".$history_area."',
+							'".$history_level."', '".$history_user."', '".$get_detail_area."',
 							'".$get_priority."', '".$history_approval."',
 							'".$history_start_at."', '".$history_finish_at."', '".$return_next_approval."'
 						  )
@@ -317,5 +321,3 @@ if($num_row_trx_detail <= 0){
 
 }	//End Of Query TRX_DETAIL doc_num year month
 ?>
-
-sdasd

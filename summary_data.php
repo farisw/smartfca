@@ -11,7 +11,7 @@
 <?php 
 if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
    isset($_SESSION['LEVEL']) and $_SESSION['LEVEL'] != '' ){
-	if($_SESSION['LEVEL'] != "VRKT") {
+	if($_SESSION['LEVEL'] != "VRKT" && $_SESSION['LEVEL'] != "MGRR") {
 ?>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -53,12 +53,13 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 //		}
 
 		$lv_level = $_SESSION['LEVEL'];
-		$lv_area  = $_SESSION['AREA'];
+		$lv_area  = str_replace(',','", "',$_SESSION['AREA']);		
 		$getquery = 'SELECT * FROM trx_detail
-					  WHERE AREA 			= "'.$lv_area.'"
+					  WHERE AREA 			IN ( "'.$lv_area.'" )
 					  	AND APPROVAL_LEVEL 	= "'.$lv_level.'"
 						AND REJECT_FLAG		= ""
 				   ORDER BY DOC_NUMBER DESC, YEAR DESC, MONTH DESC';
+		//echo $getquery;
 		$get_data_level = mysql_query($getquery);
 		if(!$get_data_level){	
 			/*echo "Data Not Found"; // Data Not Found

@@ -27,10 +27,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		(isset($_POST['area']) && $_POST['area'] !='') ){
 		$WHERE = '';
 		$alert = '';
-
-		if($_POST['user'] !=''){
-			$WHERE = "A.USER ="."'".$_POST['user']."'";
-			$alert = "User : ".$_POST['user'];
+		
+		if($_POST['user'] !='' ){
+			if ($_SESSION['LEVEL'] != "MGRR"){
+				$WHERE = "A.USER ="."'".$_POST['user']."'";
+				$alert = "User : ".$_POST['user'];
+			}
 		}
 
 		if($_POST['doc_no'] !=''){
@@ -46,10 +48,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		}
 		
 		if($_POST['area'] !=''){
+			$lv_area = str_replace(",","', '",$_POST['area']);
+			//echo $lv_area;
 			if($WHERE=='')
-				$WHERE = "A.area ="."'".$_POST['area']."'";
+				$WHERE = "A.area IN ("."'".$lv_area."')";
 			else
-				$WHERE = $WHERE."AND A.area ="."'".$_POST['area']."'";
+				$WHERE = $WHERE."AND A.area IN ("."'".$lv_area."' )";
 			
 			if($alert=='')
 				$alert = "Unit / Area : ".$_POST['area'];
@@ -87,7 +91,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 					 AND	A.YEAR = B.YEAR
 					 AND	A.MONTH = B.MONTH
 				   WHERE	'. $WHERE;
-						
+		//echo $query;		
 		$result = mysql_query($query);
 
 ?>

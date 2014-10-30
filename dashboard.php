@@ -7,19 +7,20 @@ if ( !(isset($_SESSION['USERNAME'])) or empty($_SESSION['USERNAME']) ){
 } else {
 include("admin/connect.php");
 
-// cek ada document yang belum selesai
-$get_name_park = $_SESSION['USERNAME'];
-$textpark = 	"
-				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
-				";
-$querypark 	= mysql_query($textpark);
-$num_park	= mysql_num_rows($querypark);
-if($num_park >= 1){
-	$fetchpark = mysql_fetch_array($querypark);
-	$haveincompletedoc = 1;
-} else {
-	$haveincompletedoc = 0;
-}
+$haveincompletedoc = 0;
+//// cek ada document yang belum selesai
+//$get_name_park = $_SESSION['USERNAME'];
+//$textpark = 	"
+//				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
+//				";
+//$querypark 	= mysql_query($textpark);
+//$num_park	= mysql_num_rows($querypark);
+//if($num_park >= 1){
+//	$fetchpark = mysql_fetch_array($querypark);
+//	$haveincompletedoc = 1;
+//} else {
+//	$haveincompletedoc = 0;
+//}
 
 ?> 
 <!--faris-->
@@ -71,10 +72,10 @@ if($num_park >= 1){
     <?php if($_REQUEST['select'] == 2) { ?>
       <ul class="nav navbar-nav ">
         <li ><a href="#" id="submit_off"><span class="glyphicon glyphicon-saved ">&nbsp;</span>Submit Document</a></li>
-        <?php if($haveincompletedoc != 1){?>
+        <?php //if($haveincompletedoc != 1){?>
         <li ><a href="#"><span class="">&nbsp;</span>|</a></li>
 		<li ><a href="#" id="submit_park"><span class="glyphicon glyphicon-floppy-disk">&nbsp;</span>Park Document</a></li>
-        <?PHP  }  ?>
+        <?PHP  //}  ?>
 <!--        <li ><a href="#"><span class="glyphicon glyphicon-remove">&nbsp</span>Delete</a></li>-->
       </ul>
     <?php } ?>
@@ -101,10 +102,12 @@ if($num_park >= 1){
 	            </a>
 	        </li>--> 
       <br>
-	        <li <?php if($_REQUEST['select'] == 1) { echo 'class="active"';} ?> >
+<?php //if($_SESSION['LEVEL'] != "MGRR"){ ?>
+	        <li <?php if($_REQUEST['select'] == 1 ) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=1"><span class="glyphicon glyphicon-tasks">&nbsp;</span>Dashboard </a>
 <!--                <span class="badge">14</span>-->
 	        </li>
+<?php //} ?>
              <ul <?php if($_REQUEST['select'] != 1 or ( $_SESSION['LEVEL'] != "VRKT" and $_SESSION['LEVEL'] != "ADMIN" ) ) { echo 'style="display:none";';} ?> class="zsublink">
              
                 <!--<li class="zsublink"><a href="dashboard.php?select=1&subtype=all">&rang; &nbsp; All Document</a></li>-->

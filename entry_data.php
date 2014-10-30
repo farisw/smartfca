@@ -17,6 +17,7 @@
 ?>     
       <form>
 		<input type="hidden" id="start_time" value="<?php echo date("Y-m-d H:i:s");?>">
+		<input type="hidden" id="start_time_park" value="<?php echo date("Y-m-d H:i:s");?>">
 		<input type="hidden" id="area" value="<?php echo $_SESSION['AREA']; ?>">
 		<input type="hidden" id="incomplete" value="<?php echo $haveincompletedoc; ?>">
 <?php 
