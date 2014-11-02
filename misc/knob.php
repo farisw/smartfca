@@ -80,10 +80,10 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 						ON		trx_detail.DOC_NUMBER 	= trx_history.DOC_NUMBER
 						AND		trx_detail.YEAR			= trx_history.YEAR
 						AND		trx_detail.MONTH		= trx_history.MONTH
-						WHERE	trx_history.USER	= "'.$_SESSION['USERNAME'].'"
-					  AND   trx_detail.not_complete = ""
-						AND REJECT_FLAG		= ""
-						AND (FLOW_MAIN != "" OR FLOW_MAIN = NULL) ');
+						WHERE	( ( trx_history.USER	= "'.$_SESSION['USERNAME'].'" AND trx_detail.not_complete = "" AND REJECT_FLAG		= "" AND (FLOW_MAIN != "" OR FLOW_MAIN = NULL) )
+								 OR
+							    ( trx_detail.AREA IN ( "'.$lv_area.'" ) AND trx_detail.APPROVAL_LEVEL 	= "'.$lv_level.'" AND REJECT_FLAG		= "" AND not_complete = "" ) ) 
+						');
 			// Verify it worked
 			if (!$result) echo mysql_error();		
 			$inprogress = mysql_fetch_assoc($result);
