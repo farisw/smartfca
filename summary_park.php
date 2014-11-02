@@ -96,9 +96,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <thead>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">No. SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
@@ -116,9 +116,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <!--<td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php //echo $data_level_found['DOC_NUMBER']; ?></a></td>
-    <td><?php //echo $data_level_found['YEAR']; ?></td>
-    <td><?php //echo $data_level_found['MONTH']; ?></td>-->
+    <td><a href="dashboard.php?select=2"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
+    <td><?php echo $data_level_found['YEAR']; ?></td>
+    <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo $data_level_found['NO_SAP']; ?></td>
     <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
@@ -133,9 +133,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <tfoot>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">No. SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>

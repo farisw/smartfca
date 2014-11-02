@@ -63,18 +63,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
           </div>
           <!-- /.col-lg-6 --> 
         </div>
-        <!-- /.row -->
-        <div class="row" style="display:none"> 
-          <!--  nama_projek -->
-          <div class="col-lg-5">
-            <div class="input-group"> <span class="input-group-addon">Doc Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-              <input type="text" class="form-control" placeholder="Doc Number" id="doc_no" >
-            </div>
-            <!-- /input-group --> 
-          </div>
-          <!-- /.col-lg-6 --> 
-        </div>
-        <!-- /.row -->
+        
         <div class="row"> 
           <!--  nama_projek -->
           <div class="col-lg-5">
@@ -106,6 +95,18 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and isset($_SESS
           <div class="col-lg-5">
             <div class="input-group"> <span class="input-group-addon">Nama Mitra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <input type="text" class="form-control" placeholder="Nama Mitra" id="nama_mitra" >
+            </div>
+            <!-- /input-group --> 
+          </div>
+          <!-- /.col-lg-6 --> 
+        </div>
+        <!-- /.row -->
+        <!-- /.row -->
+        <div class="row" > 
+          <!--  nama_projek -->
+          <div class="col-lg-5">
+            <div class="input-group"> <span class="input-group-addon">Doc Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <input type="text" class="form-control" placeholder="Doc Number" id="doc_no" >
             </div>
             <!-- /input-group --> 
           </div>

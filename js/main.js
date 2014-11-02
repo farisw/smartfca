@@ -56,7 +56,7 @@ $(document).ready(function(){
 		var year = $('#year');	
 		var doc_no = $('#doc_no');	
 		var UrlToSubmit = 'action=submit_report&user='+user.val()+'&doc_no='+doc_no.val();
-		alert('tes');
+		//alert('tes');
 		
 			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
 				type : 'GET',

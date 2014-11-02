@@ -2,7 +2,10 @@
 	<table id="zreport" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>SAP Doc number</th>
+                <th>Doc number</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>No. SAP</th>
                 <th>Nama Mitra</th>
                 <th>User</th>
                 <th>Level</th>
@@ -21,12 +24,22 @@ include('connect.php');
 
 if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 	
-
-	if( (isset($_POST['user']) && $_POST['user'] !='') || 
+	
+	if( 
+		(isset($_POST['user']) && $_POST['user'] !='') || 
 		(isset($_POST['doc_no']) && $_POST['doc_no'] !='') || 
-		(isset($_POST['area']) && $_POST['area'] !='') ){
+		(isset($_POST['area']) && $_POST['area'] !='') ||
+		(isset($_POST['nama_mitra']) && $_POST['nama_mitra'] !='') ||
+		(isset($_POST['doc_sap']) && $_POST['doc_sap'] !='') 
+	   ) {
 		$WHERE = '';
 		$alert = '';
+		
+		$_POST['user'] = trim($_POST['user']);
+		$_POST['doc_no'] = trim($_POST['doc_no']);
+		$_POST['area'] = trim($_POST['area']);
+		$_POST['nama_mitra'] = trim($_POST['nama_mitra']);
+		$_POST['doc_sap'] = trim($_POST['doc_sap']);
 		
 		if($_POST['user'] !='' ){
 			if ($_SESSION['LEVEL'] != "MGRR"){
@@ -84,8 +97,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 				$alert = $alert.", SAP Doc No : " .$_POST['doc_sap'];
 		}
 		
-		$query = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN,
-							A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
+		$query = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN, 
+							A.DOC_NUMBER, A.YEAR, A.MONTH, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT,  A.STATUS
 				    FROM	trx_history as A JOIN trx_detail as B
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
@@ -99,8 +112,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 <?php				
 	}else{
 		$result = mysql_query('
-				SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN,
-						A.DOC_NUMBER, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT
+				SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN, 
+						A.DOC_NUMBER, A.YEAR, A.MONTH, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT, A.STATUS
 				    FROM	trx_history as A JOIN trx_detail as B
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
@@ -126,7 +139,16 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		 
 		
 ?>
-        <tr>
+        <tr>	
+        
+            <td><a href="" data-toggle="modal" data-target="<?php echo "#".$data['DOC_NUMBER']; ?>" class="history_modal"><?php echo $data["DOC_NUMBER"]; ?></a></td>
+            
+    <?php 
+	$doc_numbertimeline = $data['DOC_NUMBER'];
+	?>
+    <?php include ("../misc/timeline.php");?>
+            <td><?php echo $data["YEAR"]; ?></td>
+            <td><?php echo $data["MONTH"]; ?></td>
             <td><?php echo $data["NO_SAP"]; ?></td>
             
             <td><?php echo $data["NAMA_MITRA"]; ?></td>
@@ -134,16 +156,25 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
             <td><?php echo $data["LEVEL"]; ?></td>
             <td><?php echo $data["AREA"]; ?></td>
             
-            <td>
+            <td <?php 
+			if($data["STATUS"]=="REJECT"){
+				echo 'style="color:#898989"';
+			}elseif($data["STATUS"]=="APPROVE"){
+				echo 'style="color:#00aeef"'; 
+			}elseif($data["NOT_COMPLETE"]=="X"){
+				echo 'style="color:#636363"'; 
+			}elseif($data["FLOW_MAIN"]!="" OR $data["FLOW_MAIN"]!=NULL){
+				echo 'style="color:#f7941d"'; 
+			} ?>>
             <?php
-				if($data["REJECT_FLAG"]=="X"){
+				if($data["STATUS"]=="REJECT"){
 					echo "REJECT";
+				}elseif($data["STATUS"]=="APPROVE"){
+					echo "APPROVE";
 				}elseif($data["NOT_COMPLETE"]=="X"){
 					echo "PARKED";
-				}elseif($data["FLOW_MAIN"]=="" OR $data["FLOW_MAIN"]==NULL){
-					echo "FINAL APPROVAL";
 				}elseif($data["FLOW_MAIN"]!="" OR $data["FLOW_MAIN"]!=NULL){
-					echo "IN PROGRESS";
+					echo "WAITING FOR APPROVAL";
 				}
 				
 				
@@ -163,7 +194,10 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
         </tbody>
         <tfoot>
             <tr>
-                <th>SAP Doc number</th>
+                <th>Doc number</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>No. SAP</th>
                 <th>Nama Mitra</th>
                 <th>User</th>
                 <th>Level</th>

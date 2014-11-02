@@ -58,6 +58,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 					  WHERE AREA 			IN ( "'.$lv_area.'" )
 					  	AND APPROVAL_LEVEL 	= "'.$lv_level.'"
 						AND REJECT_FLAG		= ""
+					  	AND not_complete = ""
 				   ORDER BY DOC_NUMBER DESC, YEAR DESC, MONTH DESC';
 		//echo $getquery;
 		$get_data_level = mysql_query($getquery);
@@ -93,9 +94,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <thead>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">Doc No SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
@@ -115,9 +116,14 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <!--<td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php //echo $data_level_found['DOC_NUMBER']; ?></a></td>
-    <td><?php //echo $data_level_found['YEAR']; ?></td>
-    <td><?php //echo $data_level_found['MONTH']; ?></td>-->
+    <td><a href="" data-toggle="modal" data-target="<?php echo "#".$data_level_found['DOC_NUMBER']; ?>" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
+    
+    <?php 
+	$doc_numbertimeline = $data_level_found['DOC_NUMBER'];
+ 	include("misc/timeline.php"); 
+	?>
+    <td><?php echo $data_level_found['YEAR']; ?></td>
+    <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo $data_level_found['NO_SAP']; ?></td>
     <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
@@ -142,9 +148,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <tfoot>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">Doc No SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">PO Awal NON PPN</th>
@@ -192,24 +198,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <?php	
 		$lv_level = $_SESSION['LEVEL'];
 		$lv_user  = $_SESSION['USERNAME'];
-//		$getquery = '
-//					SELECT 	trx_history.LOG_NUMBER,
-//							trx_detail.DOC_NUMBER,
-//							trx_detail.YEAR,
-//							trx_detail.MONTH,
-//							trx_history.USER,
-//							trx_history.LEVEL,
-//							trx_detail.TRUE_VALUE,
-//							trx_detail.TRUE_VALUE_CURRENCY,
-//							trx_history.STATUS,
-//							trx_history.START_AT,
-//							trx_history.FINISH_AT
-//					FROM	trx_history JOIN trx_detail
-//					ON		trx_detail.DOC_NUMBER 	= trx_history.DOC_NUMBER
-//					AND		trx_detail.YEAR			= trx_history.YEAR
-//					AND		trx_detail.MONTH 		= trx_history.MONTH
-//					WHERE	trx_history.USER	= "'.$lv_user.'"
-//	     	   	  	ORDER BY DOC_NUMBER DESC, YEAR DESC, MONTH DESC';
+		
 		$getquery = '
 					SELECT *
 					FROM
@@ -224,6 +213,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 							trx_detail.TRUE_VALUE,
 							trx_detail.NAMA_MITRA,
 							trx_detail.NO_SAP,
+							trx_detail.FLOW_MAIN,
+							trx_detail.NOT_COMPLETE,
+							trx_detail.REJECT_FLAG ,
 							trx_history.USER,
 							trx_history.LEVEL,
 							trx_history.STATUS,
@@ -233,6 +225,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 					AND		trx_detail.YEAR			= trx_history.YEAR
 					AND		trx_detail.MONTH		= trx_history.MONTH
 					WHERE	trx_history.USER	= "'.$lv_user.'"
+					  AND   trx_detail.not_complete = ""
 					ORDER BY 	DOC_NUMBER DESC,
 								YEAR ASC,
 								MONTH ASC,
@@ -274,9 +267,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <thead>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">No. SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
@@ -297,9 +290,17 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
   <tr>
     <td><?=$count?></td>
-    <!--<td><a href="" data-toggle="modal" data-target="#modaltimeline" class="history_modal"><?php //echo $data_level_found['DOC_NUMBER']; ?></a></td>
-    <td><?php //echo $data_level_found['YEAR']; ?></td>
-    <td><?php //echo $data_level_found['MONTH']; ?></td>-->
+    <td><a href="" data-toggle="modal" data-target="<?php echo "#".$data_level_found['DOC_NUMBER']; ?>" class="history_modal"><?php echo $data_level_found['DOC_NUMBER']; ?></a>
+    <!-- MODAL-->
+    <?php 
+	$doc_numbertimeline = $data_level_found['DOC_NUMBER'];
+ 	include("misc/timeline.php"); 
+	?>
+    <!-- --!>
+    
+    </td>
+    <td><?php echo $data_level_found['YEAR']; ?></td>
+    <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo $data_level_found['NO_SAP']; ?></td>
     <td><?php echo $data_level_found['NAMA_MITRA']; ?></td>
     <td><?php echo number_format($data_level_found['TRUE_VALUE']); ?></td>
@@ -307,11 +308,32 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo $data_level_found['FIATUR']; ?></td>
     <td><?php echo $data_level_found['LEVEL']; ?></td>
     <td><?php echo $data_level_found['USER']; ?></td>
-    <td <?php if($data_level_found['STATUS']=="APPROVE") 
-				echo 'style="color:#15A93F"'; 
-			  elseif($data_level_found['STATUS']=="REJECT") 
-			  	echo 'style="color:#15A93F"'; ?> >
-		<?php if($data_level_found['LEVEL'] != 'VRKT') echo $data_level_found['STATUS']; ?></td>
+   	<td <?php 
+			if($data_level_found["REJECT_FLAG"]=="X"){
+				echo 'style="color:#898989"';
+			}elseif($data_level_found["NOT_COMPLETE"]=="X"){
+				echo 'style="color:#636363"'; 
+			}elseif($data_level_found["FLOW_MAIN"]=="" OR $data_level_found["FLOW_MAIN"]==NULL){
+				echo 'style="color:#00aeef"'; 
+			}elseif($data_level_found["FLOW_MAIN"]!="" OR $data_level_found["FLOW_MAIN"]!=NULL){
+				echo 'style="color:#f7941d"'; 
+			} ?>
+	>
+	<?php
+			if($data_level_found["REJECT_FLAG"]=="X"){
+				echo "REJECTED";
+			}elseif($data_level_found["NOT_COMPLETE"]=="X"){
+				echo "PARKED";
+			}elseif($data_level_found["FLOW_MAIN"]=="" OR $data_level_found["FLOW_MAIN"]==NULL){
+				echo "FINAL APPROVAL";
+			}elseif($data_level_found["FLOW_MAIN"]!="" OR $data_level_found["FLOW_MAIN"]!=NULL){
+				echo "WAITING FOR APPROVAL";
+			}
+	?>			
+				
+		
+    	<?php //if($data_level_found['LEVEL'] != 'VRKT') echo $data_level_found['STATUS']; ?>
+    </td>
     <td><?php echo $data_level_found['FINISH_AT']; ?></td>
   </tr>
 <?php 
@@ -321,9 +343,9 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 <tfoot>
   <tr>
     <th scope="col">No.</th>
-    <!--<th scope="col">Document Number</th>
+    <th scope="col">Document Number</th>
     <th scope="col">Year</th>
-    <th scope="col">Month</th>-->
+    <th scope="col">Month</th>
     <th scope="col">No. SAP</th>
     <th scope="col">Nama Mitra</th>
     <th scope="col">Nilai stlh Pajak</th>
