@@ -32,7 +32,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'login'){
 		$_SESSION['NAMA_BELAKANG'] 	= $fetch['nama_belakang'];
 		$_SESSION['DEPARTEMEN'] 	= $fetch['departemen'];
 		$_SESSION['LEVEL'] 			= $fetch['level'];
-		$_SESSION['AREA'] 			= $fetch['area'];	
+		$_SESSION['AREA'] 			= $fetch['area'];
+//		$_SESSION['TIMEOUT']		= time();
 		echo 1;
 	} 
 }

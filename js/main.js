@@ -33,7 +33,6 @@ $(document).ready(function(){
 		
 		var UrlToSubmit = 'action=changepass&npass='+npass.val()+'&rpass='+rpass.val()+'&uid='+uid.val();
 	
-			
 			$("#savenewpass_msg").html('');
 			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
 				type : 'POST',
@@ -47,7 +46,66 @@ $(document).ready(function(){
 				}
 			});
 		}
-		});
+	});
+	
+//	//approve_document
+//	$('#approve_document').click(function(){ 
+//		var div = $("#no_spb").parents("div.input-group");
+//		div.removeClass("has-error");	
+//		
+//		if( no_spb.val() == '' ){
+//			var div = $("#no_spb").parents("div.input-group");
+//			div.addClass("has-error");	 
+//		}else{
+//			// Get All data property
+//			var approve_data_no_spb = $('#approve_data_no_spb');
+//			var approve_data_doc_num = $('#approve_data_doc_num');
+//			var approve_data_doc_year = $('#approve_data_doc_year');
+//			var approve_data_doc_month = $('#approve_data_doc_month');
+//			var UrlToSubmit = 'docnum='+approve_data_doc_num.val()+'&year='+approve_data_doc_year.val()+'&month='+approve_data_doc_month.val()+'&no_spb='+approve_data_no_spb.val()+'approval=APPROVE';
+//	
+////			$("#savenewpass_msg").html('');
+//			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+//				type : 'POST',
+//				data : UrlToSubmit,
+//				url  : 'admin/do_approve.php',
+//				success: function(responseText){ // Get the result and asign to each cases
+//						
+//					//alert(responseText);	
+//					$('#approve_data_no_spb').val('');
+//					$('#approve_data_doc_num').val('');
+//					$('#approve_data_doc_year').val('');;
+//					$('#approve_data_doc_month').val('');;
+//				}
+//			});
+//		}
+//	});
+	
+	//reject_document
+	$('#reject_document').click(function(){ 
+			// Get All data property
+			var approve_data_no_spb = 'XXX';
+			var approve_data_doc_num = $('#approve_data_doc_num');
+			var approve_data_doc_year = $('#approve_data_doc_year');
+			var approve_data_doc_month = $('#approve_data_doc_month');
+			var UrlToSubmit = 'docnum='+approve_data_doc_num.val()+'&year='+approve_data_doc_year.val()+'&month='+approve_data_doc_month.val()+'&no_spb='+approve_data_no_spb+'&approval=REJECT';
+	
+//			$("#savenewpass_msg").html('');
+			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+				type : 'POST',
+				data : UrlToSubmit,
+				url  : 'admin/do_approve.php',
+				success: function(responseText){ // Get the result and asign to each cases
+						
+					alert(responseText);	
+//					approve_data_no_spb = '';
+//					$('#approve_data_doc_num').val('');
+//					$('#approve_data_doc_year').val('');;
+//					$('#approve_data_doc_month').val('');;
+				}
+			});
+	});
+	
 	//modal
 	$(document).ready(function(){
 		$('.history_modal').click(function(){ // Create `click` event function for login
@@ -75,6 +133,134 @@ $(document).ready(function(){
 	
 	//form
 	$('#submit_off').click(function(){ // Create `click` event function for login
+		// clear all alert message
+			var div = $("#po_migo_value").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#side_ltr_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#dgt_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#npwp_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#siujk_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tt_bld_draw_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#side_ltr_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#dgt_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#npwp_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#siujk_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tt_bld_draw_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_switch").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_bank").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_atau").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_ats_nm").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_jasa").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_barang").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bts_akhir_kerja_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_tgl_masuk").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#no_sap").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#true_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#keterangan_value").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#nama_proyek").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#nama_mitra").parents("div.input-group");
+			div.removeClass("has-error");	
+			
 		// Get All data property
 		var nama_mitra 				= $('#nama_mitra');
 		var nama_proyek 			= $('#nama_proyek');
@@ -1291,6 +1477,134 @@ $(document).ready(function(){
 	
 //	Park Document (save a while)	
 	$('#submit_park').click(function(){ // Create `click` event function for login
+		// clear all alert
+			var div = $("#po_migo_value").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#side_ltr_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#dgt_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#npwp_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#siujk_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tt_bld_draw_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#side_ltr_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#dgt_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#npwp_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#siujk_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tt_bld_draw_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pls_asu_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_expired").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_assr").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_switch").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_bank").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_atau").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_pmhr_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_plksa_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#jamn_uang_muka_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#pajak_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#rekening_ats_nm").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kuitansi_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#ptgn_uang_muka_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_jasa").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_barang").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_tgl_bast").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bast_non_ppn_tgl_baut").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#bts_akhir_kerja_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_thp_rekon").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_amd_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_non_ppn_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_tgl_masuk").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_tgl_masuk").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#invoice_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#tagihan_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#no_sap").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#true_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_amount").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_tgl").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#keterangan_value").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#amandemen_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#po_sp_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#kontrak_no").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#nama_proyek").parents("div.input-group");
+			div.removeClass("has-error");	
+			var div = $("#nama_mitra").parents("div.input-group");
+			div.removeClass("has-error");	 
+		
 		// Get All data property
 		var nama_mitra 				= $('#nama_mitra');
 		var nama_proyek 			= $('#nama_proyek');
@@ -1421,7 +1735,7 @@ $(document).ready(function(){
 		var incomplete				= $('#incomplete');
 		
 		var park_doc_number			= $('#park_doc_number');
-		var park_year				= $('#PARK_YEAR');
+		var park_year				= $('#park_year');
 		var park_month				= $('#park_month');
 		var park_level				= $('#park_level');
 		var park_area				= $('#park_area');
@@ -1446,6 +1760,7 @@ $(document).ready(function(){
 			success: function(responseText){ // Get the result and asign to each cases
 				if(responseText == 0){
 					alert('Document Parked');
+					 //window.location = "dashboard.php?select=1&subtype=park";//'dashboard.php?select=1'; 
 					 window.location = 'dashboard.php?select=1'; 
 				}
 				else if(responseText == 1){

@@ -33,7 +33,25 @@ $history_finish_at  = date("Y-m-d H:i:s");
 $history_area		= $_SESSION['AREA'];
 $history_area  		= str_replace(",","', '",$history_area);
 $history_approval	= $_REQUEST['approval'];
-
+if(isset($_REQUEST['no_spb'])){
+	$approval_no_spb = $_REQUEST['no_spb'];
+////	echo 'Masuk ke isset no SPB';
+//	echo $approval_no_spb.'<br>';
+//	echo $history_docnum.'<br>';
+//	echo $history_year.'<br>';
+//	echo $history_month.'<br>';
+//	echo $history_user.'<br>';
+//	echo $history_level.'<br>';
+//	echo $history_finish_at.'<br>';
+//	echo $history_area.'<br>';
+//	echo $history_approval.'<br>';
+} else {
+//	echo 'isset no SPB ga di set';
+//	echo '----------------------';
+//	echo $_REQUEST['no_spb'];
+	$approval_no_spb = '';	
+}
+//exit;
 //	Mencari apakah document telah di approve oleh sesama manager
 //$get_ready_appv  	= "SELECT * FROM TRX_HISTORY
 //						WHERE `DOC_NUMBER` 		= '".$history_docnum."'
@@ -292,19 +310,27 @@ if($num_row_trx_detail <= 0){
 		$error_into_history		= mysql_errno();
 		if($error_into_history == 0){
 			if($history_approval == 'APPROVE'){
+				if(isset($_REQUEST['no_spb'])){
+					echo 'Transaksi Sukses di approve atau di check';
+				} else {
 ?>
 			<script type="text/javascript">
                 alert('Transaksi Sukses di approve atau di check');
                 window.location = '../dashboard.php?select=1';
             </script>
 <?php
+				}
 			}elseif($history_approval == 'REJECT'){
+				if(isset($_REQUEST['no_spb'])){
+					echo 'Transaksi Sukses di reject';
+				} else {
 ?>
 			<script type="text/javascript">
                 alert('Transaksi Sukses di reject');
                 window.location = '../dashboard.php?select=1';
             </script>
 <?php
+				}
 			}
 		}else{
 			// Error saat Insert history

@@ -103,8 +103,18 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
-    <th scope="col" >Approve</th>
-    <th scope="col" >Reject</th>
+    <?php
+//	if($_SESSION['LEVEL'] == 'OSM'){
+	?>
+<!--    <th scope="col">Process Document</th>-->
+    <?php
+//	} else {
+	?>
+    <th scope="col">Approve</th>
+    <th scope="col">Reject</th>
+    <?php	
+//	}
+	?>
   </tr>
  </thead>
 
@@ -130,16 +140,32 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_BY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_AT']; ?></td>
-    <td>
-<?php
+    
+    <?php
 	if($data_level_found['FIATUR'] == $data_level_found['APPROVAL_LEVEL']){
 		$approval_text = "Approve";
 	} else {
 		$approval_text = "Valid";
 	}
-?>
+	
+//	if($_SESSION['LEVEL'] == 'OSM'){
+//		$doc_number_approval 	= "p".$data_level_found['DOC_NUMBER'];
+	?>
+<!--    <td>
+<a href="" data-toggle="modal" data-target="<?php //echo '#'.$doc_number_approval; ?>" class="approval_modal"><?php //echo $approval_text ?></a></td>-->
+    <?php 
+//		$approval_data_doc_num 	= $data_level_found['DOC_NUMBER'];
+//		$approval_data_year 	= $data_level_found['YEAR'];
+//		$approval_data_month 	= $data_level_found['MONTH'];
+//		include ("admin/submit_spb.php"); 
+//	} else {
+	?>	
+    <td>
     <a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=APPROVE" id="submit_off"><span class="glyphicon glyphicon-ok">&nbsp;</span><?=$approval_text?></a></td>
     <td><a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=REJECT" id="submit_off"><span class="glyphicon glyphicon-remove">&nbsp;</span>Reject</a></td>
+    <?php
+//	}
+	?>
   </tr>
 <?php 
 			}
@@ -157,8 +183,18 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
-    <th scope="col" >Approve</th>
-    <th scope="col" >Reject</th>
+    <?php
+//	if($_SESSION['LEVEL'] == 'OSM'){
+	?>
+<!--    <th scope="col">Process Document</th>-->
+    <?php
+//	} else {
+	?>
+    <th scope="col">Approve</th>
+    <th scope="col">Reject</th>
+    <?php	
+//	}
+	?>
   </tr>
  </tfoot>
 </table>

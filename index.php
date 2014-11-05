@@ -7,7 +7,8 @@ session_start();
 	$_SESSION['NAMA_DEPAN'] 	= '';
 	$_SESSION['NAMA_BELAKANG'] 	= '';
 	$_SESSION['DEPARTEMEN'] 	= '';
-	$_SESSION['LEVEL'] 			= '';	
+	$_SESSION['LEVEL'] 			= '';
+	$_SESSION['TIMEOUT']		= '';
 session_destroy();
 ?>
 <!DOCTYPE html>
@@ -76,7 +77,7 @@ session_destroy();
 			  <div class="col-lg-12">
 			    <div class="input-group">
 			      <span class="input-group-addon">Username</span>
-				  <input type="text" class="form-control" placeholder="Username" id="username" value="590393"/>
+				  <input type="text" class="form-control" placeholder="Username" id="username" value="610281"/>
 			    </div><!-- /input-group  --> 
 			  </div><!-- /.col-lg-6 -->		  	  		  	  
 			</div><!-- /.row -->

@@ -1,6 +1,7 @@
 <?php
 session_start();
-include('connect.php');
+//include('connect.php');
+require_once('connect.php');
 
 if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	$nama_mitra 				= strip_tags(htmlentities($_POST['nama_mitra']));
@@ -14,17 +15,17 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	if(!empty($_POST['kontrak_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['kontrak_tgl'])) );
 		$kontrak_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $kontrak_tgl = '0000-00-00'; }
+	} else { $kontrak_tgl = '2000-01-01'; }
 //	$po_sp_tgl					= strip_tags(htmlentities($_POST['po_sp_tgl']));
 	if(!empty($_POST['po_sp_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['po_sp_tgl'])) );
 		$po_sp_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $po_sp_tgl = '0000-00-00'; }
+	} else { $po_sp_tgl = '2000-01-01'; }
 //	$amandemen_tgl				= strip_tags(htmlentities($_POST['amandemen_tgl']));
 	if(!empty($_POST['amandemen_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['amandemen_tgl'])) );
 		$amandemen_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $amandemen_tgl = '0000-00-00'; }
+	} else { $amandemen_tgl = '2000-01-01'; }
 	$kontrak_currency			= strip_tags(htmlentities($_POST['kontrak_currency']));
 	$po_sp_currency				= strip_tags(htmlentities($_POST['po_sp_currency']));
 	$amandemen_currency			= strip_tags(htmlentities($_POST['amandemen_currency']));
@@ -37,22 +38,22 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	if(!empty($_POST['tagihan_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['tagihan_tgl'])) );
 		$tagihan_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $tagihan_tgl = '0000-00-00'; }
+	} else { $tagihan_tgl = '2000-01-01'; }
 //	$invoice_tgl				= strip_tags(htmlentities($_POST['invoice_tgl']));
 	if(!empty($_POST['invoice_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['invoice_tgl'])) );
 		$invoice_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $invoice_tgl = '0000-00-00'; }
+	} else { $invoice_tgl = '2000-01-01'; }
 //	$tagihan_tgl_masuk			= strip_tags(htmlentities($_POST['tagihan_tgl_masuk']));
 	if(!empty($_POST['tagihan_tgl_masuk'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['tagihan_tgl_masuk'])) );
 		$tagihan_tgl_masuk = $yy.'-'.$mm.'-'.$dd;
-	} else { $tagihan_tgl_masuk = '0000-00-00'; }
+	} else { $tagihan_tgl_masuk = '2000-01-01'; }
 //	$invoice_tgl_masuk			= strip_tags(htmlentities($_POST['invoice_tgl_masuk']));
 	if(!empty($_POST['invoice_tgl_masuk'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['invoice_tgl_masuk'])) );
 		$invoice_tgl_masuk = $yy.'-'.$mm.'-'.$dd;
-	} else { $invoice_tgl_masuk = '0000-00-00'; }
+	} else { $invoice_tgl_masuk = '2000-01-01'; }
 	$po_non_ppn_currency		= strip_tags(htmlentities($_POST['po_non_ppn_currency']));
 	$po_non_ppn_amount			= strip_tags(htmlentities($_POST['po_non_ppn_amount']));
 	$po_non_ppn_amd_currency	= strip_tags(htmlentities($_POST['po_non_ppn_amd_currency']));
@@ -63,12 +64,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	if(!empty($_POST['bast_non_ppn_tgl_baut'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['bast_non_ppn_tgl_baut'])) );
 		$bast_non_ppn_tgl_baut = $yy.'-'.$mm.'-'.$dd;
-	} else { $bast_non_ppn_tgl_baut = '0000-00-00'; }
+	} else { $bast_non_ppn_tgl_baut = '2000-01-01'; }
 //	$bast_non_ppn_tgl_bast		= strip_tags(htmlentities($_POST['bast_non_ppn_tgl_bast']));
 	if(!empty($_POST['bast_non_ppn_tgl_bast'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['bast_non_ppn_tgl_bast'])) );
 		$bast_non_ppn_tgl_bast = $yy.'-'.$mm.'-'.$dd;
-	} else { $bast_non_ppn_tgl_bast = '0000-00-00'; }
+	} else { $bast_non_ppn_tgl_bast = '2000-01-01'; }
 	$bast_non_ppn_barang		= strip_tags(htmlentities($_POST['bast_non_ppn_barang']));
 	$bast_non_ppn_jasa			= strip_tags(htmlentities($_POST['bast_non_ppn_jasa']));
 	$bast_non_ppn_currency		= strip_tags(htmlentities($_POST['bast_non_ppn_currency']));
@@ -100,7 +101,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	if(!empty($_POST['pajak_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['pajak_tgl'])) );
 		$pajak_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $pajak_tgl = '0000-00-00'; }
+	} else { $pajak_tgl = '2000-01-01'; }
 	$jamn_uang_muka_expired		= strip_tags(htmlentities($_POST['jamn_uang_muka_expired']));
 	$jamn_plksa_expired			= strip_tags(htmlentities($_POST['jamn_plksa_expired']));
 	$jamn_pmhr_expired			= strip_tags(htmlentities($_POST['jamn_pmhr_expired']));
@@ -109,27 +110,27 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	if(!empty($_POST['tt_bld_draw_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['tt_bld_draw_tgl'])) );
 		$tt_bld_draw_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $tt_bld_draw_tgl = '0000-00-00'; }
+	} else { $tt_bld_draw_tgl = '2000-01-01'; }
 //	$siujk_tgl					= strip_tags(htmlentities($_POST['siujk_tgl']));
 	if(!empty($_POST['siujk_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['siujk_tgl'])) );
 		$siujk_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $siujk_tgl = '0000-00-00'; }
+	} else { $siujk_tgl = '2000-01-01'; }
 //	$npwp_tgl					= strip_tags(htmlentities($_POST['npwp_tgl']));
 	if(!empty($_POST['npwp_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['npwp_tgl'])) );
 		$npwp_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $npwp_tgl = '0000-00-00'; }
+	} else { $npwp_tgl = '2000-01-01'; }
 //	$dgt_tgl					= strip_tags(htmlentities($_POST['dgt_tgl']));
 	if(!empty($_POST['dgt_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['dgt_tgl'])) );
 		$dgt_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $dgt_tgl = '0000-00-00'; }
+	} else { $dgt_tgl = '2000-01-01'; }
 //	$side_ltr_tgl				= strip_tags(htmlentities($_POST['side_ltr_tgl']));
 	if(!empty($_POST['side_ltr_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['side_ltr_tgl'])) );
 		$side_ltr_tgl = $yy.'-'.$mm.'-'.$dd;
-	} else { $side_ltr_tgl = '0000-00-00'; }
+	} else { $side_ltr_tgl = '2000-01-01'; }
 	$pls_asu_no					= strip_tags(htmlentities($_POST['pls_asu_no']));				
 	$pls_asu_assr				= strip_tags(htmlentities($_POST['pls_asu_assr']));				
 	$tt_bld_draw_no				= strip_tags(htmlentities($_POST['tt_bld_draw_no']));				
@@ -165,8 +166,15 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	$start_time					= strip_tags(htmlentities($_POST['start_time'])); 
 	$start_time_park			= strip_tags(htmlentities($_POST['start_time_park']));
 	$area						= strip_tags(htmlentities($_POST['area']));
+	
 	$incomplete					= strip_tags(htmlentities($_POST['incomplete']));
 	
+	$park_doc_number			= strip_tags(htmlentities($_POST['park_doc_number']));
+	$park_year					= strip_tags(htmlentities($_POST['park_year']));
+	$park_month					= strip_tags(htmlentities($_POST['park_month']));
+	$park_level					= strip_tags(htmlentities($_POST['park_level']));
+	$park_area					= strip_tags(htmlentities($_POST['park_area']));	
+
 	
 //	$tagihan_0					= strip_tags(htmlentities($_POST['tagihan_0']));
 //	$invoice_0					= strip_tags(htmlentities($_POST['invoice_0']));
@@ -210,6 +218,10 @@ if( $side_ltr_1 == 'X' ) 		{ $side_ltr_mark = 'X'; }			else { $side_ltr_mark = '
 if( $rekon_wkt_1 == 'X' ) 		{ $rekon_wkt_mark = 'X'; }			else { $rekon_wkt_mark = ''; }
 if( $po_migo_1 == 'X' ) 		{ $po_migo_mark = 'X'; }			else { $po_migo_mark = ''; }
 
+//echo '$po_non_ppn_amount = '.$po_non_ppn_amount;
+//echo '<br>';
+//echo '$true_amount = '.$true_amount;
+
 if( $po_non_ppn_amount == null ) { $po_non_ppn_amount = 0; }
 if( $true_amount == null ) { $true_amount = 0; }
 if (preg_match("/[^0-9]/", $true_amount))
@@ -217,6 +229,11 @@ if (preg_match("/[^0-9]/", $true_amount))
     echo 'Wrong input value in Nilai Stlh Pajak!';
 	exit;
 }
+
+//echo '$po_non_ppn_amount = '.$po_non_ppn_amount;
+//echo '<br>';
+//echo '$true_amount = '.$true_amount;
+//exit;
 
 $text_appv		= "SELECT * FROM trx_limitation";
 $query_appv		= mysql_query($text_appv);
@@ -306,6 +323,15 @@ if($error_appv == 0){
 			$history_start_at   = $start_time; 
 			$history_start_at_park   = $start_time_park; 
 			$history_finish_at_park  = date("Y-m-d H:i:s");
+			if($incomplete == 1){
+				$get_number_found 	= $park_doc_number;
+				$get_year			= $park_year;		
+				$get_month			= $park_month;
+				$area				= $park_area;
+				$get_level_found	= $park_level;
+			
+			}
+			
 			$into_history_text = "INSERT INTO trx_history
 								  ( 
 									DOC_NUMBER, YEAR, MONTH, 
@@ -334,9 +360,12 @@ if($error_appv == 0){
 										`AREA` 			= '".$area."' 
 								ORDER BY `trx_detail`.`DOC_NUMBER` DESC
 								";
+			//echo $cek_transaksi;
 			$query_cek_transaksi = mysql_query($cek_transaksi);
 			$num_rows_cek_transaksi = mysql_num_rows($query_cek_transaksi);
-			if($num_rows_cek_transaksi > 0){
+			//echo $num_rows_cek_transaksi;
+			
+			if($num_rows_cek_transaksi >= 0){
 			
 			$querytext      = "
 							  UPDATE `smart_fca`.`trx_detail`

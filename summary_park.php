@@ -114,9 +114,17 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 			while($data_level_found=mysql_fetch_array($get_data_level)){
 			$count = $count + 1;	
 ?>
+<!--
+<a href="dashboard.php?select=2
+&doc_num=<?php //echo $data_level_found['DOC_NUMBER']; ?>
+&year=<?php //echo $data_level_found['YEAR']; ?>
+&month=<?php //echo $data_level_found['MONTH']; ?>
+&no_sap=<?php //echo $data_level_found['NO_SAP']; ?>">
+		<?php //echo $data_level_found['DOC_NUMBER']; ?></a>
+-->
   <tr>
     <td><?=$count?></td>
-    <td><a href="dashboard.php?select=2"><?php echo $data_level_found['DOC_NUMBER']; ?></a></td>
+    <td><?php echo $data_level_found['DOC_NUMBER']; ?></td>
     <td><?php echo $data_level_found['YEAR']; ?></td>
     <td><?php echo $data_level_found['MONTH']; ?></td>
     <td><?php echo $data_level_found['NO_SAP']; ?></td>

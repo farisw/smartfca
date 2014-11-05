@@ -2,14 +2,41 @@
     Entry Data <small> checklist document</small>
 </h1>
 <?php
-//$get_name_park = $_SESSION['USERNAME'];
-//$textpark = 	"
-//				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
-//				";
-//$querypark 	= mysql_query($textpark);
-//$num_park	= mysql_num_rows($querypark);
-//if($num_park >= 1){
-//	$fetchpark = mysql_fetch_array($querypark);
+$get_name_park = $_SESSION['USERNAME'];
+$textpark = 	"
+				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
+				";
+$querypark 	= mysql_query($textpark);
+$num_park	= mysql_num_rows($querypark);
+if($num_park >= 1){
+	$fetchpark = mysql_fetch_array($querypark);
+		$haveincompletedoc = 1;
+}
+
+// cek ada document yang belum selesai
+//$get_park_name = $_SESSION['USERNAME'];
+//if(isset($_GET['doc_num']) && isset($_GET['year']) && isset($_GET['month']) && isset($_GET['no_sap'])) {
+//	$get_park_doc_num = $_GET['doc_num'];
+//	$get_park_year = $_GET['year'];
+//	$get_park_month = $_GET['month'];
+//	$get_park_no_sap = $_GET['no_sap'];
+//	$textpark = 	"
+//					SELECT * FROM `trx_detail` 
+//						WHERE 	`DOC_NUMBER` 	= '".$get_park_doc_num."' AND
+//								`YEAR`	 		= '".$get_park_year."' AND
+//								`MONTH`	 		= '".$get_park_month."' AND
+//								`NO_SAP`	 	= '".$get_park_no_sap."' AND
+//								`CREATED_BY` 	= '".$get_park_name."' AND 
+//								`NOT_COMPLETE` 	= 'X' 
+//						ORDER BY `DOC_NUMBER` DESC
+//					";
+//	//echo $textpark;
+//	$querypark 	= mysql_query($textpark);
+//	$num_park	= mysql_num_rows($querypark);
+//	if($num_park >= 1){
+//		$fetchpark = mysql_fetch_array($querypark);
+//		$haveincompletedoc = 1;
+//	}
 //}
 ?>
 
