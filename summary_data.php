@@ -151,8 +151,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 //	if($_SESSION['LEVEL'] == 'OSM'){
 //		$doc_number_approval 	= "p".$data_level_found['DOC_NUMBER'];
 	?>
-<!--    <td>
-<a href="" data-toggle="modal" data-target="<?php //echo '#'.$doc_number_approval; ?>" class="approval_modal"><?php //echo $approval_text ?></a></td>-->
+<!--<td>
+    <a href="" data-toggle="modal" data-target="<?php //echo '#'.$doc_number_approval; ?>" class="approval_modal"><?php //echo $approval_text ?></a></td>-->
     <?php 
 //		$approval_data_doc_num 	= $data_level_found['DOC_NUMBER'];
 //		$approval_data_year 	= $data_level_found['YEAR'];
@@ -179,14 +179,14 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Month</th>
     <th scope="col">Doc No SAP</th>
     <th scope="col">Nama Mitra</th>
-    <th scope="col">PO Awal NON PPN</th>
+    <th scope="col">Nilai stlh Pajak</th>
     <th scope="col">Currency</th>
     <th scope="col">Last Changed By</th>
     <th scope="col">Last Changed At</th>
     <?php
 //	if($_SESSION['LEVEL'] == 'OSM'){
 	?>
-<!--    <th scope="col">Process Document</th>-->
+    <!--<th scope="col">Process Document</th>-->
     <?php
 //	} else {
 	?>

@@ -365,7 +365,7 @@ if($error_appv == 0){
 			$num_rows_cek_transaksi = mysql_num_rows($query_cek_transaksi);
 			//echo $num_rows_cek_transaksi;
 			
-			if($num_rows_cek_transaksi >= 0){
+			if($num_rows_cek_transaksi >= 1){
 			
 			$querytext      = "
 							  UPDATE `smart_fca`.`trx_detail`

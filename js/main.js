@@ -82,7 +82,7 @@ $(document).ready(function(){
 //	});
 	
 	//reject_document
-	$('#reject_document').click(function(){ 
+	$('.reject_document').click(function(){ 
 			// Get All data property
 			var approve_data_no_spb = 'XXX';
 			var approve_data_doc_num = $('#approve_data_doc_num');

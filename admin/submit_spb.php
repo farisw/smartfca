@@ -30,7 +30,6 @@
               <div class="col-lg-12">
               <div align="center">
 		        <button type="button" class="btn btn-success" id="approve_document">Approve</button>
-				<a href="#" class="btn btn-success" >Approve</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
 		        <button type="button" class="btn btn-danger" id="reject_<?php echo $approval_data_doc_num; ?>">&nbsp;&nbsp;Reject&nbsp;&nbsp;&nbsp;</button>
@@ -51,6 +50,31 @@
 <!-- Modal -->
 <script>
 $(document).ready(function(){
+//reject_document
+	$('#reject_<?php echo $approval_data_doc_num; ?>').click(function(){ 
+			// Get All data property
+			var approve_data_no_spb = 'XXX';
+			var approve_data_doc_num = $('#approve_data_doc_num');
+			var approve_data_doc_year = $('#approve_data_doc_year');
+			var approve_data_doc_month = $('#approve_data_doc_month');
+			var UrlToSubmit = 'docnum='+approve_data_doc_num.val()+'&year='+approve_data_doc_year.val()+'&month='+approve_data_doc_month.val()+'&no_spb='+approve_data_no_spb+'&approval=REJECT';
+					alert(UrlToSubmit);	
+//			$("#savenewpass_msg").html('');
+//			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+//				type : 'POST',
+//				data : UrlToSubmit,
+//				url  : 'admin/do_approve.php',
+//				success: function(responseText){ // Get the result and asign to each cases					
+//					alert(responseText);	
+//					approve_data_no_spb = '';
+//					$('#approve_data_doc_num').val('');
+//					$('#approve_data_doc_year').val('');;
+//					$('#approve_data_doc_month').val('');;
+				}
+			});
+	});
+});
+//$(document).ready(function(){
 //	//approve_document
 //	$('#approve_document').click(function(){ 
 //		var div = $("#no_spb").parents("div.input-group");
@@ -84,16 +108,16 @@ $(document).ready(function(){
 //		}
 //	});
 
-	//reject_document
-			var approve_data_doc_num = $('#approve_data_doc_num');
-
-	$('#reject_'+approve_data_doc_num.val() ).click(function(){ 
-			 alert(approve_data_doc_num.val());
-			// Get All data property
-			var approve_data_no_spb = 'XXX';
-			var approve_data_doc_year = $('#'+approve_data_doc_num.val()+'approve_data_doc_year');
-			var approve_data_doc_month = $(''+approve_data_doc_num.val()+'#approve_data_doc_month');
-			var UrlToSubmit = 'docnum='+approve_data_doc_num.val()+'&year='+approve_data_doc_year.val()+'&month='+approve_data_doc_month.val()+'&no_spb='+approve_data_no_spb+'&approval=REJECT';
+//	//reject_document
+//			var approve_data_doc_num = $('#approve_data_doc_num');
+//
+//	$('#reject_'+approve_data_doc_num.val() ).click(function(){ 
+//			 alert(approve_data_doc_num.val());
+//			// Get All data property
+//			var approve_data_no_spb = 'XXX';
+//			var approve_data_doc_year = $('#'+approve_data_doc_num.val()+'approve_data_doc_year');
+//			var approve_data_doc_month = $(''+approve_data_doc_num.val()+'#approve_data_doc_month');
+//			var UrlToSubmit = 'docnum='+approve_data_doc_num.val()+'&year='+approve_data_doc_year.val()+'&month='+approve_data_doc_month.val()+'&no_spb='+approve_data_no_spb+'&approval=REJECT';
 	
 ////			$("#savenewpass_msg").html('');
 //			$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
@@ -109,6 +133,6 @@ $(document).ready(function(){
 //					$('#approve_data_doc_month').val('');;
 //				}
 //			});
-	});
-});
+//	});
+//});
 </script>
