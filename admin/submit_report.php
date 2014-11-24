@@ -128,6 +128,10 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 	// Verify it worked
 	if (!$result) echo mysql_error();		
 	
+	function isWeekend($date) {
+		$weekDay = date('w', strtotime($date));
+		return ($weekDay == 0 || $weekDay == 6);
+	}
 	
 	
 	while($data=mysql_fetch_array($result)){
@@ -135,8 +139,29 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		 $date1 = $data["START_AT"];
 		 $date2 = $data["FINISH_AT"]; 
 		 $diff = strtotime($date2) - strtotime($date1);
-		 $diff_in_hrs = round($diff/60,0);
+		 echo $diff." diff in sec";
 		 
+		 
+		$count = 0;
+		$start = strtotime($date1);
+		$end = strtotime($date2);
+		while(date('Y-m-d', $start) < date('Y-m-d', $end)){
+		
+		  //$count += date('N', $start) < 6 ? 1 : 0;
+		  
+		  $d = date('N', $start);
+ 		  if($d == 6 || $d == 7) {
+			  $count = $count + 1;
+		  }
+		
+		  $start = strtotime("+1 day", $start);
+		}
+		echo $count."holiday";
+		$holiday = $count * 86400; //day in second
+		
+		$diff = $diff - $holiday;
+		$diff_in_hrs = round($diff/3600,0);
+		
 		
 ?>
         <tr>	
