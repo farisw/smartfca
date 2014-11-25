@@ -9,6 +9,7 @@ $timelinequery = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE,
 					 AND	A.YEAR = B.YEAR
 					 AND	A.MONTH = B.MONTH
 				   WHERE	A.DOC_NUMBER = "'.$doc_numbertimeline .'"
+				     AND	A.STATUS != "PARKED"
 				   ORDER BY A.FINISH_AT DESC';
  $timelineresult = mysql_query($timelinequery);
  if (!$timelineresult) echo mysql_error();		

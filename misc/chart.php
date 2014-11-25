@@ -24,7 +24,8 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 					SELECT 	* 
 					FROM	trx_history 
 					WHERE	trx_history.USER = "'.$_SESSION['USERNAME'].'"
-					AND 	trx_history.YEAR = "'.$year.'"');
+					AND 	trx_history.YEAR = "'.$year.'" 
+					AND   	trx_history.STATUS != "PARKED"');
 		// Verify it worked
 		if (!$result) echo mysql_error();		
 		
