@@ -82,7 +82,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 						AND		trx_detail.MONTH		= trx_history.MONTH
 						WHERE	( ( trx_history.USER	= "'.$_SESSION['USERNAME'].'" AND trx_history.STATUS != "PARKED" AND trx_detail.not_complete = "" AND REJECT_FLAG		= "" AND (FLOW_MAIN != "" OR FLOW_MAIN = NULL) )
 								 OR
-							    ( trx_detail.AREA IN ( "'.$lv_area.'" ) AND trx_detail.APPROVAL_LEVEL 	= "'.$lv_level.'" AND REJECT_FLAG		= "" AND not_complete = "" ) ) 
+							    ( trx_detail.AREA IN ( "'.$lv_area.'" ) AND trx_detail.APPROVAL_LEVEL 	= "'.$lv_level.'" AND trx_detail.REJECT_FLAG		= "" AND trx_detail.not_complete = "" AND trx_history.next_approval = "'.$lv_level.'" ) ) 
 						');
 			// Verify it worked
 			if (!$result) echo mysql_error();		
@@ -123,7 +123,7 @@ if( $_SESSION['LEVEL']=="VRKT" ){
 
 <div class="zknob">        <center>             
 <input type="text" value="<?php echo $inprogress['inprogress']; ?>" class="dial3" ><br>
- <em>Waiting for Approval</em> </center>
+<em>Waiting for Approval</em> </center>
 </div>
 
 
