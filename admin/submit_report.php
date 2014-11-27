@@ -139,7 +139,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		 $date1 = $data["START_AT"];
 		 $date2 = $data["FINISH_AT"]; 
 		 $diff = strtotime($date2) - strtotime($date1);
-		 echo $diff." diff in sec";
+		 //echo $diff." diff in sec";
 		 
 		 
 		$count = 0;
@@ -156,7 +156,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		
 		  $start = strtotime("+1 day", $start);
 		}
-		echo $count."holiday";
+		//echo $count."holiday";
+		
 		$holiday = $count * 86400; //day in second
 		
 		$diff = $diff - $holiday;

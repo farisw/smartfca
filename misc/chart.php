@@ -18,14 +18,17 @@
 if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
    isset($_SESSION['LEVEL']) and $_SESSION['LEVEL'] != ''){
 		$label = "";
-		$dataset = "";
+		$dataset = "";		
+		$datasetreject = "";
 		$year = date('Y');
 		$result = mysql_query('
 					SELECT 	* 
 					FROM	trx_history 
 					WHERE	trx_history.USER = "'.$_SESSION['USERNAME'].'"
 					AND 	trx_history.YEAR = "'.$year.'" 
-					AND   	trx_history.STATUS != "PARKED"');
+					AND   	trx_history.STATUS != "PARKED"  ');
+					
+								
 		// Verify it worked
 		if (!$result) echo mysql_error();		
 		
@@ -38,14 +41,51 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 			 
 			if($label == ""){
 				$label = "'".$data["DOC_NUMBER"]."'";
-				$dataset = "".$diff_in_hrs."";
+				
+				if($data["STATUS"]=="REJECT"){		
+					if($datasetreject == ""){
+						$datasetreject = "".$diff_in_hrs."";
+						$dataset = ""."null"."";
+					}else{
+						$datasetreject = $datasetreject.",".$diff_in_hrs."";
+						$dataset = $dataset.","."null"."";
+					}
+				}else{
+					if($dataset == ""){
+						$dataset = "".$diff_in_hrs."";
+						$datasetreject = ""."null"."";
+					}else{
+						$dataset = $dataset.",".$diff_in_hrs."";
+						$datasetreject = $datasetreject.","."null"."";
+					}
+				}
+				
 			}else{
 				$label = $label.",'".$data["DOC_NUMBER"]."'";
-				$dataset = $dataset.",".$diff_in_hrs."";
+				//$dataset = $dataset.",".$diff_in_hrs."";
+				if($data["STATUS"]=="REJECT"){		
+					if($datasetreject == ""){
+						$datasetreject = "".$diff_in_hrs."";
+						$dataset = ""."null"."";
+					}else{
+						$datasetreject = $datasetreject.",".$diff_in_hrs."";
+						$dataset = $dataset.","."null"."";
+					}
+				}else{
+					if($dataset == ""){
+						$dataset = "".$diff_in_hrs."";
+						$datasetreject = ""."null"."";
+					}else{
+						$dataset = $dataset.",".$diff_in_hrs."";
+						$datasetreject = $datasetreject.","."null"."";
+					}
+				}
+				
+				
 			}
 			
-		}
-		
+			
+		} echo $label."<br>".$dataset."<br>".$datasetreject;
 	
    }
 ?>
@@ -54,36 +94,13 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 $(function () {
     $('#zchart').highcharts({
 		chart: {
-            zoomType: 'x'
+            type: 'area', zoomType: 'x'
         },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-			
-        },
-
         title: {
-            text: 'Ticket Duration'
+            text: 'Document Duration'
         },
         subtitle: {
-            text: 'Year : <?=$year?>'
+            text: '(in minutes)'
         },
         xAxis: {
             title: {
@@ -99,13 +116,19 @@ $(function () {
             title: {
                 text: 'Duration (Minutes)'
             },
-			
         },
-        series: [{			
-			type:'area',
-            name: 'Submitted Document',
+        tooltip: {
+            pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        },
+        
+        series: [{
+            name: 'Submitted/Approval Document',
             data: [<?=$dataset?>]
+        }, {
+            name: 'Rejected Document',
+             data: [<?=$datasetreject?>]
         }]
+		
     });
 });
 </script>
