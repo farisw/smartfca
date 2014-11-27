@@ -557,9 +557,9 @@ if($error_appv == 0){
 			//echo $cek_error; 
 			//exit;
 			if($cek_error == 0){ // If any error trx_detail
-				$into_history_query = mysql_query($into_history_text); // insert trx_history
-				$into_history_error = mysql_errno();	
-				if($into_history_error == 0){	//any error insert trx_detail
+//				$into_history_query = mysql_query($into_history_text); // insert trx_history
+//				$into_history_error = mysql_errno();	
+//				if($into_history_error == 0){	//any error insert trx_detail
 					$query	= mysql_query("
 							UPDATE trx_number
 							SET CURRENT_DOC_NUMB = '".$get_number_found."'
@@ -569,9 +569,9 @@ if($error_appv == 0){
 					if ($upd_error == 0){ //any error insert trx_number document number
 						echo 0;	
 					}				
-				} else {
-					echo 2; // Error Insert data trx_history
-				}	// End of insert history
+//				} else {
+//					echo 2; // Error Insert data trx_history
+//				}	// End of insert history
 			} else {
 				echo 2; // Error Insert data trx_detail
 			}	// End Of Insert trx_detail
