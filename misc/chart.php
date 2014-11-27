@@ -85,7 +85,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 			}
 			
 			
-		} echo $label."<br>".$dataset."<br>".$datasetreject;
+		} //echo $label."<br>".$dataset."<br>".$datasetreject;
 	
    }
 ?>
