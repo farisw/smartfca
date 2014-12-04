@@ -26,7 +26,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 					FROM	trx_history 
 					WHERE	trx_history.USER = "'.$_SESSION['USERNAME'].'"
 					AND 	trx_history.YEAR = "'.$year.'" 
-					AND   	trx_history.STATUS != "PARKED"  ');
+					AND   	trx_history.STATUS != "PARK"  ');
 					
 								
 		// Verify it worked
@@ -118,7 +118,7 @@ $(function () {
             },
         },
         tooltip: {
-            pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+            pointFormat: '{series.name} {point.y:,.0f}'
         },
         
         series: [{

@@ -130,7 +130,7 @@ if($num_park >= 1){
               <div class="col-lg-3">
                 <div class="input-group"> <span class="input-group-addon"></span>
                   <input type="text" class="form-control" placeholder="Amount" id="kontrak_amount"
-                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['AMANDEMEN_AMOUNT']; } ?>">
+                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KONTRAK_AMOUNT']; } ?>">
                 </div>
               </div>              <!-- /.col-lg-4 --> 
             </div>
@@ -301,8 +301,7 @@ if($num_park >= 1){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="tagihan" id="tagihan_0" 
-                  <?php if($haveincompletedoc == 1){ if($fetchpark['TAGIHAN_MARK'] != 'X'){ echo 'checked'; } } ?>
-                  >
+                  <?php if($haveincompletedoc == 1){ if($fetchpark['TAGIHAN_MARK'] != 'X'){ echo 'checked'; } } ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>

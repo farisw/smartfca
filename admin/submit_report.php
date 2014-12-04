@@ -140,7 +140,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 		 $date2 = $data["FINISH_AT"]; 
 		 $diff = strtotime($date2) - strtotime($date1);
 		 //echo $diff." diff in sec";
-		 
+		 $diffnonholiday = round($diff/60,0);
 		 
 		$count = 0;
 		$start = strtotime($date1);
@@ -197,7 +197,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 					echo "REJECT";
 				}elseif($data["STATUS"]=="APPROVE"){
 					echo "APPROVE";
-				}elseif($data["NOT_COMPLETE"]=="X"){
+				}elseif($data["NOT_COMPLETE"]=="X" || $data["STATUS"]=="PARK"){
 					echo "PARKED";
 				}elseif($data["FLOW_MAIN"]!="" OR $data["FLOW_MAIN"]!=NULL){
 					echo "WAITING FOR APPROVAL";
@@ -208,7 +208,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
             </td>
             <td><?php echo $data["START_AT"]; ?></td>
             <td><?php echo $data["FINISH_AT"]; ?></td>
-            <td><?php echo $diff_in_hrs; ?></td>
+            <td><?php echo $diffnonholiday; ?></td>
         </tr>
 <?php		
 		
