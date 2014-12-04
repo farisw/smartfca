@@ -2,17 +2,35 @@
     Entry Data <small> checklist document</small>
 </h1>
 <?php
-$get_name_park = $_SESSION['USERNAME'];
-$textpark = 	"
-				SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
-				";
-$querypark 	= mysql_query($textpark);
-$num_park	= mysql_num_rows($querypark);
-if($num_park >= 1){
-	$fetchpark = mysql_fetch_array($querypark);
-		$haveincompletedoc = 1;
-}
+if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
+	// dokumen reject di perbaiki
+	$get_reject_name = $_SESSION['USERNAME'];
+	if(isset($_GET['doc_num']) && isset($_GET['year']) && isset($_GET['month']) && isset($_GET['no_sap'])) {
+		$get_reject_doc_num = $_GET['doc_num'];
+		$get_reject_year = $_GET['year'];
+		$get_reject_month = $_GET['month'];
+		$get_reject_no_sap = $_GET['no_sap'];
+		$textreject = 	"
+						SELECT * FROM `trx_detail` 
+							WHERE 	`DOC_NUMBER` 	= '".$get_reject_doc_num."' AND
+									`YEAR`	 		= '".$get_reject_year."' AND
+									`MONTH`	 		= '".$get_reject_month."' AND
+									`NO_SAP`	 	= '".$get_reject_no_sap."' AND
+									`CREATED_BY` 	= '".$get_reject_name."' AND 
+									`NOT_COMPLETE` 	= '' AND
+									`REJECT_FLAG` 	= 'X'
+							ORDER BY `DOC_NUMBER` DESC
+						";
+		//echo $textreject;
+		$querypark 	= mysql_query($textreject);
+		$num_park	= mysql_num_rows($querypark);
+		if($num_park >= 1){
+			$fetchpark = mysql_fetch_array($querypark);
+				$haveincompletedoc = ''; // ini dulu buat apa ya kok lupa???
+		}
+	}
 
+} elseif(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'PARK') ){
 // cek ada document yang belum selesai
 //$get_park_name = $_SESSION['USERNAME'];
 //if(isset($_GET['doc_num']) && isset($_GET['year']) && isset($_GET['month']) && isset($_GET['no_sap'])) {
@@ -38,6 +56,20 @@ if($num_park >= 1){
 //		$haveincompletedoc = 1;
 //	}
 //}
+
+} else {
+	$get_name_park = $_SESSION['USERNAME'];
+	$textpark = 	"
+					SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
+					";
+	$querypark 	= mysql_query($textpark);
+	$num_park	= mysql_num_rows($querypark);
+	if($num_park >= 1){
+		$fetchpark = mysql_fetch_array($querypark);
+			$haveincompletedoc = 1;
+	}
+}
+
 ?>
 
 <?php
@@ -680,6 +712,14 @@ if($num_park >= 1){
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KUITANSI_PPN_NO']; } ?>" >
                 </div>
               </div>         
+               <div class="col-lg-2">
+                <div class="input-group"> <span class="input-group-addon">
+                  <input type="checkbox" name="count_active" id="count_active_id" >
+                  </span>
+                  <input type="text" class="form-control" placeholder="Active Count" disabled="" >
+                </div>
+              </div>
+              
             </div>
 
             <p>8.) Rekening</p>

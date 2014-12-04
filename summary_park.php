@@ -82,7 +82,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
             <div class="alert alert-warning alert-dismissible" role="alert">
               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <strong>No Data Found!</strong> You dont have any document history, please upload using <a href="dashboard.php?select=2" class="alert-link">Entry Data</a> Menu
+              <strong>No Data Found!</strong> You dont have any parked document, please upload using <a href="dashboard.php?select=2" class="alert-link">Entry Data</a> Menu
             </div>
 <?php		
 				//echo "Data Not Found"; // Data Not Found

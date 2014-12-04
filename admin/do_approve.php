@@ -257,8 +257,10 @@ if($num_row_trx_detail <= 0){
 	//echo '<br>';
 	if($history_approval == 'APPROVE'){
 		$reject_flag = '';
+		$reject_level = '';
 	}elseif($history_approval == 'REJECT'){
 		$reject_flag = 'X';
+		$reject_level = $history_level;
 		$return_flow_main 		= $get_detail_flow_main;
 		$return_approval_level 	= $get_detail_apprv_lvl;
 		//$return_next_approval	= $get_detail_level;
@@ -269,7 +271,8 @@ if($num_row_trx_detail <= 0){
 							      FLOW_MAIN 		= '".$return_flow_main."',
 							      CHANGED_BY 		= '".$history_user."', 
 							      CHANGED_AT 		= '".$history_finish_at."', 
-								  REJECT_FLAG		= '".$reject_flag."'
+								  REJECT_FLAG		= '".$reject_flag."',
+								  REJECT_LEVEL		= '".$reject_level."'
 						   WHERE DOC_NUMBER 		= '".$history_docnum."' 
 						     AND YEAR 				= '".$history_year."' 
 						     AND MONTH 				= '".$history_month."' 
@@ -279,6 +282,7 @@ if($num_row_trx_detail <= 0){
 						 "; 
 
 	//echo $upd_detail_text;
+	//exit;
 	//echo '<br><br>';
 	$into_history_text 	= "INSERT INTO trx_history
 						  ( 
