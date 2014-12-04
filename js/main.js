@@ -12,9 +12,37 @@
 ░░░░▀▀▀▀░░▀▀▀░░░░░░░░▀▀▀░░▀▀░░░░*/
 
 
-
 $(document).ready(function(){
-		
+			var div = $("#no_sap").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#true_currency").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#true_amount").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#po_sp_amount").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#kontrak_amount").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#po_sp_tgl").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#kontrak_tgl").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#keterangan_value").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#po_sp_currency").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#po_sp_no").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#kontrak_currency").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#kontrak_no").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#nama_proyek").parents("div.input-group");
+			div.addClass("has-success");
+			var div = $("#nama_mitra").parents("div.input-group");
+			div.addClass("has-success");
+			
+					
 	//user account
 	$('#savenewpass').click(function(){ // Create `click` event function for login
 			// Get All data property
@@ -2028,21 +2056,34 @@ $(function(){
 	var $dpp1    = $('#kuitansi_amount');
 	var $dpp2    = $('#kuitansi_dpp');
 	var $ft_pjk3 = $('#pajak_amount');
+	var $count	 = $('#count_active_id');
+	var $sample	 = $('#kuitansi_no');
 
-    $dpp1.on('paste, keydown', function() {
-	var $self = $(this);            
-	setTimeout(function(){ 
-		//menghitung DPP
-		var $content1 = $self.val();//html();
-        $content1 =  Math.round( 100 / 110 * $content1 );        
-        $dpp2.val($content1);
-		
-		//menghitung Faktur pajak
-		var $content2 = $content1;//html();
-		$content2 =  Math.round( 10 / 100 * $content2 ); 
-		$ft_pjk3.val($content2);
-        },100);
-     });
-	 
-		
+//    $dpp1.on('paste, keydown', function() {
+//	var $self = $(this);            
+//	setTimeout(function(){ 
+//		//menghitung DPP
+//		var $content1 = $self.val();//html();
+//        $content1 =  Math.round( 100 / 110 * $content1 );        
+//        $dpp2.val($content1);
+//		
+//		//menghitung Faktur pajak
+//		var $content2 = $content1;//html();
+//		$content2 =  Math.round( 10 / 100 * $content2 ); 
+//		$ft_pjk3.val($content2);
+//        },100);
+//     });
+
+		$dpp2.on('paste, keydown', function() {
+		var $self = $(this);            
+		setTimeout(function(){ 
+			//menghitung Faktur pajak
+			if(document.getElementById('count_active_id').checked){
+				var $content2 = $self.val();//html();
+				$content2 =  Math.round( 10 / 100 * $content2 ); 
+				$ft_pjk3.val($content2);
+			}
+			},100);
+		 });
+	
 });
