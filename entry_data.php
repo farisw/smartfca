@@ -58,11 +58,11 @@ if($num_park >= 1){
 <?php
 	} 
 ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-th">&nbsp</span>Check list-Kelengkapan Dokumen Pembayaran Kontrak</h3>
+        <div class="panel panel-default" style="border-color:#d0123b; ">
+          <div class="panel-heading" style="background-color:#d0123b;  border-color:#d0123b;">
+            <h3 class="panel-title" style="background-color:#d0123b; color:#FFFFFF;"><span class="glyphicon glyphicon-th">&nbsp</span>Check list-Kelengkapan Dokumen Pembayaran Kontrak *(Mandatory)</h3>
           </div>
-          <div class="panel-body"> 
+          <div class="panel-body" > 
             <div class="row"> 
 	            <div class="entry_result" id="entry_result"></div>
     		</div>
