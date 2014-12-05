@@ -90,9 +90,10 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
 <?php
 	} 
 ?>
-        <div class="panel panel-default" style="border-color:#d0123b; ">
-          <div class="panel-heading" style="background-color:#d0123b;  border-color:#d0123b;">
-            <h3 class="panel-title" style="background-color:#d0123b; color:#FFFFFF;"><span class="glyphicon glyphicon-th">&nbsp</span>Check list-Kelengkapan Dokumen Pembayaran Kontrak *(Mandatory)</h3>
+		<!--#d0123b-->
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color:#fdf9e4;  ">
+            <h3 class="panel-title" style="background-color:#fdf9e4; "><span class="glyphicon glyphicon-th">&nbsp</span>Check list-Kelengkapan Dokumen Pembayaran Kontrak *(Mandatory)</h3>
           </div>
           <div class="panel-body" > 
             <div class="row"> 
@@ -102,7 +103,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  nama_mitra -->
               <div class="col-lg-12">
-                <div class="input-group"> <span class="input-group-addon">Nama Mitra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Nama Mitra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="Nama Mitra" id="nama_mitra" 
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NAMA_MITRA']; } ?>">
                 </div>
@@ -115,7 +116,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  nama_projek -->
               <div class="col-lg-12">
-                <div class="input-group"> <span class="input-group-addon">Nama Projek &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Nama Projek &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="Nama Projek" id="nama_proyek"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NAMA_PROYEK']; } ?>">
                 </div>
@@ -128,7 +129,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  No_Kontrak + PPN-->
               <div class="col-lg-5">
-                <div class="input-group"> <span class="input-group-addon">No. Kontrak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">No. Kontrak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="No. Kontrak" id="kontrak_no"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KONTRAK_NO']; } ?>">
                 </div>
@@ -137,7 +138,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!-- /.col-lg-4 --> 
               <!--  No Kontrak + PPN Tgl-->
               <div class="col-lg-2">
-                <div class="input-group"> <span class="input-group-addon">Tgl</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Tgl</span>
                   <input type="text" class="form-control" placeholder="Tgl" id="kontrak_tgl"
                   value="<?php 
 				  			if($haveincompletedoc == 1){ 
@@ -151,7 +152,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!-- /.col-lg-4 --> 
               <!--  No Kontrak + PPN IDR-->
               <div class="col-lg-1">
-                <div class="input-group"> 
+                <div class="input-group has-warning"> 
                   <select class="form-control" id="kontrak_currency" >
                     <!--<option value="#" disabled>Currency</option>-->
                     <option <?php if($haveincompletedoc == 1){ if($fetchpark['KONTRAK_CURRENCY'] == 'IDR'){ echo 'selected'; } } ?> >IDR</option>
@@ -160,7 +161,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 </div>
               </div>
               <div class="col-lg-3">
-                <div class="input-group"> <span class="input-group-addon"></span>
+                <div class="input-group has-warning"> <span class="input-group-addon"></span>
                   <input type="text" class="form-control" placeholder="Amount" id="kontrak_amount"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KONTRAK_AMOUNT']; } ?>">
                 </div>
@@ -171,7 +172,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row">
               <!--  No_PO/SP-->
               <div class="col-lg-5">
-                <div class="input-group"> <span class="input-group-addon">No. PO/SP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">No. PO/SP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="No. PO/SP" id="po_sp_no"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['PO_SP_NO']; } ?>">
                 </div>
@@ -180,7 +181,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!-- /.col-lg-4 --> 
               <!--  No Kontrak + PPN Tgl-->
               <div class="col-lg-2">
-                <div class="input-group"> <span class="input-group-addon">Tgl</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Tgl</span>
                   <input type="text" class="form-control" placeholder="Tgl" id="po_sp_tgl"
                   value="<?php 
 				  			if($haveincompletedoc == 1){ 
@@ -192,7 +193,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 <!-- /input-group --> 
               </div>
               <div class="col-lg-1">
-                <div class="input-group"> 
+                <div class="input-group has-warning"> 
                   <select class="form-control" id="po_sp_currency">
                     <!--<option value="#" disabled>Currency</option>-->
                     <option <?php if($haveincompletedoc == 1){ if($fetchpark['PO_SP_CURRENCY'] == 'IDR'){ echo 'selected'; } } ?> >IDR</option>
@@ -201,7 +202,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 </div>
               </div>
               <div class="col-lg-3">
-                <div class="input-group"> <span class="input-group-addon"></span>
+                <div class="input-group has-warning"> <span class="input-group-addon"></span>
                   <input type="text" class="form-control" placeholder="Amount" id="po_sp_amount"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['PO_SP_AMOUNT']; } ?>">
                 </div>
@@ -252,7 +253,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  No_Amandemen-->
               <div class="col-lg-5">
-                <div class="input-group"> <span class="input-group-addon">Nilai stlh Pajak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Nilai stlh Pajak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="Amount" id="true_amount" name="number"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['TRUE_VALUE']; } ?>">
                 </div>
@@ -261,7 +262,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!-- /.col-lg-4 --> 
               <!--  No Kontrak + PPN Tgl-->
               <div class="col-lg-1">
-                <div class="input-group"> 
+                <div class="input-group has-warning"> 
                   <select class="form-control" id="true_currency">
                     <!--<option value="#" disabled>Currency</option>-->
                     <option <?php if($haveincompletedoc == 1){ if($fetchpark['TRUE_VALUE_CURRENCY'] == 'IDR'){ echo 'selected'; } } ?> >IDR</option>
@@ -276,7 +277,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  Keterangan -->
               <div class="col-lg-12">
-                <div class="input-group"> <span class="input-group-addon">Keterangan &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Keterangan &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="Keterangan" id="keterangan_value"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['KETERANGAN']; } ?>">
                 </div>
@@ -289,7 +290,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  Keterangan -->
               <div class="col-lg-5">
-                <div class="input-group"> <span class="input-group-addon">No. SAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">No. SAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="No SAP" id="no_sap"
 
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NO_SAP']; } ?>">

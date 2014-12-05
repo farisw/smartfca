@@ -103,7 +103,9 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
 					 AND	A.MONTH = B.MONTH
-				   WHERE	'. $WHERE;
+				   WHERE	'. $WHERE.'
+				   AND A.STATUS	!= "PARK"'
+				   ;
 		//echo $query;		
 		$result = mysql_query($query);
 
@@ -118,7 +120,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_report'){
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
 					 AND	A.YEAR = B.YEAR
 					 AND	A.MONTH = B.MONTH
-				WHERE   A.year = YEAR(CURDATE()) ');
+				   WHERE   A.year = YEAR(CURDATE()) AND A.STATUS	!= "PARKED" ');
 				
 ?>
 		<div class="alert alert-info" role="alert">All transaction history for current year displayed </div>
