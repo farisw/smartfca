@@ -13,7 +13,7 @@
 
 
 $(document).ready(function(){
-			var div = $("#no_sap").parents("div.input-group");
+/* 			var div = $("#no_sap").parents("div.input-group");
 			div.addClass("has-success");
 			var div = $("#true_currency").parents("div.input-group");
 			div.addClass("has-success");
@@ -40,7 +40,7 @@ $(document).ready(function(){
 			var div = $("#nama_proyek").parents("div.input-group");
 			div.addClass("has-success");
 			var div = $("#nama_mitra").parents("div.input-group");
-			div.addClass("has-success");
+			div.addClass("has-success"); */
 			
 					
 	//user account
