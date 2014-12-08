@@ -10,6 +10,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	$amandemen_no 				= strip_tags(htmlentities($_POST['amandemen_no']));
 	$keterangan_value 			= strip_tags(htmlentities($_POST['keterangan_value']));
 	$no_sap			 			= strip_tags(htmlentities($_POST['no_sap']));
+	$no_spb			 			= strip_tags(htmlentities($_POST['no_spb']));
 //	$kontrak_tgl				= strip_tags(htmlentities($_POST['kontrak_tgl']));
 	if(!empty($_POST['kontrak_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['kontrak_tgl'])) );
@@ -421,7 +422,8 @@ if($error_appv == 0){
 									TRUE_VALUE_CURRENCY	 = '".$true_currency."',
 									TRUE_VALUE			 = '".$true_amount."',
 									KETERANGAN			 = '".$keterangan_value."', 
-									NO_SAP				 = '".$no_sap."'
+									NO_SAP				 = '".$no_sap."',
+									NO_SPB				 = '".$no_spb."'
 							  
 							  WHERE DOC_NUMBER 	 = '".$park_doc_number."' AND
 							  		YEAR	   	 = '".$park_year."' AND

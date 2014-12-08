@@ -11,6 +11,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	$amandemen_no 				= strip_tags(htmlentities($_POST['amandemen_no']));
 	$keterangan_value 			= strip_tags(htmlentities($_POST['keterangan_value']));
 	$no_sap			 			= strip_tags(htmlentities($_POST['no_sap']));
+	$no_spb			 			= strip_tags(htmlentities($_POST['no_spb']));
 //	$kontrak_tgl				= strip_tags(htmlentities($_POST['kontrak_tgl']));
 	if(!empty($_POST['kontrak_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['kontrak_tgl'])) );
@@ -388,6 +389,7 @@ if($error_appv == 0){
 									TRUE_VALUE						= '".$true_amount."',
 									KETERANGAN						= '".$keterangan_value."', 
 									NO_SAP							= '".$no_sap."',
+									NO_SPB							= '".$no_spb."',
 									TAGIHAN_MARK					= '".$tagihan_mark."', 
 									TAGIHAN_NO						= '".$tagihan_no."', 
 									TAGIHAN_TGL						= '".$tagihan_tgl."', 
@@ -488,7 +490,7 @@ if($error_appv == 0){
 								PO_SP_NO, PO_SP_TGL, PO_SP_CURRENCY, PO_SP_AMOUNT, 
 								AMANDEMEN_NO, AMANDEMEN_TGL, AMANDEMEN_CURRENCY, AMANDEMEN_AMOUNT, 
 								TRUE_VALUE_CURRENCY, TRUE_VALUE,
-								KETERANGAN, NO_SAP,
+								KETERANGAN, NO_SAP, NO_SPB,
 								TAGIHAN_MARK, TAGIHAN_NO, TAGIHAN_TGL, TAGIHAN_TGL_MASUK,
 								INVOICE_MARK, INVOICE_NO, INVOICE_TGL, INVOICE_TGL_MASUK,
 								PO_NON_PPN_MARK, PO_NON_PPN_CURRENCY, PO_NON_PPN_AMOUNT, PO_NON_PPN_AMANDEMEN_CURRENCY, PO_NON_PPN_AMANDEMEN_AMOUNT, PO_NON_PPN_THP_REKON,
@@ -520,7 +522,7 @@ if($error_appv == 0){
 								'".$po_sp_no."', '".$po_sp_tgl."', '".$po_sp_currency."', '".$po_sp_amount."', 
 								'".$amandemen_no."', '".$amandemen_tgl."', '".$amandemen_currency."', '".$amandemen_amount."', 
 								'".$true_currency."', '".$true_amount."',
-								'".$keterangan_value."', '".$no_sap."',
+								'".$keterangan_value."', '".$no_sap."', '".$no_spb."',
 								'".$tagihan_mark."', '".$tagihan_no."', '".$tagihan_tgl."', '".$tagihan_tgl_masuk."', 
 								'".$invoice_mark."', '".$invoice_no."', '".$invoice_tgl."', '".$invoice_tgl_masuk."', 
 								'".$po_non_ppn_mark."', '".$po_non_ppn_currency."', '".$po_non_ppn_amount."', '".$po_non_ppn_amd_currency."', 							'".$po_non_ppn_amd_amount."', '".$po_non_ppn_thp_rekon."', 

@@ -303,9 +303,28 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 </div>
                 <!-- /input-group --> 
               </div>
-              <!-- /.col-lg-6 --> 
+              <!-- /.col-lg-6 -->              
             </div>
             <!-- /.row --> 
+
+            <div class="row"> 
+              <!-- /.col-lg-6 --> 
+              <div class="col-lg-5">
+                <div class="input-group has-warning"> <span class="input-group-addon">No. SPB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" placeholder="No SPB" id="no_spb"
+
+                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NO_SPB']; } ?>">
+<!--                    onkeydown="return ( event.ctrlKey || event.altKey 
+                                        || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                                        || (95<event.keyCode && event.keyCode<106)
+                                        || (event.keyCode==8) || (event.keyCode==9) 
+                                        || (event.keyCode>34 && event.keyCode<40) 
+                                        || (event.keyCode==46) )"-->
+                </div>
+                <!-- /input-group --> 
+              </div>
+              
+            </div>
             
             <!--  Panel content --> 
           </div>
