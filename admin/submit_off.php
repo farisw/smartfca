@@ -163,6 +163,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 	
 	$true_amount				= strip_tags(htmlentities($_POST['true_amount']));
 	$true_currency				= strip_tags(htmlentities($_POST['true_currency']));
+	$foreign_amount				= strip_tags(htmlentities($_POST['foreign_amount']));
+	$foreign_currency			= strip_tags(htmlentities($_POST['foreign_currency']));
 	$start_time					= strip_tags(htmlentities($_POST['start_time']));
 	$area						= strip_tags(htmlentities($_POST['area']));
 	$incomplete					= strip_tags(htmlentities($_POST['incomplete']));
@@ -346,6 +348,7 @@ if($error_appv == 0){
 								PO_SP_NO, PO_SP_TGL, PO_SP_CURRENCY, PO_SP_AMOUNT, 
 								AMANDEMEN_NO, AMANDEMEN_TGL, AMANDEMEN_CURRENCY, AMANDEMEN_AMOUNT, 
 								TRUE_VALUE_CURRENCY, TRUE_VALUE,
+								FOREIGN_CURRENCY, FOREIGN_AMOUNT,
 								KETERANGAN, NO_SAP, NO_SPB,
 								TAGIHAN_MARK, TAGIHAN_NO, TAGIHAN_TGL, TAGIHAN_TGL_MASUK,
 								INVOICE_MARK, INVOICE_NO, INVOICE_TGL, INVOICE_TGL_MASUK,
@@ -377,6 +380,7 @@ if($error_appv == 0){
 								'".$po_sp_no."', '".$po_sp_tgl."', '".$po_sp_currency."', '".$po_sp_amount."', 
 								'".$amandemen_no."', '".$amandemen_tgl."', '".$amandemen_currency."', '".$amandemen_amount."', 
 								'".$true_currency."', '".$true_amount."',
+								'".$foreign_currency."', '".$foreign_amount."',
 								'".$keterangan_value."', '".$no_sap."', '".$no_spb."',
 								'".$tagihan_mark."', '".$tagihan_no."', '".$tagihan_tgl."', '".$tagihan_tgl_masuk."', 
 								'".$invoice_mark."', '".$invoice_no."', '".$invoice_tgl."', '".$invoice_tgl_masuk."', 

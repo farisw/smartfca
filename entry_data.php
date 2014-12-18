@@ -70,11 +70,25 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
 	}
 }
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   if (!empty($_POST["nama_mitra"])) {
+     $nama_mitra = test_input($_POST["nama_mitra"]);
+   }
+}
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
 ?>
 
 <?php
 ?>     
-      <form>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
 		<input type="hidden" id="start_time" value="<?php echo date("Y-m-d H:i:s");?>">
 		<input type="hidden" id="start_time_park" value="<?php echo date("Y-m-d H:i:s");?>">
 		<input type="hidden" id="area" value="<?php echo $_SESSION['AREA']; ?>">
@@ -104,7 +118,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!--  nama_mitra -->
               <div class="col-lg-12">
                 <div class="input-group has-warning"> <span class="input-group-addon">Nama Mitra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <input type="text" class="form-control" placeholder="Nama Mitra" id="nama_mitra" 
+                  <input type="text" class="form-control" placeholder="Nama Mitra" id="nama_mitra" name="nama_mitra" 
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['NAMA_MITRA']; } ?>">
                 </div>
                 <!-- /input-group --> 
@@ -172,7 +186,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row">
               <!--  No_PO/SP-->
               <div class="col-lg-5">
-                <div class="input-group has-warning"> <span class="input-group-addon">No. PO/SP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group"> <span class="input-group-addon">No. PO/SP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="No. PO/SP" id="po_sp_no"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['PO_SP_NO']; } ?>">
                 </div>
@@ -181,7 +195,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <!-- /.col-lg-4 --> 
               <!--  No Kontrak + PPN Tgl-->
               <div class="col-lg-2">
-                <div class="input-group has-warning"> <span class="input-group-addon">Tgl</span>
+                <div class="input-group"> <span class="input-group-addon">Tgl</span>
                   <input type="text" class="form-control" placeholder="Tgl" id="po_sp_tgl"
                   value="<?php 
 				  			if($haveincompletedoc == 1){ 
@@ -193,7 +207,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 <!-- /input-group --> 
               </div>
               <div class="col-lg-1">
-                <div class="input-group has-warning"> 
+                <div class="input-group"> 
                   <select class="form-control" id="po_sp_currency">
                     <!--<option value="#" disabled>Currency</option>-->
                     <option <?php if($haveincompletedoc == 1){ if($fetchpark['PO_SP_CURRENCY'] == 'IDR'){ echo 'selected'; } } ?> >IDR</option>
@@ -202,7 +216,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 </div>
               </div>
               <div class="col-lg-3">
-                <div class="input-group has-warning"> <span class="input-group-addon"></span>
+                <div class="input-group"> <span class="input-group-addon"></span>
                   <input type="text" class="form-control" placeholder="Amount" id="po_sp_amount"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['PO_SP_AMOUNT']; } ?>">
                 </div>
@@ -253,7 +267,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
             <div class="row"> 
               <!--  No_Amandemen-->
               <div class="col-lg-5">
-                <div class="input-group has-warning"> <span class="input-group-addon">Nilai stlh Pajak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="input-group has-warning"> <span class="input-group-addon">Nilai yang dibayarkan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <input type="text" class="form-control" placeholder="Amount" id="true_amount" name="number"
                   value="<?php if($haveincompletedoc == 1){ echo $fetchpark['TRUE_VALUE']; } ?>">
                 </div>
@@ -271,6 +285,54 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
                 </div>
               </div>
               <!-- /.col-lg-4 --> 
+            </div>
+            <!-- /.row -->
+            
+            <div class="row">             
+              <!--  Nilai_yang_dibayarkan foreign-->
+              <div class="col-lg-5">
+                <div class="input-group"> <span class="input-group-addon">Nilai Mata Uang Asing &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" placeholder="Amount" id="foreign_amount" name="number"
+                  value="<?php if($haveincompletedoc == 1){ echo $fetchpark['FOREIGN_AMOUNT']; } ?>">
+                </div>
+                <!-- /input-group --> 
+              </div>
+              <!-- /.col-lg-4 --> 
+              <!--  No Kontrak + PPN Tgl-->
+              <div class="col-lg-1">
+				<div class="input-group"> 
+                <select class="form-control" id="foreign_currency">
+					<option ></option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'AUD'){ echo 'selected'; } } ?> >AUD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'BRL'){ echo 'selected'; } } ?> >BRL</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'CAD'){ echo 'selected'; } } ?> >CAD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'CZK'){ echo 'selected'; } } ?> >CZK</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'DKK'){ echo 'selected'; } } ?> >DKK</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'EUR'){ echo 'selected'; } } ?> >EUR</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'HKD'){ echo 'selected'; } } ?> >HKD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'HUF'){ echo 'selected'; } } ?> >HUF</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'ILS'){ echo 'selected'; } } ?> >ILS</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'JPY'){ echo 'selected'; } } ?> >JPY</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'MYR'){ echo 'selected'; } } ?> >MYR</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'MXN'){ echo 'selected'; } } ?> >MXN</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'NOK'){ echo 'selected'; } } ?> >NOK</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'NZD'){ echo 'selected'; } } ?> >NZD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'PHP'){ echo 'selected'; } } ?> >PHP</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'PLN'){ echo 'selected'; } } ?> >PLN</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'GBP'){ echo 'selected'; } } ?> >GBP</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'SGD'){ echo 'selected'; } } ?> >SGD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'SEK'){ echo 'selected'; } } ?> >SEK</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'CHF'){ echo 'selected'; } } ?> >CHF</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'TWD'){ echo 'selected'; } } ?> >TWD</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'THB'){ echo 'selected'; } } ?> >THB</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'TRY'){ echo 'selected'; } } ?> >TRY</option>
+                    <option <?php if($haveincompletedoc == 1){ if($fetchpark['FOREIGN_CURRENCY'] == 'USD'){ echo 'selected'; } } ?> >USD</option>
+                </select>
+                </div>
+<!--                  <input type="text" class="form-control" placeholder="Currency" id="foreign_currency"
+                  value="<?php //if($haveincompletedoc == 1){ echo $fetchpark['FOREIGN_CURRENCY']; } ?>">-->
+               
+              </div>
             </div>
             <!-- /.row -->
             
@@ -353,7 +415,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="tagihan" id="tagihan_0" 
-                  <?php if($haveincompletedoc == 1){ if($fetchpark['TAGIHAN_MARK'] != 'X'){ echo 'checked'; } } ?> >
+                  <?php if($haveincompletedoc == 1){ if($fetchpark['TAGIHAN_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -417,7 +479,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="invoice" id="invoice_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['INVOICE_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['INVOICE_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -483,7 +545,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="po_non_ppn" id="po_non_ppn_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_NON_PPN_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_NON_PPN_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -551,7 +613,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="bts_akhir_kerja" id="bts_akhir_kerja_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['BATAS_AKHIR_PRJ_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['BATAS_AKHIR_PRJ_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -580,7 +642,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="bast_non_ppn" id="bast_non_ppn_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['BAST_NON_PPN_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['BAST_NON_PPN_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -658,7 +720,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="ptgn_uang_muka" id="ptgn_uang_muka_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['PTG_UANG_MUKA_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['PTG_UANG_MUKA_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -696,7 +758,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="kuitansi" id="kuitansi_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['KUITANSI_PPN_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['KUITANSI_PPN_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -757,7 +819,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="rekening" id="rekening_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['REKENING_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['REKENING_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -816,7 +878,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="pajak" id="pajak_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['FAKTUR_PJK_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['FAKTUR_PJK_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -875,7 +937,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="jamn_uang_muka" id="jamn_uang_muka_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_UANG_MUKA_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_UANG_MUKA_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -934,7 +996,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="jamn_plksa" id="jamn_plksa_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_PELKSNA_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_PELKSNA_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -993,7 +1055,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="jamn_pmhr" id="jamn_pmhr_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_PLHRA_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['JAMN_PLHRA_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1052,7 +1114,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="pls_asu" id="pls_asu_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['POLIS_ASUR_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['POLIS_ASUR_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1099,7 +1161,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="tt_bld_draw" id="tt_bld_draw_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['TD_TERIMA_BLD_DRAW_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['TD_TERIMA_BLD_DRAW_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1140,7 +1202,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="siujk" id="siujk_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['SIUJK_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['SIUJK_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1181,7 +1243,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="npwp" id="npwp_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['NPWP_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['NPWP_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1222,7 +1284,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="dgt" id="dgt_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['F_DGT1_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['F_DGT1_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1263,7 +1325,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="side_ltr" id="side_ltr_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['SIDE_LETTER_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['SIDE_LETTER_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1304,7 +1366,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="rekon_wkt" id="rekon_wkt_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['REKON_WAKTU_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['REKON_WAKTU_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
@@ -1328,7 +1390,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="po_migo" id="po_migo_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_MIGO_MARK'] != 'X'){ echo 'checked'; } } ?> >
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_MIGO_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >e
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
