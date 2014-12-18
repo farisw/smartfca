@@ -162,13 +162,13 @@ $(document).ready(function(){
 	
 	//Submit_document
 	$('#submit_off').click(function(){ // Create `click` event function for login
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 //			if(submit != 0){
 //				alert('REPOST COK');
 //			};
 //			submit = submit + 1;
 		// clear all alert message v=1;
-=======
+//=======
 		if(submitcount == 0){
 			submitcount = submitcount + 1; 
 		}
@@ -177,7 +177,7 @@ $(document).ready(function(){
 			return;
 		}
 		// clear all alert message
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 			var div = $("#po_migo_value").parents("div.input-group");
 			div.removeClass("has-error");	
 			var div = $("#side_ltr_no").parents("div.input-group");
