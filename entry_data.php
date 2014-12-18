@@ -1390,7 +1390,7 @@ function test_input($data) {
               <div class="col-lg-2">
                 <div class="input-group"> <span class="input-group-addon">
                   <input type="radio" name="po_migo" id="po_migo_0"
-				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_MIGO_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >e
+				  <?php if($haveincompletedoc == 1){ if($fetchpark['PO_MIGO_MARK'] != 'X'){ echo 'checked'; } } else { echo 'checked'; }  ?> >
                   </span>
                   <input type="text" class="form-control" placeholder="Tidak Ada" disabled="" >
                 </div>
