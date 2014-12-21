@@ -61,6 +61,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 					FROM	trx_detail 
 					WHERE	trx_detail.CREATED_BY	= "'.$lv_user.'"
 					  AND 	trx_detail.NOT_COMPLETE = "X"
+					  AND 	trx_detail.DELETE_FLAG = ""
 					ORDER BY DOC_NUMBER DESC, YEAR DESC, MONTH DESC
 		';
 		$get_data_level = mysql_query($getquery);
@@ -105,6 +106,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Created By</th>
     <th scope="col">Last Changed</th>
+    <th scope="col">&nbsp;Delete&nbsp;</th>
   </tr>
  </thead>
  
@@ -133,6 +135,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <td><?php echo $data_level_found['TRUE_VALUE_CURRENCY']; ?></td>
     <td><?php echo $data_level_found['CREATED_BY']; ?></td>
     <td><?php echo $data_level_found['CHANGED_AT']; ?></td>
+    <td><a href="admin/do_delete_park.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>"><span class="glyphicon glyphicon-remove">&nbsp;</span>delete</a></td>
   </tr>
 <?php 
 			}
@@ -150,6 +153,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
     <th scope="col">Currency</th>
     <th scope="col">Created By</th>
     <th scope="col">Last Changed</th>
+    <th scope="col">&nbsp;Delete&nbsp;</th>
   </tr>
  </tfoot>
 </table>

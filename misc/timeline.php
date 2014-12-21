@@ -2,7 +2,7 @@
 <!-- Modal -->
 <?php
 $timelinedquery = ''; ;
-$timelinequery = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.FLOW_MAIN, 
+$timelinequery = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE, B.DELETE_FLAG, B.FLOW_MAIN, 
 							A.DOC_NUMBER, A.YEAR, A.MONTH, A.USER, A.LEVEL, A.AREA, A.START_AT, A.FINISH_AT,  A.STATUS
 				    FROM	trx_history as A JOIN trx_detail as B
 					  ON 	A.DOC_NUMBER = B.DOC_NUMBER
@@ -52,7 +52,10 @@ $timelinequery = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE,
 		if($timelinedata["STATUS"]=="REJECT")
       		echo '<div class="timeline-badge danger"><i class="glyphicon glyphicon-remove"></i></div></div>';
 		else
-			echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div></div>';
+			if($timelinedata["STATUS"]=="DELETED")
+				echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-trash"></i></div></div>';
+			else
+				echo '<div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div></div>';
 	?>
       <div class="timeline-panel">
         <div class="timeline-heading">
@@ -63,8 +66,12 @@ $timelinequery = 'SELECT 	B.NAMA_MITRA, B.NO_SAP, B.REJECT_FLAG, B.NOT_COMPLETE,
 				}elseif($timelinedata["STATUS"]=="APPROVE"){
 					echo "APPROVE";
 				}elseif($timelinedata["NOT_COMPLETE"]=="X"){
-					echo "PARKED";
-				}elseif($timelinedata["FLOW_MAIN"]!="" OR $timelinedata["FLOW_MAIN"]!=NULL){
+					if($timelinedata["DELETE_FLAG"]=="X"){
+						echo "DELETED";
+					} else {
+						echo "PARKED";
+					}
+				}elseif($timelinedata["FLOW_MAIN"]!="" or $timelinedata["FLOW_MAIN"]!=NULL){
 					echo "WAITING FOR APPROVAL";
 				}
 		  ?>

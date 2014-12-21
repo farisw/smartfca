@@ -60,7 +60,7 @@ if(isset($_GET['flag_entry']) && ($_GET['flag_entry'] = 'REJECTED') ){
 } else {
 	$get_name_park = $_SESSION['USERNAME'];
 	$textpark = 	"
-					SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' ORDER BY `DOC_NUMBER` DESC
+					SELECT * FROM `trx_detail` WHERE `CREATED_BY` = '".$get_name_park."' AND NOT_COMPLETE = 'X' AND DELETE_FLAG = '' ORDER BY `DOC_NUMBER` DESC
 					";
 	$querypark 	= mysql_query($textpark);
 	$num_park	= mysql_num_rows($querypark);
