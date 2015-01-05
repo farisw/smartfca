@@ -5,7 +5,7 @@
 <?php 
 if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
    isset($_SESSION['LEVEL']) and $_SESSION['LEVEL'] != '' ){
-	if($_SESSION['LEVEL'] = "VRKT") {
+	if( ($_SESSION['LEVEL'] == "VRKT") or ($_SESSION['LEVEL'] == "ADMIN") ) {
 ?>
 
 <?php
@@ -20,7 +20,7 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 ?>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><span class="glyphicon glyphicon-th">&nbsp;</span>List Park Document</h3>
+    <h3 class="panel-title"><span class="glyphicon glyphicon-th">&nbsp;</span>List Park Document </h3>
   </div>
   <div class="panel-body"> 
 <?php	

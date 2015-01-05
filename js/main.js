@@ -1885,6 +1885,160 @@ $(document).ready(function(){
 		
 });
 
+	//Saved User
+	$('#submit_users').click(function(){ // Create `click` event function for saved user
+		var div = $("#username").parents("div.input-group");
+		div.removeClass("has-error");
+		var div = $("#password1").parents("div.input-group");
+		div.removeClass("has-error");
+		var div = $("#password2").parents("div.input-group");
+		div.removeClass("has-error");
+		var div = $("#nama_depan").parents("div.input-group");
+		div.removeClass("has-error");
+	
+			// Get All data property
+		var username 				= $('#username');
+		var password1	 			= $('#password1');
+		var password2 				= $('#password2');
+		var nama_depan 				= $('#nama_depan');
+		var nama_belakang			= $('#nama_belakang');
+		var edit_mode 				= $('#edit_mode');
+		var level_user				= $('#level_user');
+		
+		var count_area 				= $('#count_area');
+		var data_area 				= $('#data_area');
+	
+// cek ga boleh kosong untuk entry nya
+		var kosong = '0';
+//		alert('editmode '+edit_mode.val());
+		if(username.val() == ''){ 
+			username.focus(); // focus to the filed 
+			//$('#username').val("Enter No Kontrak");
+			var div = $("#username").parents("div.input-group");
+			div.addClass("has-error");
+			kosong = '1';
+		} else {
+			var div = $("#username").parents("div.input-group");
+			div.removeClass("has-error");	
+		}
+
+		var change_password = 0;
+		if(password1.val() == ''){ 
+			if (edit_mode.val() == 0){
+				password1.focus(); // focus to the filed 
+				//$(password1).val("Enter No Kontrak");
+				var div = $("#password1").parents("div.input-group");
+				div.addClass("has-error");
+				var div = $("#password2").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			}
+
+		} else {
+//			jika password isi maka password 2 harus isi dan sama			
+			if(password2.val() == ''){ 
+				password1.focus(); // focus to the filed 
+				//$(password1).val("Enter No Kontrak");
+				var div = $("#password1").parents("div.input-group");
+				div.addClass("has-error");
+				var div = $("#password2").parents("div.input-group");
+				div.addClass("has-error");
+				kosong = '1';
+			} else {
+
+					if(password2.val() != password1.val()){ 
+						password1.focus(); // focus to the filed 
+						//$(password1).val("Enter No Kontrak");
+						var div = $("#password1").parents("div.input-group");
+						div.addClass("has-error");
+						var div = $("#password2").parents("div.input-group");
+						div.addClass("has-error");
+						kosong = '1';
+					} else {
+
+				var div = $("#password1").parents("div.input-group");
+				div.removeClass("has-error");
+				var div = $("#password2").parents("div.input-group");
+				div.removeClass("has-error");
+				var change_password = 1;
+					}
+			}
+		
+		}
+
+		if(nama_depan.val() == ''){ 
+			nama_depan.focus(); // focus to the filed 
+			//$('#nama_depan').val("Enter No Kontrak");
+			var div = $("#nama_depan").parents("div.input-group");
+			div.addClass("has-error");
+			kosong = '1';
+		} else {
+			var div = $("#nama_depan").parents("div.input-group");
+			div.removeClass("has-error");	
+		}
+		
+		if(kosong == '1'){
+//			alert('ada yg kosong nih');
+			return false;	
+		}
+		
+		var a = 0;
+		var b = data_area.val();
+		var c = b.split(",");
+		var d = '';
+		var get_area = '';
+//			alert(count_area.val()-1);
+//			alert(b);
+		var count = count_area.val()-1;
+		for( a = 0; a <= count; a++ ){
+			d = 'area_'+c[a];
+//			alert(d);
+			if (get_area == '') {
+				if (document.getElementById(d).checked){ get_area = c[a]; }
+			} else {
+				if (document.getElementById(d).checked){ get_area = get_area+','+c[a]; }
+			}
+		}
+		
+//			alert(get_area);
+
+		var UrlToSubmit = 'action=submit_user&edit_mode='+edit_mode.val()+'&change_password='+change_password+'&username='+username.val()+'&password1='+password1.val()+'&password2='+password2.val()+'&nama_depan='+nama_depan.val()+'&nama_belakang='+nama_belakang.val()+'&level='+level_user.val()+'&area='+get_area;
+				
+//		alert(UrlToSubmit);
+//		return false;
+		
+		var destination_submit = 'admin/submit_user.php';	
+		$.ajax({ // Send the credential values to another checker.php using Ajax in POST menthod 
+		type : 'POST',
+		data : UrlToSubmit,
+		url  : destination_submit, //'admin/submit_off.php',
+		success: function(responseText){ // Get the result and asign to each cases
+			if(responseText == 0){
+				alert('Data user Saved');
+				 window.location = 'dashboard.php?select=5'; 
+			}
+			else if(responseText == 1){
+				//window.location = 'dashboard.php';
+				alert('Error insert user_authorization');
+			}
+			else if(responseText == 2){
+				//window.location = 'dashboard.php';
+				alert('Error insert user_detail');
+			}
+			else if(responseText == 3){
+				//window.location = 'dashboard.php';
+				alert('Error insert user_password');
+			}
+			else{
+//					alert('Error Entry Data');
+				alert(responseText);
+				//write(responseText); 
+			}
+		}
+		});
+	
+		return false;
+	});
 
 $("#menu-toggle").click(function(e) {
 	e.preventDefault();
@@ -2130,5 +2284,20 @@ $(function(){
 			}
 			},100);
 		 });
+		 
+		 
+//		cek password dan ulangi password harus sama		 
+//	var $password1 = $('#password1');
+//	var $password2 = $('#password2');
+//
+//	$password1.on('paste, keydown', function() {
+//	var $self = $(this);            
+//	setTimeout(function(){ 
+//				var div = $("#password1").parents("div.input-group");
+//				div.removeClass("has-error");	
+//				var div = $("#password2").parents("div.input-group");
+//				div.removeClass("has-error");	
+//		},100);
+//	 });
 	
 });

@@ -79,6 +79,13 @@ $haveincompletedoc = 0;
 <!--        <li ><a href="#"><span class="glyphicon glyphicon-remove">&nbsp</span>Delete</a></li>-->
       </ul>
     <?php } ?>
+    <?php if($_REQUEST['select'] == 4) { ?>
+      <ul class="nav navbar-nav ">
+        <li ><a href="#" id="submit_users"><span class="glyphicon glyphicon-floppy-saved ">&nbsp;</span>Save User</a></li>
+        <li ><a href="#"><span class="">&nbsp;</span>|</a></li>
+        <li ><a href="dashboard.php?select=5" id=""><span class="glyphicon glyphicon-floppy-remove ">&nbsp;</span>Cancel</a></li>
+      </ul>
+    <?php } ?>
       <ul class="nav navbar-nav navbar-right">
         <li id="ztoggle"><a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-th-list">&nbsp</span>Show/Hide Menu</a></li>
         <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user">&nbsp</span>Welcome <?php echo $_SESSION['NAMA_DEPAN']; ?> &nbsp; (NIK : <?php echo $_SESSION['USERNAME'].' - '.$_SESSION['LEVEL']; ?>) </a></li>
@@ -119,7 +126,7 @@ $haveincompletedoc = 0;
       			<a href="dashboard.php?select=2"><span class="glyphicon glyphicon-open">&nbsp;</span>Entry Data</a> 
       		</li>
 <?php } ?>
-      <!--	        <li <?php if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
+      <!--	        <li <?php //if($_REQUEST['select'] == 3) { echo 'class="active"';} ?> >
 	            <a href="dashboard.php?select=3"><span class="glyphicon glyphicon-eye-open">&nbsp</span>Overview Checklist </a>
 	        </li>-->
 <?php //if ($_SESSION['LEVEL'] != "VRKT") { ?>
@@ -134,7 +141,12 @@ $haveincompletedoc = 0;
 <!--                <span class="badge">14</span>-->
 	        </li>
 <?php } ?>
-
+<?php if ($_SESSION['LEVEL'] == "ADMIN") { ?>
+           	<li <?php if($_REQUEST['select'] == 5) { echo 'class="active"';} ?> >
+	            <a href="dashboard.php?select=5"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>List User </a>
+<!--                <span class="badge">14</span>-->
+	        </li>
+<?php } ?>
     </ul>
   </div>
   <!-- /#sidebar-wrapper --> 
@@ -166,6 +178,9 @@ $haveincompletedoc = 0;
 	}else
 	if(isset($_REQUEST['select']) && $_REQUEST['select'] == '4' ){
 		include("entry_user.php"); 		
+	}else
+	if(isset($_REQUEST['select']) && $_REQUEST['select'] == '5' ){
+		include("list_user.php"); 		
 	}
 	
 
