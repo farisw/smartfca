@@ -22,33 +22,34 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 		$datasetreject = "";
 		$year = date('Y');
 		// get all year data chart
-		$text_year = 'SELECT year FROM `trx_number` ORDER BY `YEAR` ASC';
-		$query_year = mysql_query($text_year);
-		if (!$query_year) echo mysql_error();
-		$lv_year = ''; $count_year = 0;
-		while($data_year=mysql_fetch_array($query_year)){
-			$count_year = $count_year + 1;
-			if($count_year == 1){
-				$lv_year = $lv_year.' trx_history.YEAR = "'.$data_year["year"].'"';			
-			} else {
-				$lv_year = $lv_year.' OR 	trx_history.YEAR = "'.$data_year["year"].'"';			
-			}
+//		$text_year = 'SELECT year FROM `trx_number` ORDER BY `YEAR` ASC';
+//		$query_year = mysql_query($text_year);
+//		if (!$query_year) echo mysql_error();
+//		$lv_year = ''; $count_year = 0;
+//		while($data_year=mysql_fetch_array($query_year)){
+//			$count_year = $count_year + 1;
+//			if($count_year == 1){
+//				$lv_year = $lv_year.' trx_history.YEAR = "'.$data_year["year"].'"';			
+//			} else {
+//				$lv_year = $lv_year.' OR 	trx_history.YEAR = "'.$data_year["year"].'"';			
+//			}
+//		}
 
-		}
-//		echo $lv_year;
 //		$modif_query = '
 //					SELECT 	* 
 //					FROM	trx_history 
 //					WHERE	trx_history.USER = "'.$_SESSION['USERNAME'].'"
-//					AND 	trx_history.YEAR = "'.$year.'" 
+//					AND ('.$lv_year.')
 //					AND   	trx_history.STATUS != "PARK"  ';
 
+//		echo $lv_year;
 		$modif_query = '
 					SELECT 	* 
 					FROM	trx_history 
 					WHERE	trx_history.USER = "'.$_SESSION['USERNAME'].'"
-					AND ('.$lv_year.')
+					AND 	trx_history.YEAR = "'.$year.'" 
 					AND   	trx_history.STATUS != "PARK"  ';
+
 //		echo $modif_query;
 		$result = mysql_query($modif_query);
 													

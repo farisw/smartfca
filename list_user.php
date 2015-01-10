@@ -85,7 +85,7 @@
     <td><?php echo $data_level_found['NAMA_BELAKANG']; ?></td>
     <td><?php $rearrange = str_replace(',', ', ', $data_level_found['AREA'] ); echo $rearrange ?></td>
     <td><a href="dashboard.php?select=4&edit_user=1&username_edit=<?php echo $data_level_found['USERNAME']; ?>"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit</a></td>
-    <td><a href="admin/do_delete_user.php?username_delete=<?=$data_level_found['USERNAME'];?> "><span class="glyphicon glyphicon-remove">&nbsp;</span>delete</a></td>
+    <td><a href="admin/do_delete_user.php?username_delete=<?=$data_level_found['USERNAME'];?> " onclick="return confirm('Are You Sure to Delete user <?=$data_level_found['USERNAME'];?> ?')"><span class="glyphicon glyphicon-remove">&nbsp;</span>delete</a></td>
   </tr>
 <?php 
 			}

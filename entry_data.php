@@ -909,7 +909,7 @@ function test_input($data) {
 	
     		<div class="row">
               <div class="col-lg-3">
-                <div class="input-group"> <span class="input-group-addon">Tanggal</span>
+                <div class="input-group"> <span class="input-group-addon">Tanggal </span>
                   <input type="text" class="form-control" placeholder="Tanggal" id="pajak_tgl"
                   value="<?php 
 				  			if($haveincompletedoc == 1){ 

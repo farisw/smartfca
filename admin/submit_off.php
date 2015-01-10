@@ -102,10 +102,26 @@ if(isset($_POST['action']) && $_POST['action'] == 'submit_off'){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['pajak_tgl'])) );
 		$pajak_tgl = $yy.'-'.$mm.'-'.$dd;
 	} else { $pajak_tgl = '0000-00-00'; }
-	$jamn_uang_muka_expired		= strip_tags(htmlentities($_POST['jamn_uang_muka_expired']));
-	$jamn_plksa_expired			= strip_tags(htmlentities($_POST['jamn_plksa_expired']));
-	$jamn_pmhr_expired			= strip_tags(htmlentities($_POST['jamn_pmhr_expired']));
-	$pls_asu_expired			= strip_tags(htmlentities($_POST['pls_asu_expired']));
+//	$jamn_uang_muka_expired		= strip_tags(htmlentities($_POST['jamn_uang_muka_expired']));
+	if(!empty($_POST['jamn_uang_muka_expired'])){
+		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['jamn_uang_muka_expired'])) );
+		$jamn_uang_muka_expired = $yy.'-'.$mm.'-'.$dd;
+	} else { $jamn_uang_muka_expired = '0000-00-00'; }
+//	$jamn_plksa_expired			= strip_tags(htmlentities($_POST['jamn_plksa_expired']));
+	if(!empty($_POST['jamn_plksa_expired'])){
+		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['jamn_plksa_expired'])) );
+		$jamn_plksa_expired = $yy.'-'.$mm.'-'.$dd;
+	} else { $jamn_plksa_expired = '0000-00-00'; }
+//	$jamn_pmhr_expired			= strip_tags(htmlentities($_POST['jamn_pmhr_expired']));
+	if(!empty($_POST['jamn_pmhr_expired'])){
+		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['jamn_pmhr_expired'])) );
+		$jamn_pmhr_expired = $yy.'-'.$mm.'-'.$dd;
+	} else { $jamn_pmhr_expired = '0000-00-00'; }
+//	$pls_asu_expired			= strip_tags(htmlentities($_POST['pls_asu_expired']));
+	if(!empty($_POST['pls_asu_expired'])){
+		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['pls_asu_expired'])) );
+		$pls_asu_expired = $yy.'-'.$mm.'-'.$dd;
+	} else { $pls_asu_expired = '0000-00-00'; }
 //	$tt_bld_draw_tgl			= strip_tags(htmlentities($_POST['tt_bld_draw_tgl']));
 	if(!empty($_POST['tt_bld_draw_tgl'])){
 		list($dd, $mm, $yy) = split('[/.-]', strip_tags(htmlentities($_POST['tt_bld_draw_tgl'])) );
