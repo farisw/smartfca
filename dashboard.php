@@ -71,7 +71,7 @@ $haveincompletedoc = 0;
     <div class="navbar-collapse collapse">
     <?php if($_REQUEST['select'] == 2) { ?>
       <ul class="nav navbar-nav ">
-        <li ><a href="#" id="submit_off"  onclick="return confirm('Are You Sure to Submit Document?')"><span class="glyphicon glyphicon-saved ">&nbsp;</span>Submit Document</a></li>
+        <li ><a href="#" id="submit_off" ><span class="glyphicon glyphicon-saved ">&nbsp;</span>Submit Document</a></li>
         <?php //if($haveincompletedoc != 1){?>
         <li ><a href="#"><span class="">&nbsp;</span>|</a></li>
 		<li ><a href="#" id="submit_park"><span class="glyphicon glyphicon-floppy-disk">&nbsp;</span>Park Document</a></li>
@@ -81,7 +81,7 @@ $haveincompletedoc = 0;
     <?php } ?>
     <?php if($_REQUEST['select'] == 4) { ?>
       <ul class="nav navbar-nav ">
-        <li ><a href="#" id="submit_users" onclick="return confirm('Are You Sure to Save User?')"><span class="glyphicon glyphicon-floppy-saved ">&nbsp;</span>Save User</a></li>
+        <li ><a href="#" id="submit_users"><span class="glyphicon glyphicon-floppy-saved ">&nbsp;</span>Save User</a></li>
         <li ><a href="#"><span class="">&nbsp;</span>|</a></li>
         <li ><a href="dashboard.php?select=5" id=""><span class="glyphicon glyphicon-floppy-remove ">&nbsp;</span>Cancel</a></li>
       </ul>

@@ -174,7 +174,13 @@ $(document).ready(function(){
 		}
 		else{
 			alert("Submit dokumen tidak dilakukan karena Anda melakukan submit lebih dari sekali, silahkan refresh halaman");
-			return;
+			return false;
+		}
+		
+	  	if (confirm("Are you sure to Submit Document")) {
+    		
+  		} else {
+    		return false;
 		}
 		// clear all alert message
 //>>>>>>> Stashed changes
@@ -1887,6 +1893,12 @@ $(document).ready(function(){
 
 	//Saved User
 	$('#submit_users').click(function(){ // Create `click` event function for saved user
+	  	if (confirm("Are you sure to Save User")) {
+    		
+  		} else {
+    		return false;
+		}
+		
 		var div = $("#username").parents("div.input-group");
 		div.removeClass("has-error");
 		var div = $("#password1").parents("div.input-group");

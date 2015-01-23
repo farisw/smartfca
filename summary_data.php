@@ -158,11 +158,11 @@ if(isset($_SESSION['USERNAME']) and $_SESSION['USERNAME'] != '' and
 //		$approval_data_year 	= $data_level_found['YEAR'];
 //		$approval_data_month 	= $data_level_found['MONTH'];
 //		include ("admin/submit_spb.php"); 
-//	} else {
+//	} else { id="submit_off id="submit_off"
 	?>	
     <td>
-    <a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=APPROVE" id="submit_off"><span class="glyphicon glyphicon-ok">&nbsp;</span><?=$approval_text?></a></td>
-    <td><a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=REJECT" id="submit_off"><span class="glyphicon glyphicon-remove">&nbsp;</span>Reject</a></td>
+    <a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=APPROVE"  onclick="return confirm('Are You Sure to Approve?')"><span class="glyphicon glyphicon-ok">&nbsp;</span><?=$approval_text?></a></td>
+    <td><a href="admin/do_approve.php?docnum=<?=$data_level_found['DOC_NUMBER']?>&year=<?=$data_level_found['YEAR']?>&month=<?=$data_level_found['MONTH']?>&approval=REJECT" onclick="return confirm('Are You Sure to Reject?')"><span class="glyphicon glyphicon-remove">&nbsp;</span>Reject</a></td>
     <?php
 //	}
 	?>
